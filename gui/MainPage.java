@@ -100,5 +100,12 @@ public class MainPage extends JFrame {
             }
         }
     }
+    
+    private class EventoVisualizar implements ActionListener {
+        public void actionPerformed(ActionEvent e) { // o método invocado quando o btn cadastrar for pressionado
+            Visualizar janelaVisualizar = new Visualizar();
+        }
+    }
+
 
 }
