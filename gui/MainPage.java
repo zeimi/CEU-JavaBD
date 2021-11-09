@@ -88,15 +88,24 @@ public class MainPage extends JFrame {
             if (caixaTorneios.getSelectedItem() == "League of Legends"){System.out.println("lolzim");
             CadastroLOL janelaCadastro = new CadastroLOL();
                 
-            }   else if (caixaTorneios.getSelectedItem() == "CS.GO"){System.out.println("cs");
-                    
-                }   else if (caixaTorneios.getSelectedItem() == "Valorant"){System.out.println("valorant");
+            } else if (caixaTorneios.getSelectedItem() == "CS.GO"){
+                System.out.println("cs");
+                CadastroCSGO janelaCadastro = new CadastroCSGO();
+            } else if (caixaTorneios.getSelectedItem() == "Valorant"){
+                System.out.println("valorant");
                         
-                    }else {
-                       
-                        System.out.println("Rocket League");
-                    }
+            } else {
+                System.out.println("Rocket League");
+
+            }
         }
     }
+    
+    private class EventoVisualizar implements ActionListener {
+        public void actionPerformed(ActionEvent e) { // o método invocado quando o btn cadastrar for pressionado
+            Visualizar janelaVisualizar = new Visualizar();
+        }
+    }
+
 
 }
