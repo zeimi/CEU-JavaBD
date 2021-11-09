@@ -48,13 +48,30 @@ public class MainPage extends JFrame {
         botaoVisualizar.setSize(50, 30);
 
         // definição dos layouts
-        JPanel panel = new JPanel(new BorderLayout(10, 10)); // espaçamento de 5px entre os componentes
-        panel.setBorder(new EmptyBorder(50, 30, 50, 30)); // uma borda para afastar os compoentes da janela
-        panel.add(labelTorneios, BorderLayout.NORTH);
-        panel.add(caixaTorneios, BorderLayout.SOUTH);
-        panel.add(botaoCadastrar, BorderLayout.WEST);
-        panel.add(botaoVisualizar, BorderLayout.EAST);
-        add(panel); // coloco o painel dentro da janela
+        JPanel panel = (JPanel) getContentPane(); // obtém o painel de conteúdo desta janela
+        panel.setLayout(new GridBagLayout());
+        panel.setBorder(new EmptyBorder(10,10,10,10) );
+        GridBagConstraints constraints = new GridBagConstraints();
+        constraints.weightx=1;
+        constraints.weighty=1;
+        constraints.fill=GridBagConstraints.HORIZONTAL;
+        constraints.insets = new Insets(10,5,5,10);
+
+        // adição dos componentes na janela
+        constraints.gridx=0; // coluna 0
+        constraints.gridy=0; // linha 0
+        panel.add(labelTorneios,constraints);
+
+        constraints.gridx=0; // coluna 0
+        constraints.gridy=1; // linha 1
+        panel.add(caixaTorneios, constraints);
+
+        constraints.gridx=0; // coluna 0
+        constraints.gridy=2; // linha 2
+        panel.add(botaoCadastrar, constraints);
+        constraints.gridx=1; // coluna 1
+        constraints.gridy=2; // linha 2
+        panel.add(botaoVisualizar, constraints);
 
         // configuração da janela
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
