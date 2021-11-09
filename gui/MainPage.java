@@ -45,6 +45,7 @@ public class MainPage extends JFrame {
         botaoCadastrar.addActionListener(new EventoCadastrar());
         botaoVisualizar = new JButton("Visualizar Equipe e Participantes");
         botaoVisualizar.setSize(50, 30);
+        botaoVisualizar.addActionListener(new EventoVisualizar());
 
         // definição dos layouts
         JPanel panel = (JPanel) getContentPane(); // obtém o painel de conteúdo desta janela
@@ -100,5 +101,12 @@ public class MainPage extends JFrame {
             }
         }
     }
+    
+    private class EventoVisualizar implements ActionListener {
+        public void actionPerformed(ActionEvent e) { // o método invocado quando o btn cadastrar for pressionado
+            Visualizar janelaVisualizar = new Visualizar();
+        }
+    }
+
 
 }

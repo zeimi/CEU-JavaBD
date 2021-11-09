@@ -12,40 +12,43 @@ import org.json.simple.JSONObject;
 
 
 import org.json.simple.JSONArray;
+//import gui.MainPage.EventoResposta;
 
-public class CadastroCSGO extends JFrame {
+public class Visualizar extends JFrame {
 
-    private JLabel labelequipe;
-    private JTextField txtequipe;
-    private JLabel labeljog1;
-    private JTextField txtjog1;
-    private JLabel labeljog2;
-    private JTextField txtjog2;
-    private JLabel labeljog3;
-    private JTextField txtjog3;
-    private JLabel labeljog4;
-    private JTextField txtjog4;
-    private JLabel labeljog5;
-    private JTextField txtjog5;
+    private JLabel labeltxt;
+    private JTextField txtNome;
+    private JLabel labeltxt1;
+    private JTextField txtJog1;
+    private JLabel labeltxt2;
+    private JTextField txtJog2;
+    private JLabel labeltxt3;
+    private JTextField txtJog3;
+    private JLabel labeltxt4;
+    private JTextField txtJog4;
+    private JLabel labeltxt5;
+    private JTextField txtJog5;
+    private JButton botaoSalvar;
 
 
-    public CadastroCSGO() {
-        super("Cadastro de Equipe");
+    public Visualizar() {
+        super("Visualizar Equipe");
 
         // inicialização dos componentes
-        labelequipe = new JLabel("Nome da Equipe:");
-        labeljog1 = new JLabel("Nome Jogador 1:");
-        labeljog2 = new JLabel("Nome Jogador 2:");
-        labeljog3 = new JLabel("Nome Jogador 3:");
-        labeljog4 = new JLabel("Nome Jogador 4:");
-        labeljog5 = new JLabel("Nome Jogador 5:");
-
-        txtequipe = new JTextField(10);
-        txtjog1 = new JTextField(10);
-        txtjog2 = new JTextField(10);
-        txtjog3 = new JTextField(10);
-        txtjog4 = new JTextField(10);
-        txtjog5 = new JTextField(10);
+        labeltxt = new JLabel("Nome do Time:");
+        txtNome = new JTextField(25);
+        labeltxt1 = new JLabel("Jogador do Topo:");
+        txtJog1 = new JTextField(25);
+        labeltxt2 = new JLabel("Jogador da Selva:");
+        txtJog2 = new JTextField(25);
+        labeltxt3 = new JLabel("Jogador do Meio:");
+        txtJog3 = new JTextField(25);
+        labeltxt4 = new JLabel("Jogador Atirador:");
+        txtJog4 = new JTextField(25);
+        labeltxt5 = new JLabel("Jogador Suporte:");
+        txtJog5 = new JTextField(25);
+        botaoSalvar = new JButton("Salvar Time");
+        botaoSalvar.setSize(50, 30);
 
         // definição dos layouts
         JPanel panel = (JPanel) getContentPane(); // obtém o painel de conteúdo desta janela
@@ -60,50 +63,62 @@ public class CadastroCSGO extends JFrame {
         // adição dos componentes na janela
         constraints.gridx=0; // coluna 0
         constraints.gridy=0; // linha 0
-        panel.add(labelequipe,constraints);
+        panel.add(labeltxt,constraints);
         constraints.gridx=1; // coluna 1
         constraints.gridy=0; // linha 0
-        panel.add(txtequipe, constraints);
+        panel.add(txtNome, constraints);
 
         constraints.gridx=0; // coluna 0
         constraints.gridy=1; // linha 1
-        panel.add(labeljog1, constraints);
+        panel.add(labeltxt1, constraints);
         constraints.gridx=1; // coluna 1
         constraints.gridy=1; // linha 1
-        panel.add(txtjog1, constraints);
+        panel.add(txtJog1, constraints);
 
         constraints.gridx=0; // coluna 0
         constraints.gridy=2; // linha 2
-        panel.add(labeljog2, constraints);
+        panel.add(labeltxt2, constraints);
         constraints.gridx=1; // coluna 1
         constraints.gridy=2; // linha 2
-        panel.add(txtjog2, constraints);
+        panel.add(txtJog2, constraints);
 
         constraints.gridx=0; // coluna 0
         constraints.gridy=3; // linha 3
-        panel.add(labeljog3, constraints);
+        panel.add(labeltxt3, constraints);
         constraints.gridx=1; // coluna 1
         constraints.gridy=3; // linha 3
-        panel.add(txtjog3, constraints);
+        panel.add(txtJog3, constraints);
 
         constraints.gridx=0; // coluna 0
         constraints.gridy=4; // linha 4
-        panel.add(labeljog4, constraints);
+        panel.add(labeltxt4, constraints);
         constraints.gridx=1; // coluna 1
         constraints.gridy=4; // linha 4
-        panel.add(txtjog4, constraints);
+        panel.add(txtJog4, constraints);
 
         constraints.gridx=0; // coluna 0
         constraints.gridy=5; // linha 5
-        panel.add(labeljog5, constraints);
+        panel.add(labeltxt5, constraints);
         constraints.gridx=1; // coluna 1
         constraints.gridy=5; // linha 5
-        panel.add(txtjog5, constraints);
+        panel.add(txtJog5, constraints);
+
+        constraints.gridx=0; // coluna 0
+        constraints.gridy=6; // linha 6
+        constraints.gridwidth=2; // ocupa 2 colunas
+        panel.add(botaoSalvar, constraints);
 
         // configuração da janela
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setResizable(false); // impede o redimensionamento da janela
         setLocation(600,300);
+        pack(); // define o tamanho da janela (menor possível para caber o conteúdo)
+        setVisible(true);
+
+        // configuração da janela
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        setResizable(true); // impede o redimensionamento da janela
+        setLocation(600, 300);
         pack(); // define o tamanho da janela (menor possível para caber o conteúdo)
         setVisible(true);
     }
