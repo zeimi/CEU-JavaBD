@@ -12,7 +12,6 @@ import org.json.simple.JSONObject;
 
 
 import org.json.simple.JSONArray;
-//import gui.MainPage.EventoResposta;
 
 public class CadastroCSGO extends JFrame {
 
@@ -34,8 +33,19 @@ public class CadastroCSGO extends JFrame {
         super("Cadastro de Equipe");
 
         // inicialização dos componentes
+        labelequipe = new JLabel("Nome da Equipe:");
         labeljog1 = new JLabel("Nome Jogador 1:");
         labeljog2 = new JLabel("Nome Jogador 2:");
+        labeljog3 = new JLabel("Nome Jogador 3:");
+        labeljog4 = new JLabel("Nome Jogador 4:");
+        labeljog5 = new JLabel("Nome Jogador 5:");
+
+        txtequipe = new JTextField(10);
+        txtjog1 = new JTextField(10);
+        txtjog2 = new JTextField(10);
+        txtjog3 = new JTextField(10);
+        txtjog4 = new JTextField(10);
+        txtjog5 = new JTextField(10);
 
         // definição dos layouts
         JPanel panel = (JPanel) getContentPane(); // obtém o painel de conteúdo desta janela
@@ -89,8 +99,6 @@ public class CadastroCSGO extends JFrame {
         constraints.gridx=1; // coluna 1
         constraints.gridy=5; // linha 5
         panel.add(txtjog5, constraints);
-
-
 
         // configuração da janela
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
