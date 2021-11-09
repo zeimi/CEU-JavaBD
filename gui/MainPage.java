@@ -86,6 +86,7 @@ public class MainPage extends JFrame {
     private class EventoCadastrar implements ActionListener {
         public void actionPerformed(ActionEvent e) { // o método invocado quando o btn cadastrar for pressionado
             if (caixaTorneios.getSelectedItem() == "League of Legends"){System.out.println("lolzim");
+            CadastroLOL janelaCadastro = new CadastroLOL();
                 
             }   else if (caixaTorneios.getSelectedItem() == "CS.GO"){System.out.println("cs");
                     
@@ -95,7 +96,6 @@ public class MainPage extends JFrame {
                        
                         System.out.println("Rocket League");
                     }
-            CadastroLOL janelaCadastro = new CadastroLOL();
         }
     }
 
