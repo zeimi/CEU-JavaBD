@@ -29,7 +29,6 @@ public class MainPage extends JFrame {
     private JButton botaoVisualizar;
     private JLabel labelTorneios;
     private JComboBox caixaTorneios;
-    public String nomeJogo;
 
     /* Construtores ----------------------------------------------------- */
     public MainPage() {
@@ -39,8 +38,8 @@ public class MainPage extends JFrame {
 
         labelTorneios = new JLabel("Campeonato:");
         // array de textos que será passado para o ComboBox
-        String[] signos = {"League of Legends","CS.GO","Valorant","FIFA 2021"};
-        caixaTorneios = new JComboBox<String>(signos);
+        String[] torneios = {"League of Legends","CS.GO","Valorant","FIFA 2021"};
+        caixaTorneios = new JComboBox<String>(torneios);
         caixaTorneios.setSize(80, 30);
         botaoCadastrar = new JButton("Cadastrar Participante");
         botaoCadastrar.setSize(50, 30);
