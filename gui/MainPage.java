@@ -29,7 +29,7 @@ public class MainPage extends JFrame {
     private JButton botaoVisualizar;
     private JLabel labelTorneios;
     private JComboBox caixaTorneios;
-    public int jogo;
+    public String nomeJogo;
 
     /* Construtores ----------------------------------------------------- */
     public MainPage() {
@@ -71,13 +71,16 @@ public class MainPage extends JFrame {
     private class EventoCadastrar implements ActionListener {
         public void actionPerformed(ActionEvent e) { // o método invocado quando o btn cadastrar for pressionado
             if (caixaTorneios.getSelectedItem() == "League of Legends"){System.out.println("lolzim");
-
+                
             }   else if (caixaTorneios.getSelectedItem() == "CS.GO"){System.out.println("cs");
-
+                    
                 }   else if (caixaTorneios.getSelectedItem() == "Valorant"){System.out.println("valorant");
-
-                    }else {System.out.println("fifa");}
-            Cadastro janelaCadastro = new Cadastro();
+                        
+                    }else {
+                       
+                        System.out.println("fifa");
+                    }
+            CadastroLOL janelaCadastro = new CadastroLOL();
         }
     }
 
