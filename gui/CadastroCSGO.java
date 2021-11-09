@@ -29,6 +29,9 @@ public class CadastroCSGO extends JFrame {
     private JTextField txtjog5;
 
 
+    private JButton botaoSalvar;
+
+
     public CadastroCSGO() {
         super("Cadastro de Equipe");
 
@@ -40,12 +43,14 @@ public class CadastroCSGO extends JFrame {
         labeljog4 = new JLabel("Nome Jogador 4:");
         labeljog5 = new JLabel("Nome Jogador 5:");
 
-        txtequipe = new JTextField(10);
+        txtequipe = new JTextField(30);
         txtjog1 = new JTextField(10);
         txtjog2 = new JTextField(10);
         txtjog3 = new JTextField(10);
         txtjog4 = new JTextField(10);
         txtjog5 = new JTextField(10);
+
+        botaoSalvar = new JButton("Salvar Equipe");
 
         // definição dos layouts
         JPanel panel = (JPanel) getContentPane(); // obtém o painel de conteúdo desta janela
@@ -99,6 +104,11 @@ public class CadastroCSGO extends JFrame {
         constraints.gridx=1; // coluna 1
         constraints.gridy=5; // linha 5
         panel.add(txtjog5, constraints);
+
+        constraints.gridx=0; // coluna 0
+        constraints.gridy=6; // linha 4
+        constraints.gridwidth=2; // ocupa 2 colunas
+        panel.add(botaoSalvar, constraints);
 
         // configuração da janela
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
