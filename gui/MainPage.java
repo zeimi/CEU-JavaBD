@@ -43,7 +43,7 @@ public class MainPage extends JFrame {
         botaoCadastrar = new JButton("Cadastrar Participante");
         botaoCadastrar.setSize(50, 30);
         botaoCadastrar.addActionListener(new EventoCadastrar());
-        botaoVisualizar = new JButton("Vizualizar Equipe e Participantes");
+        botaoVisualizar = new JButton("Visualizar Equipe e Participantes");
         botaoVisualizar.setSize(50, 30);
 
         // definição dos layouts
