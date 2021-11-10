@@ -4,6 +4,8 @@
         "libs/json-simple-1.1.1.jar",
         "libs/mysql-connector-java-8.0.21.jar",
         "json-simple-1.1.1.jar",
-        "mysql-connector-java-8.0.21.jar"
+        "mysql-connector-java-8.0.21.jar",
+        "utils/json-simple-1.1.1.jar",
+        "utils/mysql-connector-java-8.0.21.jar"
     ]
 }
