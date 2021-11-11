@@ -160,7 +160,7 @@ public class CadastroRL extends JFrame {
 
         // ---------------- Componentes da linha 4 ----------------
         constraints.gridx=0; // coluna 0
-        constraints.gridy=6; // linha 4
+        constraints.gridy=4; // linha 4
         constraints.gridwidth=5; // ocupa 4 colunas
         panel.add(botaoSalvar, constraints);
 
