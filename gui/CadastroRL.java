@@ -26,29 +26,18 @@ public class CadastroRL extends JFrame {
     private JTextField txtjog2;
     private JLabel labeljog3;
     private JTextField txtjog3;
-    private JLabel labeljog4;
-    private JTextField txtjog4;
-    private JLabel labeljog5;
-    private JTextField txtjog5;
-
     private JLabel labelnick1;
     private JLabel labelnick2;
     private JLabel labelnick3;
-    private JLabel labelnick4;
-    private JLabel labelnick5;
 
     private JTextField txtnick1;
     private JTextField txtnick2;
     private JTextField txtnick3;
-    private JTextField txtnick4;
-    private JTextField txtnick5;
 
     private JLabel labelRoles;
     private JComboBox<String> caixaRoles1;
     private JComboBox<String> caixaRoles2;
     private JComboBox<String> caixaRoles3;
-    private JComboBox<String> caixaRoles4;
-    private JComboBox<String> caixaRoles5;
 
     private JButton botaoSalvar;
 
