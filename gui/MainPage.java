@@ -95,9 +95,11 @@ public class MainPage extends JFrame {
             } else if (caixaTorneios.getSelectedItem() == "Valorant"){
                 System.out.println("valorant");
                         
-            } else {
+            } else if (caixaTorneios.getSelectedItem() == "Rocket League") {
                 System.out.println("Rocket League");
 
+            } else {
+                System.out.println("Mario Kart");
             }
         }
     }
