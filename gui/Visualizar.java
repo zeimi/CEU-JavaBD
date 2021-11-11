@@ -26,7 +26,7 @@ public class Visualizar extends JFrame {
 
         // inicialização dos componentes
         botaoSalvar = new JButton("Salvar Time");
-        botaoSalvar.setSize(50, 30);
+        botaoSalvar.setSize(200, 300);
 
         // definição dos layouts
         JPanel panel = (JPanel) getContentPane(); // obtém o painel de conteúdo desta janela
@@ -45,7 +45,7 @@ public class Visualizar extends JFrame {
 
         // configuração da janela
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        setResizable(false); // impede o redimensionamento da janela
+        setResizable(true); // impede o redimensionamento da janela
         setLocation(600,300);
         pack(); // define o tamanho da janela (menor possível para caber o conteúdo)
         setVisible(true);
