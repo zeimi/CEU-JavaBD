@@ -94,9 +94,11 @@ public class MainPage extends JFrame {
                 CadastroCSGO janelaCadastro = new CadastroCSGO();
             } else if (caixaTorneios.getSelectedItem() == "Valorant"){
                 System.out.println("valorant");
+                CadastroValorant janelaCadastro = new CadastroValorant();
                         
             } else if (caixaTorneios.getSelectedItem() == "Rocket League") {
                 System.out.println("Rocket League");
+                CadastroRL janelaCadastro = new CadastroRL();
 
             } else {
                 System.out.println("Mario Kart");
