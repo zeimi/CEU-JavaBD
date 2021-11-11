@@ -102,6 +102,7 @@ public class MainPage extends JFrame {
 
             } else {
                 System.out.println("Mario Kart");
+                CadastroMariokart janelaCadastro = new CadastroMariokart();
             }
         }
     }
