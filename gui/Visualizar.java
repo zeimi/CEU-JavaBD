@@ -12,13 +12,13 @@ import javax.swing.text.*;
 import org.json.simple.JSONObject;
 
 
+
 import org.json.simple.JSONArray;
 //import gui.MainPage.EventoResposta;
 
 public class Visualizar extends JFrame {
 
     private JButton botaoSalvar;
-    //private ImageIO myPicture;
 
 
     public Visualizar() {
@@ -27,12 +27,6 @@ public class Visualizar extends JFrame {
         // inicialização dos componentes
         botaoSalvar = new JButton("Salvar Time");
         botaoSalvar.setSize(50, 30);
-
-        //myPicture = new ImageIO("C:\Users\rodri\Documents\Github\Repository nao meu\projetoJSON\Imgs");
-
-        //BufferedImage myPicture = ImageIO.read(new File("C:\Users\rodri\Documents\Github\Repository nao meu\projetoJSON\Imgs"));
-        //JLabel picLabel = new JLabel(new ImageIcon(myPicture));
-        //add(picLabel);
 
         // definição dos layouts
         JPanel panel = (JPanel) getContentPane(); // obtém o painel de conteúdo desta janela
@@ -43,11 +37,6 @@ public class Visualizar extends JFrame {
         constraints.weighty=1;
         constraints.fill=GridBagConstraints.HORIZONTAL;
         constraints.insets = new Insets(10,5,5,10);
-
-        // adição dos componentes na janela
-        //constraints.gridx=0; // coluna 0
-        //constraints.gridy=0; // linha 0
-        //panel.add(myPicture,constraints);
 
         constraints.gridx=0; // coluna 0
         constraints.gridy=6; // linha 6
