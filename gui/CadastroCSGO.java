@@ -1,17 +1,17 @@
 package gui;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.*;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-import java.text.ParseException;
+// import java.awt.event.*;
+// import java.sql.Connection;
+// import java.sql.PreparedStatement;
+// import java.sql.SQLException;
+// import java.text.ParseException;
 import javax.swing.border.EmptyBorder;
-import javax.swing.text.*;
-import org.json.simple.JSONObject;
+// import javax.swing.text.*;
+// import org.json.simple.JSONObject;
 
 
-import org.json.simple.JSONArray;
+// import org.json.simple.JSONArray;
 
 public class CadastroCSGO extends JFrame {
 
@@ -44,11 +44,11 @@ public class CadastroCSGO extends JFrame {
     private JTextField txtnick5;
 
     private JLabel labelRoles;
-    private JComboBox caixaRoles1;
-    private JComboBox caixaRoles2;
-    private JComboBox caixaRoles3;
-    private JComboBox caixaRoles4;
-    private JComboBox caixaRoles5;
+    private JComboBox<String> caixaRoles1;
+    private JComboBox<String> caixaRoles2;
+    private JComboBox<String> caixaRoles3;
+    private JComboBox<String> caixaRoles4;
+    private JComboBox<String> caixaRoles5;
 
     private JButton botaoSalvar;
 
