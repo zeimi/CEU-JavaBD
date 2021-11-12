@@ -63,7 +63,7 @@ public class CadastroValorant extends JFrame {
         labelvalorant = new JLabel("Campeonato de Valorant UNIJORGE");
         botaovalorant = new JButton("Informações");
 
-        labelequipe = new JLabel("Nome da Equipe:");
+        labelequipe = new JLabel("Nome da equipe:");
         labelTag = new JLabel("TAG da equipe:");
         labeljog1 = new JLabel("Nome Jogador 1:");
         labeljog2 = new JLabel("Nome Jogador 2:");
@@ -99,7 +99,7 @@ public class CadastroValorant extends JFrame {
         caixaRoles5 = new JComboBox<String>(roles);
         labelRoles = new JLabel("Função:");
 
-        botaoSalvar = new JButton("Salvar Equipe");
+        botaoSalvar = new JButton("Salvar equipe");
 
         // --------------------------------------- definição dos layouts ----------------------------------------
         JPanel panel = (JPanel) getContentPane(); // obtém o painel de conteúdo desta janela
