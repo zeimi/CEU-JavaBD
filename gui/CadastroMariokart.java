@@ -19,7 +19,7 @@ public class CadastroMariokart extends JFrame {
     private static final Component labelpersonagens = null;
         private JLabel labeltxt;
         private JTextField txtNome;
-        private Component txtCpf1;
+        private JTextField txtCpf1;
         private Component txtcpf1;
         private Component txtCpf2;
         private Component txtcpf2;
@@ -55,70 +55,66 @@ public class CadastroMariokart extends JFrame {
         private JButton botaoSalvar;
         private JLabel panel;
         private JLabel labelRoles;
-        private JRadioButton <String> personagens;
+        private JRadioButton personagens;
       
 
     public CadastroMariokart() {
         
         super("Cadastro de Equipe");
 
-        label CadastroMariokart = new JLabel("JOGADOR 1");
+        JLabel CadastroMariokart = new JLabel("JOGADOR 1");
 
         // inicialização dos cadastros J1
         labeljog1 = new JLabel("Nome do jogador 1:");
-        txtnome= new JTextField(50);
-        
-        boolean validacaoSalvar(){
-            // VALIDAÇÃO DO CAMPO NOME
-            if(txtNome.getText().length() == 0){ // se o campo 'nome' está vazio
-                JOptionPane.showMessageDialog(this, "O campo 'nome' deve estar preenchido!", "Erro de validação",JOptionPane.WARNING_MESSAGE);
-                return false;
-             }
-            
-            // VALIDAÇÃO DO CAMPO CPF
-           String cpf = txtCpf1.getText(); // obter o cpf completo digitado
-           cpf = cpf.replace(".", "");
-           cpf = cpf.replace("-", "");
-           cpf = cpf.replace(" ", "");
-            if(cpf.length() < 11){
-            JOptionPane.showMessageDialog(this, "O campo 'cpf' deve ter 11 números!", "Erro de validação",JOptionPane.WARNING_MESSAGE);
-            return false; }
+        txtNome = new JTextField(50);
 
            // Escolher o persongaem do jogador
-           labelpersonagens= new JLabel(" Escolha o seu personagem:");
+           //labelpersonagens= new JLabel(" Escolha o seu personagem:");
             String[] personagens = {"Mário","Princesa Peach","Luigi","Princesa Daisy","Toad","Toadette","Yoshi", "Birdo"};
-            caixapersonagens = new JRadioButton<String>(personagens);
-            caixapersonagens.setsize(80, 30); 
+            //caixapersonagens = new JRadioButton(personagens);
+            //caixapersonagens.setsize(80, 30); 
         
             
           JPanel panel = new JPanel(new BorderLayout(10, 10)); // espaçamento de 5px entre os componentes
+          //panel.setLayout(new GridBagLayout());
           panel.setBorder(new EmptyBorder(50, 30, 50, 30)); // uma borda para afastar os compoentes da janela
-          panel.add(labeltxt, BorderLayout.NORTH);
-          panel.add(txtNome, BorderLayout.CENTER);
-          panel.add(txtCpf1, BorderLayout.CENTER);
           panel.add(labelpersonagens, BorderLayout.SOUTH);
           add(panel);
-    
-
-          // configuração da janela
-          setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-          setResizable(true); // impede o redimensionamento da janela
-          setLocation(600, 300);
-          pack(); // define o tamanho da janela (menor possível para caber o conteúdo)
-          setVisible(true);
-            }
-    
+                
        // configuração da janela
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setResizable(true); // impede o redimensionamento da janela
         setLocation(600, 300);
          pack(); // define o tamanho da janela (menor possível para caber o conteúdo)
         setVisible(true);
-
+        
+        GridBagConstraints constraints = new GridBagConstraints();
          constraints.gridx=0; // coluna 0
          constraints.gridy=6; // linha 4
          constraints.gridwidth=5; // ocupa 4 colunas
          panel.add(botaoSalvar, constraints);
+    }
+
+
+    private boolean validacaoSalvar(){
+        // VALIDAÇÃO DO CAMPO NOME
+        if(txtNome.getText().length() == 0){ // se o campo 'nome' está vazio
+            JOptionPane.showMessageDialog(this, "O campo 'nome' deve estar preenchido!", "Erro de validação",JOptionPane.WARNING_MESSAGE);
+            return false;
+         }
+        
+        
+        // VALIDAÇÃO DO CAMPO CPF
+       String cpf = txtCpf1.getText(); // obter o cpf completo digitado
+       cpf = cpf.replace(".", "");
+       cpf = cpf.replace("-", "");
+       cpf = cpf.replace(" ", "");
+
+        if(cpf.length() < 11){
+        JOptionPane.showMessageDialog(this, "O campo 'cpf' deve ter 11 números!", "Erro de validação",JOptionPane.WARNING_MESSAGE); 
+        return false;
+    }
+    return true;
     }
 
 }

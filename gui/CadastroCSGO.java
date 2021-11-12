@@ -262,6 +262,7 @@ public class CadastroCSGO extends JFrame {
     private class Eventoinfocsgo implements ActionListener {
         public void actionPerformed(ActionEvent e) { // o método invocado quando o btn cadastrar for pressionado
             infocsgo janelainfocsgo = new infocsgo();
+            janelainfocsgo.getHeight();
         }
     }
 }
