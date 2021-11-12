@@ -1,7 +1,7 @@
 package gui;
 import javax.swing.*;
 import java.awt.*;
-// import java.awt.event.*;
+import java.awt.event.*;
 // import java.sql.Connection;
 // import java.sql.PreparedStatement;
 // import java.sql.SQLException;
@@ -52,6 +52,7 @@ public class CadastroRL extends JFrame {
         // -------------------------------- inicialização dos componentes ----------------------------------------
         labelrl = new JLabel("Campeonato de Rocket League UNIJORGE");
         botaorl = new JButton("Informações");
+        botaorl.addActionListener(new Eventoinforl());
 
         labelequipe = new JLabel("Nome da equipe:");
         labelTag = new JLabel("TAG da equipe:");
@@ -185,5 +186,11 @@ public class CadastroRL extends JFrame {
         setLocation(250,150);
         pack(); // define o tamanho da janela (menor possível para caber o conteúdo)
         setVisible(true);
+    }
+    /* Classes internas ---------------------------------------------------- */
+    private class Eventoinforl implements ActionListener {
+        public void actionPerformed(ActionEvent e) { // o método invocado quando o btn cadastrar for pressionado
+            inforl janelainforl = new inforl();
+        }
     }
 }

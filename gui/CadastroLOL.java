@@ -1,7 +1,7 @@
 package gui;
 import javax.swing.*;
 import java.awt.*;
-//import java.awt.event.*;
+import java.awt.event.*;
 //import java.sql.Connection;
 //import java.sql.PreparedStatement;
 //import java.sql.SQLException;
@@ -56,6 +56,7 @@ public class CadastroLOL extends JFrame {
         // -------------------------------- inicialização dos componentes ----------------------------------------
         labellol = new JLabel("Campeonato de Valorant UNIJORGE");
         botaolol = new JButton("Informações");
+        botaolol.addActionListener(new Eventoinfolol());
 
         labelequipe = new JLabel("Nome da equipe:");
         labelTag = new JLabel("TAG da equipe:");
@@ -210,5 +211,11 @@ public class CadastroLOL extends JFrame {
         setLocation(250,150);
         pack(); // define o tamanho da janela (menor possível para caber o conteúdo)
         setVisible(true);
+    }
+    /* Classes internas ---------------------------------------------------- */
+    private class Eventoinfolol implements ActionListener {
+        public void actionPerformed(ActionEvent e) { // o método invocado quando o btn cadastrar for pressionado
+            infolol janelainfolol = new infolol();
+        }
     }
 }

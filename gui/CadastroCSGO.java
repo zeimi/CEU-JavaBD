@@ -1,7 +1,7 @@
 package gui;
 import javax.swing.*;
 import java.awt.*;
-// import java.awt.event.*;
+import java.awt.event.*;
 // import java.sql.Connection;
 // import java.sql.PreparedStatement;
 // import java.sql.SQLException;
@@ -62,6 +62,7 @@ public class CadastroCSGO extends JFrame {
         // -------------------------------- inicialização dos componentes ----------------------------------------
         labelcs = new JLabel("Campeonato de Counter Strike UNIJORGE");
         botaocs = new JButton("Informações");
+        botaocs.addActionListener(new Eventoinfocsgo());
 
         labelequipe = new JLabel("Nome da equipe:");
         labelTag = new JLabel("TAG da equipe:");
@@ -252,9 +253,15 @@ public class CadastroCSGO extends JFrame {
         // configuração da janela
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setResizable(false); // impede o redimensionamento da janela
-        setLocation(250,150);
+        setLocation(250,50);
         setSize(400,400);
         pack(); // define o tamanho da janela (menor possível para caber o conteúdo);
         setVisible(true);
+    }
+    /* Classes internas ---------------------------------------------------- */
+    private class Eventoinfocsgo implements ActionListener {
+        public void actionPerformed(ActionEvent e) { // o método invocado quando o btn cadastrar for pressionado
+            infocsgo janelainfocsgo = new infocsgo();
+        }
     }
 }
