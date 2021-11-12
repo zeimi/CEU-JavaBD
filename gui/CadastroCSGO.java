@@ -96,7 +96,12 @@ public class CadastroCSGO extends JFrame {
         botaoSalvar = new JButton("Salvar Equipe");
 
         // --------------------------------------- definição dos layouts ----------------------------------------
-        JPanel panel = (JPanel) getContentPane(); // obtém o painel de conteúdo desta janela
+        JLabel background=new JLabel(new ImageIcon("img/img1.png"));
+	    add(background);
+	    background.setLayout(new FlowLayout());
+
+        JInternalFrame panel = new JInternalFrame(); // obtém o painel de conteúdo desta janela
+        panel.setVisible(true);
         panel.setLayout(new GridBagLayout());
         panel.setBorder(new EmptyBorder(10,10,10,10) );
         GridBagConstraints constraints = new GridBagConstraints();
@@ -225,6 +230,13 @@ public class CadastroCSGO extends JFrame {
         constraints.gridx=4; // coluna 4
         constraints.gridy=5; // linha 5
         panel.add(caixaRoles5, constraints);
+
+        background.add(panel);
+        Dimension backgroundSize = background.getSize();
+        Dimension paneSize = panel.getSize();
+        panel.setLocation((backgroundSize.width - paneSize.width)/2,
+        (backgroundSize.height- paneSize.height)/2);
+        background.repaint();
         // --------------------------------------------------------
 
         // ---------------- Componentes da linha 6 ----------------
@@ -237,6 +249,7 @@ public class CadastroCSGO extends JFrame {
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setResizable(false); // impede o redimensionamento da janela
         setLocation(600,300);
+        setSize(400,400);
         pack(); // define o tamanho da janela (menor possível para caber o conteúdo)
         setVisible(true);
     }
