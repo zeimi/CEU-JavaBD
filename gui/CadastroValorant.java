@@ -1,7 +1,7 @@
 package gui;
 import javax.swing.*;
 import java.awt.*;
-// import java.awt.event.*;
+import java.awt.event.*;
 // import java.sql.Connection;
 // import java.sql.PreparedStatement;
 // import java.sql.SQLException;
@@ -62,6 +62,7 @@ public class CadastroValorant extends JFrame {
         // -------------------------------- inicialização dos componentes ----------------------------------------
         labelvalorant = new JLabel("Campeonato de Valorant UNIJORGE");
         botaovalorant = new JButton("Informações");
+        botaovalorant.addActionListener(new Eventoinfovalorant());
 
         labelequipe = new JLabel("Nome da equipe:");
         labelTag = new JLabel("TAG da equipe:");
@@ -242,4 +243,12 @@ public class CadastroValorant extends JFrame {
         pack(); // define o tamanho da janela (menor possível para caber o conteúdo)
         setVisible(true);
     }
+
+    /* Classes internas ---------------------------------------------------- */
+    private class Eventoinfovalorant implements ActionListener {
+        public void actionPerformed(ActionEvent e) { // o método invocado quando o btn cadastrar for pressionado
+            infovalorant janelainfovalorant = new infovalorant();
+        }
+    }
+
 }
