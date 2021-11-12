@@ -29,8 +29,8 @@ public class infovalorant extends JFrame {
 
         // inicialização dos componentes
         info1 = new JLabel("Campeonato de Valorant UNIJORGE");
-        info2 = new JLabel("Data:xx/xx/xx");
-        info3 = new JLabel("Hora:xx:xx AM");
+        info2 = new JLabel("Data:   xx/xx/xx");
+        info3 = new JLabel("Hora:   xx:xx AM");
         info4 = new JLabel("Premio: Uma coca cola semi nova");
         info5 = new JLabel("Organização by Peripécias");
 
