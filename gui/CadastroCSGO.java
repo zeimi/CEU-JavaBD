@@ -43,7 +43,6 @@ public class CadastroCSGO extends JFrame {
     private JTextField txtnick4;
     private JTextField txtnick5;
 
-    private JLabel labelRoles;
     private JComboBox<String> caixaRoles1;
     private JComboBox<String> caixaRoles2;
     private JComboBox<String> caixaRoles3;
@@ -91,7 +90,6 @@ public class CadastroCSGO extends JFrame {
         caixaRoles3 = new JComboBox<String>(roles);
         caixaRoles4 = new JComboBox<String>(roles);
         caixaRoles5 = new JComboBox<String>(roles);
-        labelRoles = new JLabel("Função:");
 
         botaoSalvar = new JButton("Salvar Equipe");
 
