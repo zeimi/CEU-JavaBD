@@ -76,7 +76,7 @@ public class MainPage extends JFrame {
         // configuração da janela
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setResizable(true); // impede o redimensionamento da janela
-        setLocation(600, 300);
+        setLocation(500, 300);
         pack(); // define o tamanho da janela (menor possível para caber o conteúdo)
         setVisible(true);
     }

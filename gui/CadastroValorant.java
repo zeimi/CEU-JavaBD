@@ -239,7 +239,7 @@ public class CadastroValorant extends JFrame {
         // configuração da janela
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setResizable(false); // impede o redimensionamento da janela
-        setLocation(600,300);
+        setLocation(250,150);
         pack(); // define o tamanho da janela (menor possível para caber o conteúdo)
         setVisible(true);
     }
