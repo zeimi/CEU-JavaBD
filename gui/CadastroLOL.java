@@ -59,11 +59,11 @@ public class CadastroLOL extends JFrame {
 
         labelequipe = new JLabel("Nome da equipe:");
         labelTag = new JLabel("TAG da equipe:");
-        labeltop = new JLabel("Nome Jogador 1:");
-        labeljg = new JLabel("Nome Jogador 2:");
-        labelmid = new JLabel("Nome Jogador 3:");
-        labeladc = new JLabel("Nome Jogador 4:");
-        labelsup = new JLabel("Nome Jogador 5:");
+        labeltop = new JLabel("Top:");
+        labeljg = new JLabel("Jungle:");
+        labelmid = new JLabel("Mid:");
+        labeladc = new JLabel("Adc:");
+        labelsup = new JLabel("Sup:");
         
         labelnick1 = new JLabel("Nickname do J1:");
         labelnick2 = new JLabel("Nickname do J2:");
