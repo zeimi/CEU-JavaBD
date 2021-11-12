@@ -109,7 +109,6 @@ public class CadastroCSGO extends JFrame {
         panel.setVisible(true);
         panel.setLayout(new GridBagLayout());
         panel.setBorder(new EmptyBorder(10,10,10,10) );
-        panel.setBackground(null);
         GridBagConstraints constraints = new GridBagConstraints();
         constraints.weightx=1;
         constraints.weighty=1;
