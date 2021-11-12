@@ -96,14 +96,15 @@ public class CadastroCSGO extends JFrame {
         botaoSalvar = new JButton("Salvar Equipe");
 
         // --------------------------------------- definição dos layouts ----------------------------------------
-        JLabel background=new JLabel(new ImageIcon("img/img1.png"));
+        JLabel background = new JLabel(new ImageIcon("img/img1.png"));
 	    add(background);
-	    background.setLayout(new FlowLayout());
+	    background.setLayout(new BorderLayout());
 
         JInternalFrame panel = new JInternalFrame(); // obtém o painel de conteúdo desta janela
         panel.setVisible(true);
         panel.setLayout(new GridBagLayout());
         panel.setBorder(new EmptyBorder(10,10,10,10) );
+        panel.setBackground(null);
         GridBagConstraints constraints = new GridBagConstraints();
         constraints.weightx=1;
         constraints.weighty=1;
@@ -142,7 +143,6 @@ public class CadastroCSGO extends JFrame {
         panel.add(txtnick1, constraints);
         constraints.gridx=4; // coluna 4
         constraints.gridy=1; // linha 1
-        panel.add(labelRoles, constraints);
         constraints.gridx=4; // coluna 4
         constraints.gridy=1; // linha 1
         panel.add(caixaRoles1, constraints);
@@ -163,7 +163,6 @@ public class CadastroCSGO extends JFrame {
         panel.add(txtnick2, constraints);
         constraints.gridx=4; // coluna 4
         constraints.gridy=2; // linha 2
-        panel.add(labelRoles, constraints);
         constraints.gridx=4; // coluna 4
         constraints.gridy=2; // linha 2
         panel.add(caixaRoles2, constraints);
@@ -184,7 +183,6 @@ public class CadastroCSGO extends JFrame {
         panel.add(txtnick3, constraints);
         constraints.gridx=4; // coluna 4
         constraints.gridy=3; // linha 3
-        panel.add(labelRoles, constraints);
         constraints.gridx=4; // coluna 4
         constraints.gridy=3; // linha 3
         panel.add(caixaRoles3, constraints);
@@ -205,7 +203,6 @@ public class CadastroCSGO extends JFrame {
         panel.add(txtnick4, constraints);
         constraints.gridx=4; // coluna 4
         constraints.gridy=4; // linha 4
-        panel.add(labelRoles, constraints);
         constraints.gridx=4; // coluna 4
         constraints.gridy=4; // linha 4
         panel.add(caixaRoles4, constraints);
@@ -226,16 +223,11 @@ public class CadastroCSGO extends JFrame {
         panel.add(txtnick5, constraints);
         constraints.gridx=4; // coluna 4
         constraints.gridy=5; // linha 5
-        panel.add(labelRoles, constraints);
         constraints.gridx=4; // coluna 4
         constraints.gridy=5; // linha 5
         panel.add(caixaRoles5, constraints);
 
-        background.add(panel);
-        Dimension backgroundSize = background.getSize();
-        Dimension paneSize = panel.getSize();
-        panel.setLocation((backgroundSize.width - paneSize.width)/2,
-        (backgroundSize.height- paneSize.height)/2);
+        background.add(panel, BorderLayout.PAGE_END);
         background.repaint();
         // --------------------------------------------------------
 
@@ -250,7 +242,7 @@ public class CadastroCSGO extends JFrame {
         setResizable(false); // impede o redimensionamento da janela
         setLocation(600,300);
         setSize(400,400);
-        pack(); // define o tamanho da janela (menor possível para caber o conteúdo)
+        pack(); // define o tamanho da janela (menor possível para caber o conteúdo);
         setVisible(true);
     }
 }
