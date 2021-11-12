@@ -15,6 +15,10 @@ import javax.swing.border.EmptyBorder;
 
 public class CadastroCSGO extends JFrame {
 
+    private JLabel labelcs;
+    private JButton botaocs;
+
+
     private JLabel labelequipe;
     private JTextField txtequipe;
     private JLabel labelTag;
@@ -56,6 +60,9 @@ public class CadastroCSGO extends JFrame {
         super("Cadastro de Equipe");
 
         // -------------------------------- inicialização dos componentes ----------------------------------------
+        labelcs = new JLabel("Campeonato de Counter Strike UNIJORGE");
+        botaocs = new JButton("Informações");
+
         labelequipe = new JLabel("Nome da Equipe:");
         labelTag = new JLabel("TAG da equipe:");
         labeljog1 = new JLabel("Nome Jogador 1:");
@@ -114,125 +121,133 @@ public class CadastroCSGO extends JFrame {
         // ---------------- Componentes da linha 0 ----------------
         constraints.gridx=0; // coluna 0
         constraints.gridy=0; // linha 0
-        panel.add(labelequipe,constraints);
+        panel.add(labelcs,constraints);
         constraints.gridx=1; // coluna 1
         constraints.gridy=0; // linha 0
-        panel.add(txtequipe, constraints);
-        constraints.gridx=2; // coluna 2
-        constraints.gridy=0; // linha 0
-        panel.add(labelTag, constraints);
-        constraints.gridx=3; // coluna 3
-        constraints.gridy=0; // linha 0
-        panel.add(txtTag, constraints);
-        // --------------------------------------------------------
+        panel.add(botaocs, constraints);
 
         // ---------------- Componentes da linha 1 ----------------
         constraints.gridx=0; // coluna 0
         constraints.gridy=1; // linha 1
-        panel.add(labeljog1, constraints);
+        panel.add(labelequipe,constraints);
         constraints.gridx=1; // coluna 1
         constraints.gridy=1; // linha 1
-        panel.add(txtjog1, constraints);
+        panel.add(txtequipe, constraints);
         constraints.gridx=2; // coluna 2
         constraints.gridy=1; // linha 1
-        panel.add(labelnick1, constraints);
+        panel.add(labelTag, constraints);
         constraints.gridx=3; // coluna 3
         constraints.gridy=1; // linha 1
-        panel.add(txtnick1, constraints);
-        constraints.gridx=4; // coluna 4
-        constraints.gridy=1; // linha 1
-        constraints.gridx=4; // coluna 4
-        constraints.gridy=1; // linha 1
-        panel.add(caixaRoles1, constraints);
+        panel.add(txtTag, constraints);
         // --------------------------------------------------------
 
         // ---------------- Componentes da linha 2 ----------------
         constraints.gridx=0; // coluna 0
         constraints.gridy=2; // linha 2
-        panel.add(labeljog2, constraints);
+        panel.add(labeljog1, constraints);
         constraints.gridx=1; // coluna 1
         constraints.gridy=2; // linha 2
-        panel.add(txtjog2, constraints);
+        panel.add(txtjog1, constraints);
         constraints.gridx=2; // coluna 2
         constraints.gridy=2; // linha 2
-        panel.add(labelnick2, constraints);
+        panel.add(labelnick1, constraints);
         constraints.gridx=3; // coluna 3
         constraints.gridy=2; // linha 2
-        panel.add(txtnick2, constraints);
+        panel.add(txtnick1, constraints);
         constraints.gridx=4; // coluna 4
         constraints.gridy=2; // linha 2
         constraints.gridx=4; // coluna 4
         constraints.gridy=2; // linha 2
-        panel.add(caixaRoles2, constraints);
+        panel.add(caixaRoles1, constraints);
         // --------------------------------------------------------
 
         // ---------------- Componentes da linha 3 ----------------
         constraints.gridx=0; // coluna 0
         constraints.gridy=3; // linha 3
-        panel.add(labeljog3, constraints);
+        panel.add(labeljog2, constraints);
         constraints.gridx=1; // coluna 1
         constraints.gridy=3; // linha 3
-        panel.add(txtjog3, constraints);
+        panel.add(txtjog2, constraints);
         constraints.gridx=2; // coluna 2
         constraints.gridy=3; // linha 3
-        panel.add(labelnick3, constraints);
+        panel.add(labelnick2, constraints);
         constraints.gridx=3; // coluna 3
         constraints.gridy=3; // linha 3
-        panel.add(txtnick3, constraints);
+        panel.add(txtnick2, constraints);
         constraints.gridx=4; // coluna 4
         constraints.gridy=3; // linha 3
         constraints.gridx=4; // coluna 4
         constraints.gridy=3; // linha 3
-        panel.add(caixaRoles3, constraints);
+        panel.add(caixaRoles2, constraints);
         // --------------------------------------------------------
 
         // ---------------- Componentes da linha 4 ----------------
         constraints.gridx=0; // coluna 0
         constraints.gridy=4; // linha 4
-        panel.add(labeljog4, constraints);
+        panel.add(labeljog3, constraints);
         constraints.gridx=1; // coluna 1
         constraints.gridy=4; // linha 4
-        panel.add(txtjog4, constraints);
+        panel.add(txtjog3, constraints);
         constraints.gridx=2; // coluna 2
         constraints.gridy=4; // linha 4
-        panel.add(labelnick4, constraints);
+        panel.add(labelnick3, constraints);
         constraints.gridx=3; // coluna 3
         constraints.gridy=4; // linha 4
-        panel.add(txtnick4, constraints);
+        panel.add(txtnick3, constraints);
         constraints.gridx=4; // coluna 4
         constraints.gridy=4; // linha 4
         constraints.gridx=4; // coluna 4
         constraints.gridy=4; // linha 4
-        panel.add(caixaRoles4, constraints);
+        panel.add(caixaRoles3, constraints);
         // --------------------------------------------------------
 
         // ---------------- Componentes da linha 5 ----------------
         constraints.gridx=0; // coluna 0
         constraints.gridy=5; // linha 5
-        panel.add(labeljog5, constraints);
+        panel.add(labeljog4, constraints);
         constraints.gridx=1; // coluna 1
         constraints.gridy=5; // linha 5
-        panel.add(txtjog5, constraints);
+        panel.add(txtjog4, constraints);
         constraints.gridx=2; // coluna 2
         constraints.gridy=5; // linha 5
-        panel.add(labelnick5, constraints);
+        panel.add(labelnick4, constraints);
         constraints.gridx=3; // coluna 3
         constraints.gridy=5; // linha 5
+        panel.add(txtnick4, constraints);
+        constraints.gridx=4; // coluna 4
+        constraints.gridy=5; // linha 5
+        constraints.gridx=4; // coluna 4
+        constraints.gridy=5; // linha 5
+        panel.add(caixaRoles4, constraints);
+        // --------------------------------------------------------
+
+        // ---------------- Componentes da linha 6 ----------------
+        constraints.gridx=0; // coluna 0
+        constraints.gridy=6; // linha 6
+        panel.add(labeljog5, constraints);
+        constraints.gridx=1; // coluna 1
+        constraints.gridy=6; // linha 6
+        panel.add(txtjog5, constraints);
+        constraints.gridx=2; // coluna 2
+        constraints.gridy=6; // linha 6
+        panel.add(labelnick5, constraints);
+        constraints.gridx=3; // coluna 3
+        constraints.gridy=6; // linha 6
         panel.add(txtnick5, constraints);
         constraints.gridx=4; // coluna 4
-        constraints.gridy=5; // linha 5
+        constraints.gridy=6; // linha 6
         constraints.gridx=4; // coluna 4
-        constraints.gridy=5; // linha 5
+        constraints.gridy=6; // linha 6
         panel.add(caixaRoles5, constraints);
 
         background.add(panel, BorderLayout.PAGE_END);
         background.repaint();
         // --------------------------------------------------------
 
-        // ---------------- Componentes da linha 6 ----------------
+        // ---------------- Componentes da linha 7 ----------------
         constraints.gridx=0; // coluna 0
-        constraints.gridy=6; // linha 4
-        constraints.gridwidth=5; // ocupa 4 colunas
+        constraints.gridy=7; // linha 7
+        constraints.gridwidth=5; // ocupa 5 colunas
         panel.add(botaoSalvar, constraints);
 
         // configuração da janela
