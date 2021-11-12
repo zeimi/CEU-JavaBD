@@ -63,7 +63,7 @@ public class CadastroCSGO extends JFrame {
         labelcs = new JLabel("Campeonato de Counter Strike UNIJORGE");
         botaocs = new JButton("Informações");
 
-        labelequipe = new JLabel("Nome da Equipe:");
+        labelequipe = new JLabel("Nome da equipe:");
         labelTag = new JLabel("TAG da equipe:");
         labeljog1 = new JLabel("Nome Jogador 1:");
         labeljog2 = new JLabel("Nome Jogador 2:");
@@ -98,7 +98,7 @@ public class CadastroCSGO extends JFrame {
         caixaRoles4 = new JComboBox<String>(roles);
         caixaRoles5 = new JComboBox<String>(roles);
 
-        botaoSalvar = new JButton("Salvar Equipe");
+        botaoSalvar = new JButton("Salvar equipe");
 
         // --------------------------------------- definição dos layouts ----------------------------------------
         JLabel background = new JLabel(new ImageIcon("img/img1.png"));

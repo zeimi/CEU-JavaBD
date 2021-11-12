@@ -40,10 +40,10 @@ public class MainPage extends JFrame {
         String[] torneios = {"League of Legends","CS.GO","Valorant","Rocket League", "Mário Kart"};
         caixaTorneios = new JComboBox<String>(torneios);
         caixaTorneios.setSize(80, 30);
-        botaoCadastrar = new JButton("Cadastrar Participante");
+        botaoCadastrar = new JButton("Cadastrar participante");
         botaoCadastrar.setSize(50, 30);
         botaoCadastrar.addActionListener(new EventoCadastrar());
-        botaoVisualizar = new JButton("Visualizar Equipe e Participantes");
+        botaoVisualizar = new JButton("Visualizar equipe e participantes");
         botaoVisualizar.setSize(50, 30);
         botaoVisualizar.addActionListener(new EventoVisualizar());
 
