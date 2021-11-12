@@ -54,7 +54,7 @@ public class CadastroLOL extends JFrame {
         super("Cadastro de Equipe");
 
         // -------------------------------- inicialização dos componentes ----------------------------------------
-        labellol = new JLabel("Campeonato de Valorant UNIJORGE");
+        labellol = new JLabel("Campeonato de League of legends UNIJORGE");
         botaolol = new JButton("Informações");
         botaolol.addActionListener(new Eventoinfolol());
 
