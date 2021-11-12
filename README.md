@@ -7,3 +7,11 @@
 &nbsp;
 [![texto alt](https://media.discordapp.net/attachments/884296594831331378/884650948918673488/giphy.gif)](urldolink)
 &nbsp;
+[![texto alt](https://media.discordapp.net/attachments/683835628403687484/908570705615011850/Gif_007.gif)](urldolink)
+&nbsp;
+[![texto alt](https://media.discordapp.net/attachments/683835628403687484/908570756403847218/Gif_009.gif)](urldolink)
+&nbsp;
+[![texto alt](https://media.discordapp.net/attachments/683835628403687484/908570779548024872/Gif_012.gif)](urldolink)
+&nbsp;
+[![texto alt](https://media.discordapp.net/attachments/683835628403687484/908571376498122772/Gif_006.gif?width=467&height=473)](urldolink)
+&nbsp;
