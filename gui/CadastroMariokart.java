@@ -60,6 +60,8 @@ public class CadastroMariokart extends JFrame {
 
         // inicialização dos cadastros J1
         labeljog1 = new JLabel("Nome do jogador 1:");
+        txtjog1 = new JTextField();
+        txtcpf1 = new JTextField();
         txtNome = new JTextField(50);
 
            // Escolher o persongaem do jogador
@@ -106,28 +108,6 @@ public class CadastroMariokart extends JFrame {
            setLocation(600, 300);
            pack(); // define o tamanho da janela (menor possível para caber o conteúdo)
            setVisible(true);
-    }
-
-
-    private boolean validacaoSalvar(){
-        // VALIDAÇÃO DO CAMPO NOME
-        if(txtNome.getText().length() == 0){ // se o campo 'nome' está vazio
-            JOptionPane.showMessageDialog(this, "O campo 'nome' deve estar preenchido!", "Erro de validação",JOptionPane.WARNING_MESSAGE);
-            return false;
-         }
-        
-        
-        // VALIDAÇÃO DO CAMPO CPF
-       String cpf = txtcpf1.getText(); // obter o cpf completo digitado
-       cpf = cpf.replace(".", "");
-       cpf = cpf.replace("-", "");
-       cpf = cpf.replace(" ", "");
-
-        if(cpf.length() < 11){
-        JOptionPane.showMessageDialog(this, "O campo 'cpf' deve ter 11 números!", "Erro de validação",JOptionPane.WARNING_MESSAGE); 
-        return false;
-    }
-    return true;
     }
 
 }
