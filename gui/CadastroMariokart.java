@@ -16,7 +16,15 @@ import org.json.simple.JSONArray;
 
 public class CadastroMariokart extends JFrame {
 
+
     private static final Component labelpersonagens = null;
+
+        private JButton botaokar;
+        private JButton botaosala1;
+        private JButton botaosala2;
+        private JButton botaosala3;
+        private JButton botaosala4;
+
         private JLabel labeltxt;
         private JTextField txtNome;
         private JTextField txtcpf1;
@@ -31,18 +39,18 @@ public class CadastroMariokart extends JFrame {
         private JTextField txtjog3;
         private JLabel labeljog4;
         private JTextField txtjog4;
-        private JLabel labeljog5;
-        private JTextField txtjog5;
-        private JLabel labeljog6;
-        private JTextField txtjog6;
-        private JLabel labeljog7;
-        private JTextField txtjog7;
-        private JLabel labeljog8;
-        private JTextField txtjog8;
         private JButton botaoSalvar;
         private JLabel panel;
         private JLabel labelRoles;
-        private JRadioButton personagens;
+        private ComboBoxModel<String> personagens1 ;
+        private ComboBoxModel<String> personagens2 ;
+        private ComboBoxModel<String> personagens3 ;
+        private ComboBoxModel<String> personagens4 ;
+        private ComboBoxModel<String> personagens5 ;
+        private ComboBoxModel<String> personagens6 ;
+        private ComboBoxModel<String> personagens7 ;
+        private ComboBoxModel<String> personagens8 ;
+        private 
       
 
     public CadastroMariokart() {
@@ -56,30 +64,63 @@ public class CadastroMariokart extends JFrame {
         txtNome = new JTextField(50);
 
            // Escolher o persongaem do jogador
-           //labelpersonagens= new JLabel(" Escolha o seu personagem:");
+           labelpersonagens= new JLabel(" Escolha o seu personagem:");
             String[] personagens = {"Mário","Princesa Peach","Luigi","Princesa Daisy","Toad","Toadette","Yoshi", "Birdo"};
-            //caixapersonagens = new JRadioButton(personagens);
-            //caixapersonagens.setsize(80, 30); 
+            personagens1= new JComboBox<String>(persongens);
+            personagens2= new JComboBox<String>(persongens);
+            personagens3= new JComboBox<String>(persongens);
+            personagens4= new JComboBox<String>(persongens);
+            personagens5= new JComboBox<String>(persongens);
+            personagens6= new JComboBox<String>(persongens);
+            personagens7= new JComboBox<String>(persongens);
+            personagens8= new JComboBox<String>(persongens);
+           
+            personagens.setsize(80, 30); 
         
-            
-          JPanel panel = new JPanel(new BorderLayout(10, 10)); // espaçamento de 5px entre os componentes
-          //panel.setLayout(new GridBagLayout());
-          panel.setBorder(new EmptyBorder(50, 30, 50, 30)); // uma borda para afastar os compoentes da janela
-          panel.add(labelpersonagens, BorderLayout.SOUTH);
+        
+            JPanel panel = (JPanel) getContentPane(); // obtém o painel de conteúdo desta janela
+            panel.setLayout(new GridBagLayout());
+            panel.setBorder(new EmptyBorder(10,10,10,10) );
+            GridBagConstraints constraints = new GridBagConstraints();
+            constraints.weightx=1;
+            constraints.weighty=1;
+            constraints.fill=GridBagConstraints.HORIZONTAL;
+            constraints.insets = new Insets(10,5,5,10);
+
+          GridBagConstraints constraints = new GridBagConstraints();
+          constraints.weightx=1;
+          constraints.weighty=1;
+          constraints.fill=GridBagConstraints.HORIZONTAL;
           add(panel);
                 
-       // configuração da janela
-        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        setResizable(true); // impede o redimensionamento da janela
-        setLocation(600, 300);
-         pack(); // define o tamanho da janela (menor possível para caber o conteúdo)
-        setVisible(true);
-        
-        GridBagConstraints constraints = new GridBagConstraints();
-         constraints.gridx=0; // coluna 0
-         constraints.gridy=6; // linha 4
+         
+          // Ajeitando as localizações 
+          constraints.gridx=0; // coluna 0
+          constraints.gridy=1; // linha 1
+          panel.add(labeljog1,constraints);
+          constraints.gridx=1; // coluna 1
+          constraints.gridy=1; // linha 1
+          panel.add(txtjog1, constraints);
+          constraints.gridx=2; // coluna 2
+          constraints.gridy=1; // linha 1
+          panel.add(txtcpf1, constraints);
+          constraints.gridx=3; // coluna 3
+          constraints.gridy=1; // linha 1
+          panel.add (personagens , constraints);
+          
+
+         GridBagConstraints constraints = new GridBagConstraints();
+         constraints.gridx=3; // coluna 3
+         constraints.gridy=4; // linha 4
          constraints.gridwidth=5; // ocupa 4 colunas
          panel.add(botaoSalvar, constraints);
+
+         // configuração da janela
+           setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+           setResizable(true); // impede o redimensionamento da janela
+           setLocation(600, 300);
+           pack(); // define o tamanho da janela (menor possível para caber o conteúdo)
+           setVisible(true);
     }
 
 
