@@ -5,9 +5,9 @@ import java.awt.event.*;
 // import java.sql.Connection;
 // import java.sql.PreparedStatement;
 // import java.sql.SQLException;
-// import java.text.ParseException;
+import java.text.ParseException;
 import javax.swing.border.EmptyBorder;
-// import javax.swing.text.*;
+import javax.swing.text.*;
 // import org.json.simple.JSONObject;
 
 
@@ -79,7 +79,13 @@ public class CadastroCSGO extends JFrame {
         labelnick5 = new JLabel("Nickname do J5:");
 
         txtequipe = new JTextField(10);
-        txtTag = new JTextField(5);
+        //Mascara TAG (4 letras)
+        try{
+            MaskFormatter mascaratag = new MaskFormatter("UUUU");
+            txtTag = new JFormattedTextField(mascaratag);
+        }catch(ParseException e){
+            e.printStackTrace();
+        }
         txtjog1 = new JTextField(25);
         txtjog2 = new JTextField(25);
         txtjog3 = new JTextField(25);
@@ -100,6 +106,7 @@ public class CadastroCSGO extends JFrame {
         caixaRoles5 = new JComboBox<String>(roles);
 
         botaoSalvar = new JButton("Salvar equipe");
+        botaoSalvar.addActionListener(new EventoSalvar());
 
         // --------------------------------------- definição dos layouts ----------------------------------------
         JLabel background = new JLabel(new ImageIcon("img/csgo.png"));
@@ -259,11 +266,101 @@ public class CadastroCSGO extends JFrame {
         pack(); // define o tamanho da janela (menor possível para caber o conteúdo);
         setVisible(true);
     }
+
+    /* Métodos -------------------------------------------------------------*/
+    private boolean validacaoSalvar(){
+        // Validação do campo Nome da Equipe
+        if(txtequipe.getText().length() < 3){ // se o campo 'nome' está vazio
+            JOptionPane.showMessageDialog(this, "O campo 'Nome da Equipe' deve estar preenchido!", "Erro de validação",JOptionPane.WARNING_MESSAGE);
+            return false; 
+        }
+
+        // Validação do campo TAG da Equipe
+        String campoTag = txtTag.getText();
+        campoTag = campoTag.replaceAll(" ", "");
+        if(campoTag.length() < 3){
+            JOptionPane.showMessageDialog(this, "O campo 'TAG' deve ter 4 letras", "Erro de validação",JOptionPane.WARNING_MESSAGE);
+            return false; 
+        }
+
+        // Validação do campo nome do jogador 1
+        if(txtjog1.getText().length() == 0){ // se o campo 'nome' está vazio
+            JOptionPane.showMessageDialog(this, "O campo 'Nome do jogador 1' deve estar preenchido!", "Erro de validação",JOptionPane.WARNING_MESSAGE);
+            return false; 
+        }
+
+        // Validação do campo nome do jogador 2
+        if(txtjog2.getText().length() == 0){ // se o campo 'nome' está vazio
+            JOptionPane.showMessageDialog(this, "O campo 'Nome do jogador 2' deve estar preenchido!", "Erro de validação",JOptionPane.WARNING_MESSAGE);
+            return false; 
+        }
+
+        // Validação do campo nome do jogador 3
+        if(txtjog3.getText().length() == 0){ // se o campo 'nome' está vazio
+            JOptionPane.showMessageDialog(this, "O campo 'Nome do jogador 3' deve estar preenchido!", "Erro de validação",JOptionPane.WARNING_MESSAGE);
+            return false; 
+        } 
+
+        // Validação do campo nome do jogador 4
+        if(txtjog4.getText().length() == 0){ // se o campo 'nome' está vazio
+            JOptionPane.showMessageDialog(this, "O campo 'Nome do jogador 4' deve estar preenchido!", "Erro de validação",JOptionPane.WARNING_MESSAGE);
+            return false; 
+        }
+
+        // Validação do campo nome do jogador 5
+        if(txtjog5.getText().length() == 0){ // se o campo 'nome' está vazio
+            JOptionPane.showMessageDialog(this, "O campo 'Nome do jogador 5' deve estar preenchido!", "Erro de validação",JOptionPane.WARNING_MESSAGE);
+            return false; 
+        }
+        // Validação do campo nome do nick 1
+        if(txtnick1.getText().length() == 0){ // se o campo 'nome' está vazio
+            JOptionPane.showMessageDialog(this, "O campo 'Nick do jogador 1' deve estar preenchido!", "Erro de validação",JOptionPane.WARNING_MESSAGE);
+            return false; 
+        }
+
+        // Validação do campo nome do nick 2
+        if(txtnick2.getText().length() == 0){ // se o campo 'nome' está vazio
+            JOptionPane.showMessageDialog(this, "O campo 'Nick do jogador 2' deve estar preenchido!", "Erro de validação",JOptionPane.WARNING_MESSAGE);
+            return false; 
+        }
+
+        // Validação do campo nome do nick 3
+        if(txtnick3.getText().length() == 0){ // se o campo 'nome' está vazio
+            JOptionPane.showMessageDialog(this, "O campo 'Nick do jogador 3' deve estar preenchido!", "Erro de validação",JOptionPane.WARNING_MESSAGE);
+            return false; 
+        } 
+
+        // Validação do campo nome do nick 4
+        if(txtnick4.getText().length() == 0){ // se o campo 'nome' está vazio
+            JOptionPane.showMessageDialog(this, "O campo 'Nick do jogador 4' deve estar preenchido!", "Erro de validação",JOptionPane.WARNING_MESSAGE);
+            return false; 
+        }
+
+        // Validação do campo nome do nick 5
+        if(txtnick5.getText().length() == 0){ // se o campo 'nome' está vazio
+            JOptionPane.showMessageDialog(this, "O campo 'Nick do jogador 5' deve estar preenchido!", "Erro de validação",JOptionPane.WARNING_MESSAGE);
+            return false; 
+        }
+        return true;
+    }
     /* Classes internas ---------------------------------------------------- */
     private class Eventoinfocsgo implements ActionListener {
         public void actionPerformed(ActionEvent e) { // o método invocado quando o btn cadastrar for pressionado
             infocsgo janelainfocsgo = new infocsgo();
             janelainfocsgo.getHeight();
+        }
+    }
+
+    private class EventoSalvar implements ActionListener{
+        public void actionPerformed(ActionEvent e){
+            // o código que será executado quando o btn salvar for pressionado    
+            boolean validacao = validacaoSalvar();
+
+            if(validacao == true){ // verificando se a validação ocorreu com sucesso
+                // salvar aluno no banco de dados
+                System.out.println("JOGADOR SALVO");
+            }
+
         }
     }
 }
