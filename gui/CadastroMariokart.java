@@ -41,7 +41,6 @@ public class CadastroMariokart extends JFrame {
         private JTextField txtjog4;
         private JButton botaoSalvar;
         private JLabel panel;
-        private JLabel labelRoles;
         private JComboBox<String> personagens1 ;
         private JComboBox<String> personagens2 ;
         private JComboBox<String> personagens3 ;
