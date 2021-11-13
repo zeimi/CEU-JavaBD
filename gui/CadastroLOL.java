@@ -90,7 +90,7 @@ public class CadastroLOL extends JFrame {
 
 
         // --------------------------------------- definição dos layouts ----------------------------------------
-        JLabel background = new JLabel(new ImageIcon("img/league.jpg"));
+        JLabel background = new JLabel(new ImageIcon("img/league.png"));
 	    add(background);
 	    background.setLayout(new BorderLayout());
 
