@@ -2,13 +2,13 @@ package gui;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-// import java.sql.Connection;
-// import java.sql.PreparedStatement;
-// import java.sql.SQLException;
-// import java.text.ParseException;
+ import java.sql.Connection;
+ import java.sql.PreparedStatement;
+ import java.sql.SQLException;
+ import java.text.ParseException;
 import javax.swing.border.EmptyBorder;
-// import javax.swing.text.*;
-// import org.json.simple.JSONObject;
+ import javax.swing.text.*;
+ import org.json.simple.JSONObject;
 
 
 // import org.json.simple.JSONArray;
@@ -25,14 +25,15 @@ public class CadastroCSGO extends JFrame {
     private JTextField txtTag;
 
     private JLabel labeljog1;
-    private JTextField txtjog1;
     private JLabel labeljog2;
-    private JTextField txtjog2;
     private JLabel labeljog3;
-    private JTextField txtjog3;
     private JLabel labeljog4;
-    private JTextField txtjog4;
     private JLabel labeljog5;
+
+    private JTextField txtjog1;
+    private JTextField txtjog2;
+    private JTextField txtjog3;
+    private JTextField txtjog4;
     private JTextField txtjog5;
 
     private JLabel labelnick1;
@@ -54,6 +55,9 @@ public class CadastroCSGO extends JFrame {
     private JComboBox<String> caixaRoles5;
 
     private JButton botaoSalvar;
+
+
+    private DefaultListModel<String> Jogadores;
 
 
     public CadastroCSGO() {
@@ -266,4 +270,38 @@ public class CadastroCSGO extends JFrame {
             janelainfocsgo.getHeight();
         }
     }
-}
+    // ---------------- Métodos ----------------------
+    
+    /* private void salvarAlunoNoBanco() {
+        JSONObject objetoJson = new JSONObject();
+        JSONArray disciplinas = new JSONArray();
+        DefaultListModel<String> selecionadas = caixaDisciplinas.getModelSelecionadas();
+        for (int i = 0; i < selecionadas.size(); i++) { // percorrer toda a lista das disciplinas selecionadas
+            disciplinas.add(selecionadas.get(i));
+        }
+        objetoJson.put("disciplinas", disciplinas);
+        objetoJson.put("signo", caixaRoles1.getSelectedItem());
+        objetoJson.put("cpf", txtequipe.getText());
+        objetoJson.put("nome", txtNome.getText());
+
+        // Salva o objeto json no banco de dados ------------- 
+        Connection conexao = FabricaConexao.getInstance(); // obtém a instancia do banco de dados
+        try {
+            PreparedStatement ps = conexao
+                    .prepareStatement("INSERT INTO aluno(aluno) VALUES('" + objetoJson.toJSONString() + "')");
+            ps.execute(); // executar o sql no banco de dados
+            JOptionPane.showMessageDialog(this, "Aluno cadastrado com sucesso!", "Inserção no Banco",
+                    JOptionPane.INFORMATION_MESSAGE);
+            eventoResposta.atualizarDados();// invocar a busca de dados na janela Listagem
+            dispose(); // fechar esta janela de Cadastro
+        } catch (SQLException e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(this, "Erro ao cadastrar aluno no banco!", "Inserção no Banco",
+                    JOptionPane.INFORMATION_MESSAGE);
+        }
+
+    } */
+} 
+   
+
+
