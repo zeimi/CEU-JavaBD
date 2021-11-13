@@ -109,7 +109,7 @@ public class CadastroMariokart extends JFrame {
     }
 
 
-    private boolean validacaoSalvar(){
+        private boolean validacaoSalvar(){
         // VALIDAÇÃO DO CAMPO NOME
         if(txtNome.getText().length() == 0){ // se o campo 'nome' está vazio
             JOptionPane.showMessageDialog(this, "O campo 'nome' deve estar preenchido!", "Erro de validação",JOptionPane.WARNING_MESSAGE);
