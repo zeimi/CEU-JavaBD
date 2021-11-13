@@ -102,7 +102,7 @@ public class CadastroCSGO extends JFrame {
         botaoSalvar = new JButton("Salvar equipe");
 
         // --------------------------------------- definição dos layouts ----------------------------------------
-        JLabel background = new JLabel(new ImageIcon("img/img1.png"));
+        JLabel background = new JLabel(new ImageIcon("img/csgo.png"));
 	    add(background);
 	    background.setLayout(new BorderLayout());
 
