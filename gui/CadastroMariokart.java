@@ -74,12 +74,8 @@ public class CadastroMariokart extends JFrame {
             personagens6 = new JComboBox<String> (personagens);
             personagens7 = new JComboBox<String> (personagens);
             personagens8 = new JComboBox<String> (personagens);
-           
-            personagens1.setsize(78, 30); 
-
-            
         
-         // xxxxxxxxx declarando a localização xxxxxxxxx
+         // xxxxxxxxx declarando a localização xxxxxxx
             JPanel panel = (JPanel) getContentPane(); // obtém o painel de conteúdo desta janela
             panel.setLayout(new GridBagLayout());
             panel.setBorder(new EmptyBorder(10,10,10,10) );
@@ -104,13 +100,6 @@ public class CadastroMariokart extends JFrame {
           constraints.gridx=3; // coluna 3
           constraints.gridy=1; // linha 1
           panel.add (personagens , constraints);
-          
-
-         GridBagConstraints constraints = new GridBagConstraints();
-         constraints.gridx=3; // coluna 3
-         constraints.gridy=4; // linha 4
-         constraints.gridwidth=5; // ocupa 4 colunas
-         panel.add(botaoSalvar, constraints);
 
          // configuração da janela
            setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
