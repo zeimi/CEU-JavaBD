@@ -42,15 +42,15 @@ public class CadastroMariokart extends JFrame {
         private JButton botaoSalvar;
         private JLabel panel;
         private JLabel labelRoles;
-        private ComboBoxModel<String> personagens1 ;
-        private ComboBoxModel<String> personagens2 ;
-        private ComboBoxModel<String> personagens3 ;
-        private ComboBoxModel<String> personagens4 ;
-        private ComboBoxModel<String> personagens5 ;
-        private ComboBoxModel<String> personagens6 ;
-        private ComboBoxModel<String> personagens7 ;
-        private ComboBoxModel<String> personagens8 ;
-        private 
+        private JComboBox<String> personagens1 ;
+        private JComboBox<String> personagens2 ;
+        private JComboBox<String> personagens3 ;
+        private JComboBox<String> personagens4 ;
+        private JComboBox<String> personagens5 ;
+        private JComboBox <String> personagens6 ;
+        private JComboBox<String> personagens7 ;
+        private JComboBox<String> personagens8 ;
+        
       
 
     public CadastroMariokart() {
@@ -66,33 +66,30 @@ public class CadastroMariokart extends JFrame {
            // Escolher o persongaem do jogador
            labelpersonagens= new JLabel(" Escolha o seu personagem:");
             String[] personagens = {"Mário","Princesa Peach","Luigi","Princesa Daisy","Toad","Toadette","Yoshi", "Birdo"};
-            personagens1= new JComboBox<String>(persongens);
-            personagens2= new JComboBox<String>(persongens);
-            personagens3= new JComboBox<String>(persongens);
-            personagens4= new JComboBox<String>(persongens);
-            personagens5= new JComboBox<String>(persongens);
-            personagens6= new JComboBox<String>(persongens);
-            personagens7= new JComboBox<String>(persongens);
-            personagens8= new JComboBox<String>(persongens);
+            personagens1 = new JComboBox<String> (personagens);
+            personagens2 = new JComboBox<String> (personagens);
+            personagens3 = new JComboBox<String> (personagens);
+            personagens4 = new JComboBox<String> (personagens);
+            personagens5 = new JComboBox<String> (personagens);
+            personagens6 = new JComboBox<String> (personagens);
+            personagens7 = new JComboBox<String> (personagens);
+            personagens8 = new JComboBox<String> (personagens);
            
-            personagens.setsize(80, 30); 
+            personagens1.setsize(78, 30); 
+
+            
         
-        
+         // xxxxxxxxx declarando a localização xxxxxxxxx
             JPanel panel = (JPanel) getContentPane(); // obtém o painel de conteúdo desta janela
             panel.setLayout(new GridBagLayout());
             panel.setBorder(new EmptyBorder(10,10,10,10) );
+
             GridBagConstraints constraints = new GridBagConstraints();
             constraints.weightx=1;
             constraints.weighty=1;
             constraints.fill=GridBagConstraints.HORIZONTAL;
             constraints.insets = new Insets(10,5,5,10);
 
-          GridBagConstraints constraints = new GridBagConstraints();
-          constraints.weightx=1;
-          constraints.weighty=1;
-          constraints.fill=GridBagConstraints.HORIZONTAL;
-          add(panel);
-                
          
           // Ajeitando as localizações 
           constraints.gridx=0; // coluna 0
