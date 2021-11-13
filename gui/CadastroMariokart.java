@@ -19,22 +19,9 @@ public class CadastroMariokart extends JFrame {
     private static final Component labelpersonagens = null;
         private JLabel labeltxt;
         private JTextField txtNome;
-        private JTextField txtCpf1;
-        private Component txtcpf1;
-        private Component txtCpf2;
-        private Component txtcpf2;
-        private Component txtCpf3;
-        private Component txtcpf3;
-        private Component txtCpf4;
-        private Component txtcpf4;
-        private Component txtCpf5;
-        private Component txtcpf5;
-        private Component txtCpf6;
-        private Component txtcpf6;
-        private Component txtCpf7;
-        private Component txtcpf7;
-        private Component txtCpf8;
-        private Component txtcpf8;
+        private JTextField txtcpf1;
+        private JTextField txtcpf2;
+        private JTextField txtcpf3;
 
         private JLabel labeljog1;
         private JTextField txtjog1;
