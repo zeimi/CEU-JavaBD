@@ -90,7 +90,12 @@ public class CadastroLOL extends JFrame {
 
 
         // --------------------------------------- definição dos layouts ----------------------------------------
-        JPanel panel = (JPanel) getContentPane(); // obtém o painel de conteúdo desta janela
+        JLabel background = new JLabel(new ImageIcon("img/league.jpg"));
+	    add(background);
+	    background.setLayout(new BorderLayout());
+
+        JInternalFrame panel = new JInternalFrame(); // obtém o painel de conteúdo desta janela
+        panel.setVisible(true);
         panel.setLayout(new GridBagLayout());
         panel.setBorder(new EmptyBorder(10,10,10,10) );
         GridBagConstraints constraints = new GridBagConstraints();
@@ -98,6 +103,7 @@ public class CadastroLOL extends JFrame {
         constraints.weighty=1;
         constraints.fill=GridBagConstraints.HORIZONTAL;
         constraints.insets = new Insets(10,5,5,10);
+
 
         // ------------------- adição dos componentes na janela -------------------
 
@@ -197,7 +203,11 @@ public class CadastroLOL extends JFrame {
         constraints.gridx=3; // coluna 3
         constraints.gridy=6; // linha 6
         panel.add(txtnick5, constraints);
-        // --------------------------------------------------------
+
+        // ---------------- Background ----------------
+
+        background.add(panel, BorderLayout.PAGE_END);
+        background.repaint();
 
         // ---------------- Componentes da linha 7 ----------------
         constraints.gridx=0; // coluna 0

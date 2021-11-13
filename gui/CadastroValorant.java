@@ -103,7 +103,12 @@ public class CadastroValorant extends JFrame {
         botaoSalvar = new JButton("Salvar equipe");
 
         // --------------------------------------- definição dos layouts ----------------------------------------
-        JPanel panel = (JPanel) getContentPane(); // obtém o painel de conteúdo desta janela
+        JLabel background = new JLabel(new ImageIcon("img/valorant.jpg"));
+	    add(background);
+	    background.setLayout(new BorderLayout());
+
+        JInternalFrame panel = new JInternalFrame(); // obtém o painel de conteúdo desta janela
+        panel.setVisible(true);
         panel.setLayout(new GridBagLayout());
         panel.setBorder(new EmptyBorder(10,10,10,10) );
         GridBagConstraints constraints = new GridBagConstraints();
@@ -228,7 +233,10 @@ public class CadastroValorant extends JFrame {
         constraints.gridx=4; // coluna 4
         constraints.gridy=6; // linha 6
         panel.add(caixaRoles5, constraints);
-        // --------------------------------------------------------
+        // ---------------- Background ----------------
+
+        background.add(panel, BorderLayout.PAGE_END);
+        background.repaint();
 
         // ---------------- Componentes da linha 7 ----------------
         constraints.gridx=0; // coluna 0

@@ -240,9 +240,10 @@ public class CadastroCSGO extends JFrame {
         constraints.gridy=6; // linha 6
         panel.add(caixaRoles5, constraints);
 
+        // ---------------- Background ----------------
+
         background.add(panel, BorderLayout.PAGE_END);
         background.repaint();
-        // --------------------------------------------------------
 
         // ---------------- Componentes da linha 7 ----------------
         constraints.gridx=0; // coluna 0
