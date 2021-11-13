@@ -17,7 +17,7 @@ import org.json.simple.JSONArray;
 public class CadastroMariokart extends JFrame {
 
 
-    private static final Component labelpersonagens = null;
+    private static Component labelpersonagens = null;
 
         private JButton botaokar;
         private JButton botaosala1;
@@ -99,7 +99,7 @@ public class CadastroMariokart extends JFrame {
           panel.add(txtcpf1, constraints);
           constraints.gridx=3; // coluna 3
           constraints.gridy=1; // linha 1
-          panel.add (personagens , constraints);
+          panel.add (personagens1 , constraints);
 
          // configuração da janela
            setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
