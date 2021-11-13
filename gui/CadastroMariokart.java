@@ -92,7 +92,7 @@ public class CadastroMariokart extends JFrame {
         
         
         // VALIDAÇÃO DO CAMPO CPF
-       String cpf = txtCpf1.getText(); // obter o cpf completo digitado
+       String cpf = txtcpf1.getText(); // obter o cpf completo digitado
        cpf = cpf.replace(".", "");
        cpf = cpf.replace("-", "");
        cpf = cpf.replace(" ", "");
