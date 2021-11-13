@@ -31,7 +31,7 @@ public class inforl extends JFrame {
         info1 = new JLabel("Campeonato de Rocket League UNIJORGE");
         info2 = new JLabel("Data:   xx/xx/xx");
         info3 = new JLabel("Hora:   xx:xx AM");
-        info4 = new JLabel("Premio: Uma coca cola semi nova");
+        info4 = new JLabel("Premio: Uma carro novo (de brinquedo)");
         info5 = new JLabel("Organização by Peripécias");
 
         // definição dos layouts
