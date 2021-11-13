@@ -191,7 +191,7 @@ public class CadastroRL extends JFrame {
         // configuração da janela
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setResizable(false); // impede o redimensionamento da janela
-        setLocation(250,150);
+        setLocation(250,50);
         pack(); // define o tamanho da janela (menor possível para caber o conteúdo)
         setVisible(true);
     }
