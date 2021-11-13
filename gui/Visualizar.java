@@ -27,7 +27,7 @@ public class Visualizar extends JFrame {
         super("Visualizar Equipes");
 
         // inicialização dos componentes
-        labelfuturo = new JLabel("                           Futuramente a pagina de participantes");
+        labelfuturo = new JLabel("Futuramente a pagina de participantes");
         botaonaotemnada = new JButton("Aguarde");
         botaonaotemnada.setSize(50, 30);
         botaoaquiainda = new JButton("Em breve 😥");
@@ -46,17 +46,17 @@ public class Visualizar extends JFrame {
         constraints.weightx=1;
         constraints.weighty=1;
         constraints.fill=GridBagConstraints.HORIZONTAL;
-        constraints.insets = new Insets(10,5,5,10);
+        constraints.insets = new Insets(5,2,2,5);
 
         // adição dos componentes na janela
-        constraints.gridx=0; // coluna 0
+        constraints.gridx=1; // coluna 0
         constraints.gridy=0; // linha 0
         panel.add(labelfuturo,constraints);
 
         constraints.gridx=0; // coluna 0
         constraints.gridy=2; // linha 2
         panel.add(botaonaotemnada, constraints);
-        constraints.gridx=1; // coluna 1
+        constraints.gridx=2; // coluna 1
         constraints.gridy=2; // linha 2
         panel.add(botaoaquiainda, constraints);
 
