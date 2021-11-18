@@ -2,16 +2,16 @@ package gui;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-// import java.sql.Connection;
-// import java.sql.PreparedStatement;
-// import java.sql.SQLException;
+//import java.sql.Connection;
+//import java.sql.PreparedStatement;
+//import java.sql.SQLException;
 import java.text.ParseException;
 import javax.swing.border.EmptyBorder;
 import javax.swing.text.*;
-// import org.json.simple.JSONObject;
-
-
-// import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.JSONArray;
+import java.io.FileWriter;
+import java.io.IOException;
 
 public class CadastroCSGO extends JFrame {
 
@@ -55,9 +55,6 @@ public class CadastroCSGO extends JFrame {
     private JComboBox<String> caixaRoles5;
 
     private JButton botaoSalvar;
-
-
-    private DefaultListModel<String> Jogadores;
 
 
     public CadastroCSGO() {
@@ -271,7 +268,7 @@ public class CadastroCSGO extends JFrame {
         setVisible(true);
     }
 
-    /* Métodos -------------------------------------------------------------*/
+    // Métodos -------------------------------------------------------------
     private boolean validacaoSalvar(){
         // Validação do campo Nome da Equipe
         if(txtequipe.getText().length() < 3){ // se o campo 'nome' está vazio
@@ -347,7 +344,7 @@ public class CadastroCSGO extends JFrame {
         }
         return true;
     }
-    /* Classes internas ---------------------------------------------------- */
+    // Classes internas ---------------------------------------------------- 
     private class Eventoinfocsgo implements ActionListener {
         public void actionPerformed(ActionEvent e) { // o método invocado quando o btn cadastrar for pressionado
             infocsgo janelainfocsgo = new infocsgo();
@@ -355,6 +352,7 @@ public class CadastroCSGO extends JFrame {
         }
     }
 
+    @SuppressWarnings("unchecked") // Suprime os Warnings Java (que são muitos)
     private class EventoSalvar implements ActionListener{
         public void actionPerformed(ActionEvent e){
             // o código que será executado quando o btn salvar for pressionado    
@@ -363,8 +361,86 @@ public class CadastroCSGO extends JFrame {
             if(validacao == true){ // verificando se a validação ocorreu com sucesso
                 // salvar aluno no banco de dados
                 System.out.println("JOGADOR SALVO");
+                // ----------------- Criando o JSON para o banco de dados --------------------
+            //Jogador 1
+            JSONObject Jogador1 = new JSONObject();
+            Jogador1.put("Nome", txtjog1.getText());
+            Jogador1.put("Nickname", txtnick1.getText());
+            Jogador1.put("Role", caixaRoles1.getSelectedItem());
+            
+            JSONObject Jog1Object = new JSONObject(); 
+            Jog1Object.put("Jogador1", Jogador1);
+            // -------------------------------------------------
+            
+            //Jogador 2
+            JSONObject Jogador2 = new JSONObject();
+            Jogador2.put("Nome", txtjog2.getText());
+            Jogador2.put("Nickname", txtnick2.getText());
+            Jogador2.put("Role", caixaRoles2.getSelectedItem());
+            
+            JSONObject Jog2Object = new JSONObject(); 
+            Jog2Object.put("Jogador2", Jogador2);
+            // -------------------------------------------------
+
+            //Jogador 3
+            JSONObject Jogador3 = new JSONObject();
+            Jogador3.put("Nome", txtjog3.getText());
+            Jogador3.put("Nickname", txtnick3.getText());
+            Jogador3.put("Role", caixaRoles3.getSelectedItem());
+            
+            JSONObject Jog3Object = new JSONObject(); 
+            Jog3Object.put("Jogador3", Jogador3);
+            // -------------------------------------------------
+
+            //Jogador 4
+            JSONObject Jogador4 = new JSONObject();
+            Jogador4.put("Nome", txtjog4.getText());
+            Jogador4.put("Nickname", txtnick4.getText());
+            Jogador4.put("Role", caixaRoles4.getSelectedItem());
+            
+            JSONObject Jog4Object = new JSONObject(); 
+            Jog4Object.put("Jogador4", Jogador4);
+            // -------------------------------------------------
+
+            //Jogador 5
+            JSONObject Jogador5 = new JSONObject();
+            Jogador5.put("Nome", txtjog5.getText());
+            Jogador5.put("Nickname", txtnick5.getText());
+            Jogador5.put("Role", caixaRoles5.getSelectedItem());
+            
+            JSONObject Jog5Object = new JSONObject(); 
+            Jog5Object.put("Jogador5", Jogador5);
+            // -------------------------------------------------
+            
+            //Adicionando os Jogadores ao Array de Jogadores
+            JSONArray JogadoresLista = new JSONArray();
+            JogadoresLista.add(Jog1Object);
+            JogadoresLista.add(Jog2Object);
+            JogadoresLista.add(Jog3Object);
+            JogadoresLista.add(Jog4Object);
+            JogadoresLista.add(Jog5Object);
+            // -------------------------------------------------
+
+            // Criando o JSON definitivo    
+            JSONObject CSGOJSON = new JSONObject();
+            CSGOJSON.put("Nome da Equipe", txtequipe.getText());
+            CSGOJSON.put("TAG", txtTag.getText());
+            CSGOJSON.put("Jogadores", JogadoresLista);
+            
+            //Write JSON file
+            try (FileWriter file = new FileWriter("EquipeCSGO.json")) {
+                //We can write any JSONArray or JSONObject instance to the file
+                file.write(CSGOJSON.toJSONString()); 
+                file.flush();
+    
+            } catch (IOException ex) {
+                ex.printStackTrace();
+                }
             }
 
         }
-    }
-}
+                
+     }
+ }
+
+
