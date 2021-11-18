@@ -53,6 +53,8 @@ public class CadastroMariokart extends JFrame {
         private JButton button;
 
         private JTextArea textArea;
+
+        private Component JLabelcpf1;
         
       
 
@@ -122,27 +124,31 @@ public class CadastroMariokart extends JFrame {
           constraints.gridx=1; // coluna 1
           constraints.gridy=1; // linha 1
           panel.add(txtjog1, constraints);
-          constraints.gridx=2; // coluna 2
-          constraints.gridy=1; // linha 1
+          constraints.gridx=0; // coluna 0
+          constraints.gridy=2; // linha 2
+          panel.add(JLabelcpf1, constraints);
+          constraints.gridx=1; // coluna 1
+          constraints.gridy=2; // linha 2
           panel.add(txtcpf1, constraints);
-          constraints.gridx=3; // coluna 3
-          constraints.gridy=1; // linha 1
+          constraints.gridx=2; // coluna 2
+          constraints.gridy=3; // linha 3
           panel.add (personagens1 , constraints);
 
            // configuração da janela
            setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
            setResizable(true); // impede o redimensionamento da janela
-           setLocation(600, 300);
+           setLocation(800, 500);
            pack(); // define o tamanho da janela (menor possível para caber o conteúdo)
            setVisible(true);
     }
-
+             // eventosala2
              public void Eventosala1() {
              button = new JButton("OK");
              Window frame = new JFrame("SALA 1");
              textArea = new JTextArea(5, 40);
              button.addActionListener((ActionListener) this);
              textArea.setLineWrap(true);
+             Object constraints;
 
              frame.setLayout(new BorderLayout());
              frame.add(textArea, BorderLayout.NORTH);
@@ -152,31 +158,58 @@ public class CadastroMariokart extends JFrame {
              ((JFrame) frame).setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
               frame.setVisible(true);
             }
+           
             
-          private class Eventosala1 implements ActionListener {
+             private class Eventosala1 implements ActionListener {
              private String cpf;
 
 
             public void actionPerformed(ActionEvent e) { // o método invocado quando o btn sala 1 for pressionado
             JComboBox<String> eventosala1;
             if (eventosala1.getSelectedItem() == "Sala1"){System.out.println("Personagens");
-            
-              
           }
+        }
+           // eventosala2
+            public void eventosala2() {
+            button = new JButton("OK");
+            Window frame = new JFrame("SALA 2");
+            textArea = new JTextArea(5, 40);
+            button.addActionListener((ActionListener) this);
+            textArea.setLineWrap(true);
+            Object constraints;
+
+            frame.setLayout(new BorderLayout());
+            frame.add(textArea, BorderLayout.NORTH);
+            frame.add(button, BorderLayout.SOUTH);
+            frame.pack();
+
+            ((JFrame) frame).setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+             frame.setVisible(true);
+           }
+           private class eventosala2 implements ActionListener {
+            private String cpf;
+
+
+           public void actionPerformed(ActionEvent e) { // o método invocado quando o btn sala 1 for pressionado
+           JComboBox<String> eventosala2;
+           if (eventosala2.getSelectedItem() == "Sala2"){System.out.println("Personagens");
+          }
+        }
 
 
         private boolean validacaoSalvar(){
         // VALIDAÇÃO DO CAMPO NOME
         if(txtNome.getText().length() == 0){ // se o campo 'nome' está vazio
-            JOptionPane.showInternalInputDialog(this, "O campo 'nome' deve estar preenchido!", "Erro de validação",JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showInternalConfirmDialog (JLabelcpf1, "O campo 'nome' deve estar preenchido!", "Erro de validação",JOptionPane.WARNING_MESSAGE);
             return false;
         }
 
         if(cpf.length() < 11){
-        JOptionPane.showInputDialog(this, "O campo 'cpf' deve ter 11 números!", "Erro de validação",JOptionPane.WARNING_MESSAGE); 
+        JOptionPane.showInputDialog(this, "O campo 'cpf' deve ter 11 números!"); 
         return false;
     }
     return true;
     }
   }
+}
 
