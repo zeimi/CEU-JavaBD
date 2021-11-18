@@ -49,6 +49,10 @@ public class CadastroMariokart extends JFrame {
         private JComboBox <String> personagens6 ;
         private JComboBox<String> personagens7 ;
         private JComboBox<String> personagens8 ;
+
+        private JButton button;
+
+        private JTextArea textArea;
         
       
 
@@ -133,11 +137,11 @@ public class CadastroMariokart extends JFrame {
            setVisible(true);
     }
 
-             public Eventosala1() {
+             public void Eventosala1() {
              button = new JButton("OK");
-             frame = new JFrame("SALA 1");
+             Window frame = new JFrame("SALA 1");
              textArea = new JTextArea(5, 40);
-             button.addActionListener(this);
+             button.addActionListener((ActionListener) this);
              textArea.setLineWrap(true);
 
              frame.setLayout(new BorderLayout());
@@ -145,12 +149,16 @@ public class CadastroMariokart extends JFrame {
              frame.add(button, BorderLayout.SOUTH);
              frame.pack();
  
-             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+             ((JFrame) frame).setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
               frame.setVisible(true);
             }
             
           private class Eventosala1 implements ActionListener {
-             public void actionPerformed(ActionEvent e) { // o método invocado quando o btn sala 1 for pressionado
+             private String cpf;
+
+
+            public void actionPerformed(ActionEvent e) { // o método invocado quando o btn sala 1 for pressionado
+            JComboBox<String> eventosala1;
             if (eventosala1.getSelectedItem() == "Sala1"){System.out.println("Personagens");
             
               
@@ -160,15 +168,15 @@ public class CadastroMariokart extends JFrame {
         private boolean validacaoSalvar(){
         // VALIDAÇÃO DO CAMPO NOME
         if(txtNome.getText().length() == 0){ // se o campo 'nome' está vazio
-            JOptionPane.showMessageDialog(this, "O campo 'nome' deve estar preenchido!", "Erro de validação",JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showInternalInputDialog(this, "O campo 'nome' deve estar preenchido!", "Erro de validação",JOptionPane.WARNING_MESSAGE);
             return false;
         }
 
         if(cpf.length() < 11){
-        JOptionPane.showMessageDialog(this, "O campo 'cpf' deve ter 11 números!", "Erro de validação",JOptionPane.WARNING_MESSAGE); 
+        JOptionPane.showInputDialog(this, "O campo 'cpf' deve ter 11 números!", "Erro de validação",JOptionPane.WARNING_MESSAGE); 
         return false;
     }
     return true;
     }
+  }
 
-}
