@@ -6,7 +6,7 @@ import java.sql.SQLException;
 public class FabricaConexao {
     /* Atributos ---------------------------------- */
     private static Connection conexao = null;
-    private static final String DATABASE_NAME = "banco_json";
+    private static final String DATABASE_NAME = "dados_torneios";
     private static final String URL_CONNECTION = "jdbc:mysql://localhost/"+DATABASE_NAME+"?useTimezone=true&serverTimezone=UTC&autoReconnect=true&useSSL=false";
     private static final String USER = "root";
     private static final String PASSWORD = "admin";
