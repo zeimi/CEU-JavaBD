@@ -9,8 +9,6 @@ import java.text.ParseException;
 import javax.swing.border.EmptyBorder;
 import javax.swing.text.*;
 import org.json.simple.JSONObject;
-
-
 import org.json.simple.JSONArray;
 //import gui.MainPage.EventoResposta;
 
@@ -19,10 +17,7 @@ public class CadastroMariokart extends JFrame {
 
     private static Component labelpersonagens = null;
 
-        private JButton botaokar;
-        private JButton botaosala1;
-        private JButton botaosala2;
-      
+        private JComboBox<String>kar;
         private JLabel labeltxt;
         private JTextField txtNome;
         private JTextField txtcpf;
@@ -38,15 +33,27 @@ public class CadastroMariokart extends JFrame {
         private JComboBox <String> personagens6 ;
         private JComboBox<String> personagens7 ;
         private JComboBox<String> personagens8 ;
-
-        private JButton button;
-
+        private JLabel myLabel, myLabel2;
+        private AbstractButton Sala1;
+        private javax.swing.JRadioButton Sala2;
+        //private RadioButtonHandler handler;
+        private JRadioButton java, csharp,
+        sim, nao;
+       
         private JTextArea textArea;
 
         private Component JLabelcpf;
+
+        private String cpf;
+
         
       
-
+        /*public class RadioButton extends JFrame {
+          private JLabel myLabel, myLabel2;
+         // private RadioButtonHandler handler;
+          private JRadioButton sala1, sala2,
+          sim, nao;
+          }
     public CadastroMariokart() {
         
         super("Cadastro de Equipe");
@@ -74,17 +81,13 @@ public class CadastroMariokart extends JFrame {
             personagens6 = new JComboBox<String> (personagens);
             personagens7 = new JComboBox<String> (personagens);
             personagens8 = new JComboBox<String> (personagens);
-  
 
-         /* xxxxxxx Sala para jogos em grupo c/ diferentes pessoas xxxxxxxxx */
-            // Sala 1
-            botaosala1 = new JButton("SALA 1");
-            botaosala1.setSize(50, 30);
-            botaosala1.addActionListener(new Eventosala1());
-            // Sala 2
-            botaosala2 = new JButton("SALA 2");
-            botaosala2.setSize(50, 30);
-            botaosala2.addActionListener(new Eventosala1());
+            // Botão sala para jogar 
+
+
+
+           // Escolher o nível de dificuldade 
+  
 
          // xxxxxxxxx declarando a localização xxxxxxx
             JPanel panel = (JPanel) getContentPane(); // obtém o painel de conteúdo desta janela
@@ -113,15 +116,11 @@ public class CadastroMariokart extends JFrame {
           constraints.gridx=2; // coluna 2
           constraints.gridy=3; // linha 3
           panel.add (personagens1 , constraints);
-          // SALA1 
+          // SALAS
           constraints.gridx=0; // coluna 2
           constraints.gridy=2; // linha 3
-          panel.add (botaosala1, constraints);
-          // SALA 2
-          constraints.gridx=1; // coluna 2
-          constraints.gridy=2; // linha 3
-          panel.add (botaosala2, constraints);
-
+          panel.add (kar, constraints);
+          
            // configuração da janela
            setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
            setResizable(true); // impede o redimensionamento da janela
@@ -129,74 +128,76 @@ public class CadastroMariokart extends JFrame {
            pack(); // define o tamanho da janela (menor possível para caber o conteúdo)
            setVisible(true);
     }
-             // eventosala2
-             public void Eventosala1() {
-             button = new JButton("OK");
-             Window frame = new JFrame("SALA 1");
-             textArea = new JTextArea(5, 40);
-             button.addActionListener((ActionListener) this);
-             textArea.setLineWrap(true);
-             Object constraints;
-
-             frame.setLayout(new BorderLayout());
-             frame.add(textArea, BorderLayout.NORTH);
-             frame.add(button, BorderLayout.SOUTH);
-             frame.pack();
- 
-             ((JFrame) frame).setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-              frame.setVisible(true);
+            //public class RadioButton extends JFrame {
+              /*
+            private JRadioButton , csharp,
+             sim, nao;
+            private JLabel myLabel, myLabel2;
+           private ButtonGroup grupo1, grupo2;
+            private RadioButtonHandler handler;
             }
-           
+            // Configuração do botão
+            public void RadioButton(){
+              //super("Radio Buttons ");
+              setLayout( new FlowLayout() );
+              handler = new RadioButtonHandler();
+              
+              myLabel = new JLabel("Deseja jogar em qual sala?");
+              myLabel2 = new JLabel("\nVocê tem certeza disso?");
+              Sala1 = JRadioButton("sala1", false);
+              Sala2= new JRadioButton("sala2", false);
+              sim = new JRadioButton("Sim", false);
+              nao = new JRadioButton("Não", false);
+              
+              add(myLabel);
+              add(Sala1);
+              add(Sala2);
+              add(myLabel2);
+              add(sim);
+              add(nao);
+              
+              Sala1 = new ButtonGroup();
+              Sala1.add(Sala1);
+              Sala1.add(Sala2);
+              
+               = new ButtonGroup();
+              Sala2.add(sim);
+              Sala2.add(nao);
+              
+              Sala1.addItemListener(handler);
+             Sala2.addItemListener(handler);
+              sim.addItemListener(handler);
+              nao.addItemListener(handler);
+             }
+             
+             private ButtonGroup JRadioButton(String string, boolean b) {
+              return null;
+            }
+            private class RadioButtonHandler implements ItemListener{
             
-             private class Eventosala1 implements ActionListener {
-             private String cpf;
-
-
-            public void actionPerformed(ActionEvent e) { // o método invocado quando o btn sala 1 for pressionado
-            JComboBox<String> eventosala1;
-            if (eventosala1.getSelectedItem() == "Sala1"){System.out.println("Personagens");
-          }
-        }
-           // eventosala2
-            public void eventosala2() {
-            button = new JButton("OK");
-            Window frame = new JFrame("SALA 2");
-            textArea = new JTextArea(5, 40);
-            button.addActionListener((ActionListener) this);
-            textArea.setLineWrap(true);
-            Object constraints;
-
-            frame.setLayout(new BorderLayout());
-            frame.add(textArea, BorderLayout.NORTH);
-            frame.add(button, BorderLayout.SOUTH);
-            frame.pack();
-
-            ((JFrame) frame).setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-             frame.setVisible(true);
-           }
-           private class eventosala2 implements ActionListener {
-            private String cpf;
-
-
-           public void actionPerformed(ActionEvent e) { // o método invocado quando o btn sala 1 for pressionado
-           JComboBox<String> eventosala2;
-           if (eventosala2.getSelectedItem() == "Sala2"){System.out.println("Personagens");
-          }
-        }
-
+              @Override
+              public void itemStateChanged(ItemEvent event) {
+               if(java.isSelected() && sim.isSelected())
+                JOptionPane.showMessageDialog(null,"OK");
+               if(csharp.isSelected() && sim.isSelected())
+                JOptionPane.showMessageDialog(null,"Retorne para escolher outra sala");
+              }*/
+              
+    
 
         private boolean validacaoSalvar(){
         // VALIDAÇÃO DO CAMPO NOME
         if(txtNome.getText().length() == 0){ // se o campo 'nome' está vazio
             JOptionPane.showInternalConfirmDialog (JLabelcpf, "O campo 'nome' deve estar preenchido!", "Erro de validação",JOptionPane.WARNING_MESSAGE);
             return false;
-        }
+          }
+        
 
         if(cpf.length() < 11){
         JOptionPane.showInputDialog(this, "O campo 'cpf' deve ter 11 números!"); 
         return false;
-        }
-        }
       }
     }
-    
+  }
+}
+}*/
