@@ -26,22 +26,12 @@ public class CadastroMariokart extends JFrame {
   private JButton botaoSalvar;
   private JLabel panel;
   private JComboBox<String> personagens1;
-  private JComboBox<String> personagens2;
-  private JComboBox<String> personagens3;
-  private JComboBox<String> personagens4;
-  private JComboBox<String> personagens5;
-  private JComboBox<String> personagens6;
-  private JComboBox<String> personagens7;
-  private JComboBox<String> personagens8;
-  private AbstractButton Sala1;
-  private javax.swing.JRadioButton Sala2;
-  private JRadioButton java, csharp;
   private JTextArea textArea;
-  private Component JLabelcpf;
+  private JLabel labelCpf;
   private String cpf;
   private JLabel myLabel, myLabel2;
   private RadioButtonHandler handler;
-  private JRadioButton sala1, sala2, sim, nao;
+  private JRadioButton Sala1, Sala2, sim, nao;
   private ButtonGroup GrupoSalas;
   private ButtonGroup GruposSN;
 
@@ -53,7 +43,19 @@ public class CadastroMariokart extends JFrame {
 
     // inicialização dos cadastros J1
     labeljog = new JLabel("Nome do jogador:");
+    labelCpf = new JLabel("CPF:");
+    
     txtNome = new JTextField(50);
+    txtjog = new JTextField(50);
+    txtcpf = new JTextField(50);
+    myLabel = new JLabel("Deseja jogar em qual sala?");
+    myLabel2 = new JLabel("\nVocê tem certeza disso?");
+    GrupoSalas = new ButtonGroup();
+    GruposSN = new ButtonGroup();
+    Sala1 = new JRadioButton("sala1", false);
+    Sala2= new JRadioButton("sala2", false);
+    sim = new JRadioButton("Sim", false);
+    nao = new JRadioButton("Não", false);
 
     // VALIDAÇÃO DO CAMPO CPF
     String cpf = txtcpf.getText(); // obter o cpf completo digitado
@@ -65,13 +67,6 @@ public class CadastroMariokart extends JFrame {
     labelpersonagens= new JLabel(" Escolha o seu personagem:");
     String[] personagens = {"Mário","Princesa Peach","Luigi","Princesa Daisy","Toad","Toadette","Yoshi", "Birdo"};
     personagens1 = new JComboBox<String> (personagens);
-    personagens2 = new JComboBox<String> (personagens);
-    personagens3 = new JComboBox<String> (personagens);
-    personagens4 = new JComboBox<String> (personagens);
-    personagens5 = new JComboBox<String> (personagens);
-    personagens6 = new JComboBox<String> (personagens);
-    personagens7 = new JComboBox<String> (personagens);
-    personagens8 = new JComboBox<String> (personagens);
 
     // Botão sala para jogar 
 
@@ -100,7 +95,7 @@ public class CadastroMariokart extends JFrame {
     panel.add(txtjog, constraints);
     constraints.gridx=0; // coluna 0
     constraints.gridy=2; // linha 2
-    panel.add(JLabelcpf, constraints);
+    panel.add(labelCpf, constraints);
     constraints.gridx=1; // coluna 1
     constraints.gridy=2; // linha 2
     panel.add(txtcpf, constraints);
@@ -108,9 +103,12 @@ public class CadastroMariokart extends JFrame {
     constraints.gridy=3; // linha 3
     panel.add (personagens1 , constraints);
     // SALAS
-    constraints.gridx=0; // coluna 2
-    constraints.gridy=2; // linha 3
-    panel.add (kar, constraints);
+    constraints.gridx=2; // coluna 2
+    constraints.gridy=4; // linha 3
+    panel.add (Sala1, constraints);
+    constraints.gridx=2; // coluna 2
+    constraints.gridy=5; // linha 3
+    panel.add (Sala2, constraints);
           
     // configuração da janela
     setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -121,34 +119,24 @@ public class CadastroMariokart extends JFrame {
             
     // Configuração do botão
               
-    myLabel = new JLabel("Deseja jogar em qual sala?");
-    myLabel2 = new JLabel("\nVocê tem certeza disso?");
-    GrupoSalas = new ButtonGroup();
-    GruposSN = new ButtonGroup();
-    Sala1 = new JRadioButton("sala1", false);
-    Sala2= new JRadioButton("sala2", false);
-    sim = new JRadioButton("Sim", false);
-    nao = new JRadioButton("Não", false);
               
-              add(myLabel);
-              add(Sala1);
-              add(Sala2);
-              add(myLabel2);
-              add(sim);
-              add(nao);
+    add(myLabel);
+    add(myLabel2);
+    add(sim);
+    add(nao);
               
               
               GrupoSalas.add(Sala1);
               GrupoSalas.add(Sala2);
               
               GruposSN = new ButtonGroup();
-              Sala2.add(sim);
-              Sala2.add(nao);
+              GruposSN.add(sim);
+              GruposSN.add(nao);
               
               Sala1.addItemListener(handler);
               Sala2.addItemListener(handler);
               sim.addItemListener(handler);
-              nao.addItemListener(handler);
+              nao.addItemListener(handler); 
              
   }
 
@@ -171,9 +159,9 @@ public class CadastroMariokart extends JFrame {
 
     @Override
     public void itemStateChanged(ItemEvent event) {
-     if(java.isSelected() && sim.isSelected())
+     if(Sala1.isSelected() && sim.isSelected()) // Modificar depois
       JOptionPane.showMessageDialog(null,"Parabéns, você é manja");
-     if(csharp.isSelected() && sim.isSelected())
+     if(Sala2.isSelected() && sim.isSelected())
       JOptionPane.showMessageDialog(null,"Sabe de nada, inocente!");
     }
     
