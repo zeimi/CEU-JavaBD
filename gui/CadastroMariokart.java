@@ -33,27 +33,15 @@ public class CadastroMariokart extends JFrame {
         private JComboBox <String> personagens6 ;
         private JComboBox<String> personagens7 ;
         private JComboBox<String> personagens8 ;
-        private JLabel myLabel, myLabel2;
         private AbstractButton Sala1;
         private javax.swing.JRadioButton Sala2;
-        //private RadioButtonHandler handler;
-        private JRadioButton java, csharp,
-        sim, nao;
-       
+        private JRadioButton java, csharp;
         private JTextArea textArea;
-
         private Component JLabelcpf;
-
         private String cpf;
-
-        
-      
-        /*public class RadioButton extends JFrame {
-          private JLabel myLabel, myLabel2;
-         // private RadioButtonHandler handler;
-          private JRadioButton sala1, sala2,
-          sim, nao;
-          }
+        private JLabel myLabel, myLabel2;
+        private RadioButtonHandler handler;
+        private JRadioButton sala1, sala2, sim, nao;
     public CadastroMariokart() {
         
         super("Cadastro de Equipe");
@@ -127,20 +115,8 @@ public class CadastroMariokart extends JFrame {
            setLocation(800, 500);
            pack(); // define o tamanho da janela (menor possível para caber o conteúdo)
            setVisible(true);
-    }
-            //public class RadioButton extends JFrame {
-              /*
-            private JRadioButton , csharp,
-             sim, nao;
-            private JLabel myLabel, myLabel2;
-           private ButtonGroup grupo1, grupo2;
-            private RadioButtonHandler handler;
-            }
+            
             // Configuração do botão
-            public void RadioButton(){
-              //super("Radio Buttons ");
-              setLayout( new FlowLayout() );
-              handler = new RadioButtonHandler();
               
               myLabel = new JLabel("Deseja jogar em qual sala?");
               myLabel2 = new JLabel("\nVocê tem certeza disso?");
@@ -168,7 +144,6 @@ public class CadastroMariokart extends JFrame {
              Sala2.addItemListener(handler);
               sim.addItemListener(handler);
               nao.addItemListener(handler);
-             }
              
              private ButtonGroup JRadioButton(String string, boolean b) {
               return null;
@@ -181,7 +156,7 @@ public class CadastroMariokart extends JFrame {
                 JOptionPane.showMessageDialog(null,"OK");
                if(csharp.isSelected() && sim.isSelected())
                 JOptionPane.showMessageDialog(null,"Retorne para escolher outra sala");
-              }*/
+              }
               
     
 
@@ -198,6 +173,6 @@ public class CadastroMariokart extends JFrame {
         return false;
       }
     }
-  }
+  }}
 }
-}*/
+}
