@@ -2,16 +2,18 @@ package gui;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-// import java.sql.Connection;
-// import java.sql.PreparedStatement;
-// import java.sql.SQLException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.text.ParseException;
 import javax.swing.border.EmptyBorder;
 import javax.swing.text.*;
-// import org.json.simple.JSONObject;
+import org.json.simple.JSONObject;
+import org.json.simple.JSONArray;
+import java.io.FileWriter;
+import java.io.IOException;
+import utils.FabricaConexao;
 
-
-// import org.json.simple.JSONArray;
 
 public class CadastroValorant extends JFrame {
 
@@ -345,6 +347,7 @@ public class CadastroValorant extends JFrame {
         }
     }
 
+    @SuppressWarnings("unchecked") // Suprime os Warnings Java (que são muitos)
     private class EventoSalvar implements ActionListener{
         public void actionPerformed(ActionEvent e){
             // o código que será executado quando o btn salvar for pressionado    
@@ -353,9 +356,96 @@ public class CadastroValorant extends JFrame {
             if(validacao == true){ // verificando se a validação ocorreu com sucesso
                 // salvar aluno no banco de dados
                 System.out.println("JOGADOR SALVO");
+                // ----------------- Criando o JSON para o banco de dados --------------------
+                //Jogador 1
+                JSONObject Jogador1 = new JSONObject();
+                Jogador1.put("Nome", txtjog1.getText());
+                Jogador1.put("Nickname", txtnick1.getText());
+                Jogador1.put("Role", caixaRoles1.getSelectedItem());
+                
+                JSONObject Jog1Object = new JSONObject(); 
+                Jog1Object.put("Jogador1", Jogador1);
+                // -------------------------------------------------
+                
+                //Jogador 2
+                JSONObject Jogador2 = new JSONObject();
+                Jogador2.put("Nome", txtjog2.getText());
+                Jogador2.put("Nickname", txtnick2.getText());
+                Jogador2.put("Role", caixaRoles2.getSelectedItem());
+                
+                JSONObject Jog2Object = new JSONObject(); 
+                Jog2Object.put("Jogador2", Jogador2);
+                // -------------------------------------------------
+
+                //Jogador 3
+                JSONObject Jogador3 = new JSONObject();
+                Jogador3.put("Nome", txtjog3.getText());
+                Jogador3.put("Nickname", txtnick3.getText());
+                Jogador3.put("Role", caixaRoles3.getSelectedItem());
+                
+                JSONObject Jog3Object = new JSONObject(); 
+                Jog3Object.put("Jogador3", Jogador3);
+                // -------------------------------------------------
+
+                //Jogador 4
+                JSONObject Jogador4 = new JSONObject();
+                Jogador4.put("Nome", txtjog4.getText());
+                Jogador4.put("Nickname", txtnick4.getText());
+                Jogador4.put("Role", caixaRoles4.getSelectedItem());
+                
+                JSONObject Jog4Object = new JSONObject(); 
+                Jog4Object.put("Jogador4", Jogador4);
+                // -------------------------------------------------
+
+                //Jogador 5
+                JSONObject Jogador5 = new JSONObject();
+                Jogador5.put("Nome", txtjog5.getText());
+                Jogador5.put("Nickname", txtnick5.getText());
+                Jogador5.put("Role", caixaRoles5.getSelectedItem());
+                
+                JSONObject Jog5Object = new JSONObject(); 
+                Jog5Object.put("Jogador5", Jogador5);
+                // -------------------------------------------------
+                
+                //Adicionando os Jogadores ao Array de Jogadores
+                JSONArray JogadoresLista = new JSONArray();
+                JogadoresLista.add(Jog1Object);
+                JogadoresLista.add(Jog2Object);
+                JogadoresLista.add(Jog3Object);
+                JogadoresLista.add(Jog4Object);
+                JogadoresLista.add(Jog5Object);
+                // -------------------------------------------------
+
+                // Criando o JSON definitivo    
+                JSONObject VALORANTJSON = new JSONObject();
+                VALORANTJSON.put("Nome da Equipe", txtequipe.getText());
+                VALORANTJSON.put("TAG", txtTag.getText());
+                VALORANTJSON.put("Jogadores", JogadoresLista);
+                
+                //Write JSON file
+                try (FileWriter file = new FileWriter("EquipeValorant.json")) {
+                    //We can write any JSONArray or JSONObject instance to the file
+                    file.write(VALORANTJSON.toJSONString()); 
+                    file.flush();
+        
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                }
+
+                /* Salva o objeto json no banco de dados ------------- */
+                Connection conexao = FabricaConexao.getInstance(); // obtém a instancia do banco de dados
+                try{
+                PreparedStatement ps = conexao.prepareStatement("INSERT INTO dados_valorant(dados_valorant) VALUES('" +VALORANTJSON.toJSONString()+ "')");
+                ps.execute(); // executar o sql no banco de dados
+                JOptionPane.showMessageDialog(null, "Equipe cadastrada com sucesso!", "Inserção no Banco",JOptionPane.INFORMATION_MESSAGE);
+                dispose(); // fechar esta janela de Cadastro
+                }catch(SQLException exc){
+                exc.printStackTrace();
+                JOptionPane.showMessageDialog(null, "Erro ao cadastrar equipe no banco!", "Inserção no Banco",JOptionPane.INFORMATION_MESSAGE);
+                }
             }
 
         }
-    }
-
-}
+                
+     }
+ }
