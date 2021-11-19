@@ -22,23 +22,12 @@ public class CadastroMariokart extends JFrame {
         private JButton botaokar;
         private JButton botaosala1;
         private JButton botaosala2;
-        private JButton botaosala3;
-        private JButton botaosala4;
-
+      
         private JLabel labeltxt;
         private JTextField txtNome;
         private JTextField txtcpf1;
-        private JTextField txtcpf2;
-        private JTextField txtcpf3;
-
         private JLabel labeljog1;
         private JTextField txtjog1;
-        private JLabel labeljog2;
-        private JTextField txtjog2;
-        private JLabel labeljog3;
-        private JTextField txtjog3;
-        private JLabel labeljog4;
-        private JTextField txtjog4;
         private JButton botaoSalvar;
         private JLabel panel;
         private JComboBox<String> personagens1 ;
@@ -85,6 +74,7 @@ public class CadastroMariokart extends JFrame {
             personagens6 = new JComboBox<String> (personagens);
             personagens7 = new JComboBox<String> (personagens);
             personagens8 = new JComboBox<String> (personagens);
+  
 
          /* xxxxxxx Sala para jogos em grupo c/ diferentes pessoas xxxxxxxxx */
             // Sala 1
@@ -95,17 +85,7 @@ public class CadastroMariokart extends JFrame {
             botaosala2 = new JButton("SALA 2");
             botaosala2.setSize(50, 30);
             botaosala2.addActionListener(new Eventosala1());
-            // Sala 3
-            botaosala3 = new JButton("SALA 4");
-            botaosala3.setSize(50, 30);
-            botaosala3.addActionListener(new Eventosala1());
-            // Sala 4
-            botaosala4 = new JButton("SALA 4");
-            botaosala4.setSize(50, 30);
-            botaosala4.addActionListener(new Eventosala1());
 
-            
-        
          // xxxxxxxxx declarando a localização xxxxxxx
             JPanel panel = (JPanel) getContentPane(); // obtém o painel de conteúdo desta janela
             panel.setLayout(new GridBagLayout());
@@ -133,6 +113,14 @@ public class CadastroMariokart extends JFrame {
           constraints.gridx=2; // coluna 2
           constraints.gridy=3; // linha 3
           panel.add (personagens1 , constraints);
+          // SALA1 
+          constraints.gridx=0; // coluna 2
+          constraints.gridy=2; // linha 3
+          panel.add (botaosala1, constraints);
+          // SALA 2
+          constraints.gridx=1; // coluna 2
+          constraints.gridy=2; // linha 3
+          panel.add (botaosala2, constraints);
 
            // configuração da janela
            setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -208,8 +196,7 @@ public class CadastroMariokart extends JFrame {
         JOptionPane.showInputDialog(this, "O campo 'cpf' deve ter 11 números!"); 
         return false;
     }
-    return true;
     }
   }
-}
+  
 
