@@ -31,7 +31,7 @@ public class infocsgo extends JFrame {
         info1 = new JLabel("Campeonato de Counter Strike UNIJORGE");
         info2 = new JLabel("Data:   xx/xx/xx");
         info3 = new JLabel("Hora:   xx:xx AM");
-        info4 = new JLabel("Premio: Uma coca cola semi nova");
+        info4 = new JLabel("Premio: Um guaraná 3 litros");
         info5 = new JLabel("Organização by Peripécias");
 
         // definição dos layouts

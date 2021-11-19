@@ -195,8 +195,8 @@ public class CadastroMariokart extends JFrame {
         if(cpf.length() < 11){
         JOptionPane.showInputDialog(this, "O campo 'cpf' deve ter 11 números!"); 
         return false;
+        }
+        }
+      }
     }
-    }
-  }
-  
-
+    

@@ -48,14 +48,19 @@ public class MainPage extends JFrame {
         botaoVisualizar.addActionListener(new EventoVisualizar());
 
         // definição dos layouts
-        JPanel panel = (JPanel) getContentPane(); // obtém o painel de conteúdo desta janela
+        JLabel background = new JLabel(new ImageIcon("img/capa.jpg"));
+	    add(background);
+	    background.setLayout(new BorderLayout());
+
+        JInternalFrame panel = new JInternalFrame(); // obtém o painel de conteúdo desta janela
+        panel.setVisible(true);
         panel.setLayout(new GridBagLayout());
         panel.setBorder(new EmptyBorder(10,10,10,10) );
         GridBagConstraints constraints = new GridBagConstraints();
         constraints.weightx=1;
         constraints.weighty=1;
         constraints.fill=GridBagConstraints.HORIZONTAL;
-        constraints.insets = new Insets(10,5,5,10);
+        constraints.insets = new Insets(10,5,5,10);;
 
         // adição dos componentes na janela
         constraints.gridx=0; // coluna 0
@@ -73,10 +78,16 @@ public class MainPage extends JFrame {
         constraints.gridy=2; // linha 2
         panel.add(botaoVisualizar, constraints);
 
+        // ---------------- Background ----------------
+
+        background.add(panel, BorderLayout.PAGE_END);
+        background.repaint();
+
+
         // configuração da janela
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setResizable(true); // impede o redimensionamento da janela
-        setLocation(500, 300);
+        setLocation(250,50);
         pack(); // define o tamanho da janela (menor possível para caber o conteúdo)
         setVisible(true);
     }

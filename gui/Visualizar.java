@@ -18,35 +18,57 @@ import javax.swing.border.EmptyBorder;
 
 public class Visualizar extends JFrame {
 
-    private JButton botaoSalvar;
+    private JButton botaonaotemnada;
+    private JButton botaoaquiainda;
+    private JLabel labelfuturo;
 
 
     public Visualizar() {
-        super("Visualizar Equipe");
+        super("Visualizar Equipes");
 
         // inicialização dos componentes
-        botaoSalvar = new JButton("Salvar Time");
-        botaoSalvar.setSize(200, 300);
+        labelfuturo = new JLabel("Futuramente a pagina de participantes");
+        botaonaotemnada = new JButton("Aguarde");
+        botaonaotemnada.setSize(50, 30);
+        botaoaquiainda = new JButton("Em breve 😥");
+        botaoaquiainda.setSize(50, 30);
 
         // definição dos layouts
-        JPanel panel = (JPanel) getContentPane(); // obtém o painel de conteúdo desta janela
+        JLabel background = new JLabel(new ImageIcon("img/desculpa.gif"));
+	    add(background);
+	    background.setLayout(new BorderLayout());
+
+        JInternalFrame panel = new JInternalFrame(); // obtém o painel de conteúdo desta janela
+        panel.setVisible(true);
         panel.setLayout(new GridBagLayout());
         panel.setBorder(new EmptyBorder(10,10,10,10) );
         GridBagConstraints constraints = new GridBagConstraints();
         constraints.weightx=1;
         constraints.weighty=1;
         constraints.fill=GridBagConstraints.HORIZONTAL;
-        constraints.insets = new Insets(10,5,5,10);
+        constraints.insets = new Insets(5,2,2,5);
+
+        // adição dos componentes na janela
+        constraints.gridx=1; // coluna 0
+        constraints.gridy=0; // linha 0
+        panel.add(labelfuturo,constraints);
 
         constraints.gridx=0; // coluna 0
-        constraints.gridy=6; // linha 6
-        constraints.gridwidth=2; // ocupa 2 colunas
-        panel.add(botaoSalvar, constraints);
+        constraints.gridy=2; // linha 2
+        panel.add(botaonaotemnada, constraints);
+        constraints.gridx=2; // coluna 1
+        constraints.gridy=2; // linha 2
+        panel.add(botaoaquiainda, constraints);
+
+        // ---------------- Background ----------------
+
+        background.add(panel, BorderLayout.PAGE_END);
+        background.repaint();
 
         // configuração da janela
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setResizable(true); // impede o redimensionamento da janela
-        setLocation(600,300);
+        setLocation(470,200);
         pack(); // define o tamanho da janela (menor possível para caber o conteúdo)
         setVisible(true);
     }

@@ -31,7 +31,7 @@ public class infovalorant extends JFrame {
         info1 = new JLabel("Campeonato de Valorant UNIJORGE");
         info2 = new JLabel("Data:   xx/xx/xx");
         info3 = new JLabel("Hora:   xx:xx AM");
-        info4 = new JLabel("Premio: Uma coca cola semi nova");
+        info4 = new JLabel("Premio: Um pastel e um caldo de cana");
         info5 = new JLabel("Organização by Peripécias");
 
         // definição dos layouts
