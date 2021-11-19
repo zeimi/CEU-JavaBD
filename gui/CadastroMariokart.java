@@ -45,9 +45,9 @@ public class CadastroMariokart extends JFrame {
     labeljog = new JLabel("Nome do jogador:");
     labelCpf = new JLabel("CPF:");
     
-    txtNome = new JTextField(50);
-    txtjog = new JTextField(50);
-    txtcpf = new JTextField(50);
+    txtNome = new JTextField(20);
+    txtjog = new JTextField(20);
+    txtcpf = new JTextField(20);
     myLabel = new JLabel("Deseja jogar em qual sala?");
     myLabel2 = new JLabel("\nVocê tem certeza disso?");
     GrupoSalas = new ButtonGroup();
@@ -89,7 +89,7 @@ public class CadastroMariokart extends JFrame {
     // Ajeitando as localizações 
     constraints.gridx=0; // coluna 0
     constraints.gridy=1; // linha 1
-    panel.add(labeljog,constraints);
+    panel.add(labeljog, constraints);
     constraints.gridx=1; // coluna 1
     constraints.gridy=1; // linha 1
     panel.add(txtjog, constraints);
@@ -99,16 +99,33 @@ public class CadastroMariokart extends JFrame {
     constraints.gridx=1; // coluna 1
     constraints.gridy=2; // linha 2
     panel.add(txtcpf, constraints);
-    constraints.gridx=2; // coluna 2
+    constraints.gridx=0; // coluna 2
     constraints.gridy=3; // linha 3
     panel.add (personagens1 , constraints);
     // SALAS
-    constraints.gridx=2; // coluna 2
-    constraints.gridy=4; // linha 3
+    constraints.gridx=0; // coluna 2
+    constraints.gridy=4; // linha 4
+    panel.add (myLabel, constraints);
+
+    constraints.gridx=0; // coluna 3
+    constraints.gridy=5; // linha 4
     panel.add (Sala1, constraints);
-    constraints.gridx=2; // coluna 2
-    constraints.gridy=5; // linha 3
+
+    constraints.gridx=0; // coluna 4
+    constraints.gridy=6; // linha 4
     panel.add (Sala2, constraints);
+    // Confirmação de sala
+    constraints.gridx=0; // coluna 4
+    constraints.gridy=7; // linha 4
+    panel.add (myLabel2, constraints); 
+
+    constraints.gridx=0; // coluna 4
+    constraints.gridy=8; // linha 4
+    panel.add (sim, constraints);
+
+    constraints.gridx=0; // coluna 4
+    constraints.gridy=9; // linha 4
+    panel.add (nao, constraints);
           
     // configuração da janela
     setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -120,16 +137,13 @@ public class CadastroMariokart extends JFrame {
     // Configuração do botão
               
               
-    add(myLabel);
-    add(myLabel2);
-    add(sim);
-    add(nao);
+    //add(myLabel2);
               
               
-              GrupoSalas.add(Sala1);
-              GrupoSalas.add(Sala2);
+    GrupoSalas.add(Sala1);
+    GrupoSalas.add(Sala2);
               
-              GruposSN = new ButtonGroup();
+    GruposSN = new ButtonGroup();
               GruposSN.add(sim);
               GruposSN.add(nao);
               
