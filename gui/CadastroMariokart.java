@@ -25,9 +25,9 @@ public class CadastroMariokart extends JFrame {
       
         private JLabel labeltxt;
         private JTextField txtNome;
-        private JTextField txtcpf1;
-        private JLabel labeljog1;
-        private JTextField txtjog1;
+        private JTextField txtcpf;
+        private JLabel labeljog;
+        private JTextField txtjog;
         private JButton botaoSalvar;
         private JLabel panel;
         private JComboBox<String> personagens1 ;
@@ -43,7 +43,7 @@ public class CadastroMariokart extends JFrame {
 
         private JTextArea textArea;
 
-        private Component JLabelcpf1;
+        private Component JLabelcpf;
         
       
 
@@ -51,14 +51,14 @@ public class CadastroMariokart extends JFrame {
         
         super("Cadastro de Equipe");
 
-        JLabel CadastroMariokart = new JLabel("JOGADOR 1");
+        JLabel CadastroMariokart = new JLabel("JOGADOR");
 
         // inicialização dos cadastros J1
-        labeljog1 = new JLabel("Nome do jogador 1:");
+        labeljog = new JLabel("Nome do jogador:");
         txtNome = new JTextField(50);
 
           // VALIDAÇÃO DO CAMPO CPF
-          String cpf = txtcpf1.getText(); // obter o cpf completo digitado
+          String cpf = txtcpf.getText(); // obter o cpf completo digitado
           cpf = cpf.replace(".", "");
           cpf = cpf.replace("-", "");
           cpf = cpf.replace(" ", "");
@@ -100,16 +100,16 @@ public class CadastroMariokart extends JFrame {
           // Ajeitando as localizações 
           constraints.gridx=0; // coluna 0
           constraints.gridy=1; // linha 1
-          panel.add(labeljog1,constraints);
+          panel.add(labeljog,constraints);
           constraints.gridx=1; // coluna 1
           constraints.gridy=1; // linha 1
-          panel.add(txtjog1, constraints);
+          panel.add(txtjog, constraints);
           constraints.gridx=0; // coluna 0
           constraints.gridy=2; // linha 2
-          panel.add(JLabelcpf1, constraints);
+          panel.add(JLabelcpf, constraints);
           constraints.gridx=1; // coluna 1
           constraints.gridy=2; // linha 2
-          panel.add(txtcpf1, constraints);
+          panel.add(txtcpf, constraints);
           constraints.gridx=2; // coluna 2
           constraints.gridy=3; // linha 3
           panel.add (personagens1 , constraints);
@@ -188,7 +188,7 @@ public class CadastroMariokart extends JFrame {
         private boolean validacaoSalvar(){
         // VALIDAÇÃO DO CAMPO NOME
         if(txtNome.getText().length() == 0){ // se o campo 'nome' está vazio
-            JOptionPane.showInternalConfirmDialog (JLabelcpf1, "O campo 'nome' deve estar preenchido!", "Erro de validação",JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showInternalConfirmDialog (JLabelcpf, "O campo 'nome' deve estar preenchido!", "Erro de validação",JOptionPane.WARNING_MESSAGE);
             return false;
         }
 
