@@ -13,13 +13,13 @@ public class EquipeTableModel extends AbstractTableModel{
     /* Contrutor ----------------------------------------------------------- */
     public EquipeTableModel(ArrayList<Equipe> a){
         // quando este model é inicalizado, devemos passar
-        // para o construtor a lista de alunos que o alimentará.
+        // para o construtor a lista de equipes que o alimentará.
         listaEquipes = a;
     }
 
     /* Métodos ------------------------------------------------------------- */
     public Equipe getEquipe(int linha){
-        // retorna um registro específico da lista de alunos
+        // retorna um registro específico da lista de equipes
         return listaEquipes.get(linha);
     }
 
