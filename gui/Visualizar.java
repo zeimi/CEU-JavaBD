@@ -36,7 +36,7 @@ public class Visualizar extends JFrame {
         super("Listagem das Equipes");
 
         // inicialização dos componentes
-        listaEquipes = new ArrayList<Equipe>(); // inicializa a lista de alunos
+        listaEquipes = new ArrayList<Equipe>(); // inicializa a lista de equipes
         modelEquipes = new EquipeTableModel(listaEquipes); // inicializa o tablemodel com a lista
         buscarDados();
 
@@ -65,7 +65,7 @@ public class Visualizar extends JFrame {
     public void buscarDados() {
         listaEquipes.clear(); // limpa/zera todos os dados do ArrayList
 
-        // buca as informações de cada aluno no Banco de dados
+        // buca as informações de cada equipe no Banco de dados
         try {
             // obter uma conexão com o banco de dados
             Connection conexao = FabricaConexao.getInstance();
@@ -75,13 +75,13 @@ public class Visualizar extends JFrame {
 
             // percorrer a lista de resultados (ResultSet)
             while (rs.next()) {
-                // cria um novo objeto aluno
+                // cria um novo objeto equipe
                 Equipe equipe = new Equipe();
                 // captura o JSon como texto puro
                 String jsonEquipeString = rs.getString("dados_csgo");
                 // cria o conversor(parser) Json
                 JSONParser parser = new JSONParser();
-                // converte(parse) o campo aluno para um objeto json
+                // converte(parse) o campo equipe para um objeto json
                 JSONObject jsonEquipe = (JSONObject) parser.parse(jsonEquipeString);
 
                 // obtém cada um dos valores do JSON
@@ -89,12 +89,12 @@ public class Visualizar extends JFrame {
                 String tag = (String) jsonEquipe.get("TAG");
                 JSONArray jogadores = (JSONArray) jsonEquipe.get("Jogadores");
 
-                // coloca os valores obtidos dentro do objeto aluno
+                // coloca os valores obtidos dentro do objeto equipe
                 equipe.setNome(nome);
                 equipe.setTag(tag);
                 equipe.setJogadores(jogadores);
 
-                // coloca cada novo aluno dentro da lista
+                // coloca cada nova equipe dentro da lista
                 listaEquipes.add(equipe);
             }
 
@@ -110,7 +110,7 @@ public class Visualizar extends JFrame {
     // evento a ser chamado pela janela de cadastro, quando o cadastro for finalizado com sucesso
     public class EventoResposta{
         public void atualizarDados(){
-            // busca novamento os dados dos alunos no banco
+            // busca novamento os dados das equipes no banco
             buscarDados();
             // informo ao tableModel que os dados foram atualizados
             modelEquipes.fireTableDataChanged();
