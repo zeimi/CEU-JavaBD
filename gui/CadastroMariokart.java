@@ -11,13 +11,13 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.text.*;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONArray;
-import javax.swing.ButtonGroup;
 
 public class CadastroMariokart extends JFrame {
 
   private static Component labelpersonagens = null;
+  private static Component labelnivel = null;
 
-  private JComboBox<String> kar;
+
   private JLabel labeltxt;
   private JTextField txtNome;
   private JTextField txtcpf;
@@ -26,6 +26,7 @@ public class CadastroMariokart extends JFrame {
   private JButton botaoSalvar;
   private JLabel panel;
   private JComboBox<String> personagens1;
+  private JComboBox<String> nivel1;
   private JTextArea textArea;
   private JLabel labelCpf;
   private String cpf;
@@ -68,11 +69,10 @@ public class CadastroMariokart extends JFrame {
     String[] personagens = {"Mário","Princesa Peach","Luigi","Princesa Daisy","Toad","Toadette","Yoshi", "Birdo"};
     personagens1 = new JComboBox<String> (personagens);
 
-    // Botão sala para jogar 
-
-
-
     // Escolher o nível de dificuldade 
+    labelnivel= new JLabel("Qual o nivel de dificldade voc~e suporta:");
+    String[] nivel = {"Easy", "Medium", "Hard"};
+    nivel1 = new JComboBox<String> (nivel);
   
 
     // xxxxxxxxx declarando a localização xxxxxxx
@@ -95,10 +95,12 @@ public class CadastroMariokart extends JFrame {
     panel.add(txtjog, constraints);
     constraints.gridx=0; // coluna 0
     constraints.gridy=2; // linha 2
+    //txtcpf
     panel.add(labelCpf, constraints);
     constraints.gridx=1; // coluna 1
     constraints.gridy=2; // linha 2
     panel.add(txtcpf, constraints);
+    // personagens
     constraints.gridx=0; // coluna 2
     constraints.gridy=3; // linha 3
     panel.add (personagens1 , constraints);
@@ -106,11 +108,11 @@ public class CadastroMariokart extends JFrame {
     constraints.gridx=0; // coluna 2
     constraints.gridy=4; // linha 4
     panel.add (myLabel, constraints);
-
+   // sala1
     constraints.gridx=0; // coluna 3
     constraints.gridy=5; // linha 4
     panel.add (Sala1, constraints);
-
+   // sala2
     constraints.gridx=0; // coluna 4
     constraints.gridy=6; // linha 4
     panel.add (Sala2, constraints);
@@ -126,7 +128,11 @@ public class CadastroMariokart extends JFrame {
     constraints.gridx=0; // coluna 4
     constraints.gridy=9; // linha 4
     panel.add (nao, constraints);
-          
+   // Nivel
+    constraints.gridx=0; // coluna 4
+    constraints.gridy=10; // linha 4
+    panel.add (nivel1, constraints);
+    
     // configuração da janela
     setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     setResizable(true); // impede o redimensionamento da janela
@@ -135,9 +141,6 @@ public class CadastroMariokart extends JFrame {
     setVisible(true);
             
     // Configuração do botão
-              
-              
-    //add(myLabel2);
               
               
     GrupoSalas.add(Sala1);
@@ -174,9 +177,14 @@ public class CadastroMariokart extends JFrame {
     @Override
     public void itemStateChanged(ItemEvent event) {
      if(Sala1.isSelected() && sim.isSelected()) // Modificar depois
-      JOptionPane.showMessageDialog(null,"Parabéns, você é manja");
+      JOptionPane.showMessageDialog(null,"Ok, sala1 selecionada!");
+      if(Sala1.isSelected() && nao.isSelected())
+       JOptionPane.showMessageDialog(null,"Ok,selecione outra sala");
      if(Sala2.isSelected() && sim.isSelected())
-      JOptionPane.showMessageDialog(null,"Sabe de nada, inocente!");
+      JOptionPane.showMessageDialog(null,"Ok, sala2 selecionada !");
+      if(Sala2.isSelected() && nao.isSelected())
+       JOptionPane.showMessageDialog(null,"Ok, selecione outra sala");
+
     }
     
   }
