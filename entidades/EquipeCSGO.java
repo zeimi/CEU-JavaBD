@@ -5,7 +5,7 @@ import java.util.List;
 
 public class EquipeCSGO {
     // atributos -------------------------------
-    String Equipe, EquipeTag, signo;
+    String Equipe, EquipeTag;
     List<String> Jogadores;
     
     // construtor ------------------------------

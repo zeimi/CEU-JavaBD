@@ -57,6 +57,8 @@ public class CadastroCSGO extends JFrame {
 
     private JButton botaoSalvar;
 
+    private String Jogo;
+
 
     public CadastroCSGO() {
         super("Cadastro de Equipe");
@@ -420,6 +422,7 @@ public class CadastroCSGO extends JFrame {
                 JogadoresLista.add(Jog3Object);
                 JogadoresLista.add(Jog4Object);
                 JogadoresLista.add(Jog5Object);
+
                 // -------------------------------------------------
 
                 // Criando o JSON definitivo    
@@ -427,6 +430,7 @@ public class CadastroCSGO extends JFrame {
                 CSGOJSON.put("Nome da Equipe", txtequipe.getText());
                 CSGOJSON.put("TAG", txtTag.getText());
                 CSGOJSON.put("Jogadores", JogadoresLista);
+                CSGOJSON.put("Jogo", "CSGO");
                 
                 //Write JSON file
                 try (FileWriter file = new FileWriter("EquipeCSGO.json")) {
@@ -441,7 +445,7 @@ public class CadastroCSGO extends JFrame {
                 /* Salva o objeto json no banco de dados ------------- */
                 Connection conexao = FabricaConexao.getInstance(); // obtém a instancia do banco de dados
                 try{
-                PreparedStatement ps = conexao.prepareStatement("INSERT INTO dados_csgo(dados_csgo) VALUES('" +CSGOJSON.toJSONString()+ "')");
+                PreparedStatement ps = conexao.prepareStatement("INSERT INTO dados_jogo(dados_jogo) VALUES('" +CSGOJSON.toJSONString()+ "')");
                 ps.execute(); // executar o sql no banco de dados
                 JOptionPane.showMessageDialog(null, "Equipe cadastrada com sucesso!", "Inserção no Banco",JOptionPane.INFORMATION_MESSAGE);
                 dispose(); // fechar esta janela de Cadastro
