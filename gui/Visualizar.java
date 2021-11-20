@@ -76,7 +76,7 @@ public class Visualizar extends JFrame {
             // percorrer a lista de resultados (ResultSet)
             while (rs.next()) {
                 // cria um novo objeto aluno
-                Equipe aluno = new Equipe();
+                Equipe equipe = new Equipe();
                 // captura o JSon como texto puro
                 String jsonAlunoString = rs.getString("dados_csgo");
                 // cria o conversor(parser) Json
@@ -90,12 +90,12 @@ public class Visualizar extends JFrame {
                 JSONArray jogadores = (JSONArray) jsonAluno.get("Jogadores");
 
                 // coloca os valores obtidos dentro do objeto aluno
-                aluno.setNome(nome);
-                aluno.setTag(tag);
-                aluno.setJogadores(jogadores);
+                equipe.setNome(nome);
+                equipe.setTag(tag);
+                equipe.setJogadores(jogadores);
 
                 // coloca cada novo aluno dentro da lista
-                listaEquipes.add(aluno);
+                listaEquipes.add(equipe);
             }
 
         } catch (SQLException e) {
