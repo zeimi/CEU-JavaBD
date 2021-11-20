@@ -1,5 +1,6 @@
 package gui;
 
+import gui.MainPage.*;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.TableColumnModel;
@@ -7,6 +8,8 @@ import javax.swing.table.TableColumnModel;
 import com.mysql.cj.xdevapi.JsonParser;
 
 import entidades.Equipe;
+import entidades.Equipe.Jogo;
+
 import java.awt.event.*;
 import java.awt.*;
 import java.util.ArrayList;
@@ -14,6 +17,7 @@ import java.util.Random;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.sql.ResultSet;
 import java.sql.PreparedStatement;
 
@@ -64,7 +68,6 @@ public class Visualizar extends JFrame {
     /* Métodos ------------------------------------------------------------- */
     public void buscarDados() {
         listaEquipes.clear(); // limpa/zera todos os dados do ArrayList
-
         // buca as informações de cada equipe no Banco de dados
         try {
             // obter uma conexão com o banco de dados
@@ -75,8 +78,9 @@ public class Visualizar extends JFrame {
 
             // percorrer a lista de resultados (ResultSet)
             while (rs.next()) {
+                JogoEscolhido JogoEscolhido = MainPage.JogoEscolhido().JogoE();
                 // cria um novo objeto equipe
-                Equipe equipe = new Equipe();
+                Equipe equipe = new Equipe(JogoEscolhido);
                 // captura o JSon como texto puro
                 String jsonEquipeString = rs.getString("dados_jogo");
                 // cria o conversor(parser) Json
