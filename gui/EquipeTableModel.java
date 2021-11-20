@@ -18,7 +18,7 @@ public class EquipeTableModel extends AbstractTableModel{
     }
 
     /* Métodos ------------------------------------------------------------- */
-    public Equipe getAluno(int linha){
+    public Equipe getEquipe(int linha){
         // retorna um registro específico da lista de alunos
         return listaEquipes.get(linha);
     }
