@@ -70,7 +70,7 @@ public class Visualizar extends JFrame {
             // obter uma conexão com o banco de dados
             Connection conexao = FabricaConexao.getInstance();
             // prepara a consulta sql
-            PreparedStatement ps = conexao.prepareStatement("SELECT * FROM dados_csgo;");
+            PreparedStatement ps = conexao.prepareStatement("SELECT * FROM dados_jogo;");
             ResultSet rs = ps.executeQuery();
 
             // percorrer a lista de resultados (ResultSet)
@@ -78,7 +78,7 @@ public class Visualizar extends JFrame {
                 // cria um novo objeto equipe
                 Equipe equipe = new Equipe();
                 // captura o JSon como texto puro
-                String jsonEquipeString = rs.getString("dados_csgo");
+                String jsonEquipeString = rs.getString("dados_jogo");
                 // cria o conversor(parser) Json
                 JSONParser parser = new JSONParser();
                 // converte(parse) o campo equipe para um objeto json
