@@ -76,7 +76,7 @@ public class Visualizar extends JFrame {
             // percorrer a lista de resultados (ResultSet)
             while (rs.next()) {
                 // cria um novo objeto equipe
-                Equipe equipe = new Equipe();
+                Equipe equipe = new Equipe(Equipe.Jogo.CSGO);
                 // captura o JSon como texto puro
                 String jsonEquipeString = rs.getString("dados_jogo");
                 // cria o conversor(parser) Json

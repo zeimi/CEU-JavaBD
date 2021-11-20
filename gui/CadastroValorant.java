@@ -422,7 +422,7 @@ public class CadastroValorant extends JFrame {
                 VALORANTJSON.put("Nome da Equipe", txtequipe.getText());
                 VALORANTJSON.put("TAG", txtTag.getText());
                 VALORANTJSON.put("Jogadores", JogadoresLista);
-                VALORANTJSON.put("Jogo", Equipe.Jogo.VALORANT);
+                VALORANTJSON.put("Jogo", Equipe.Jogo.VALORANT.toString());
                 
                 //Write JSON file
                 try (FileWriter file = new FileWriter("EquipeValorant.json")) {

@@ -433,7 +433,7 @@ public class CadastroCSGO extends JFrame {
                 CSGOJSON.put("Nome da Equipe", txtequipe.getText());
                 CSGOJSON.put("TAG", txtTag.getText());
                 CSGOJSON.put("Jogadores", JogadoresLista);
-                CSGOJSON.put("Jogo", Equipe.Jogo.CSGO);
+                CSGOJSON.put("Jogo", Equipe.Jogo.CSGO.toString());
                 
                 //Write JSON file
                 try (FileWriter file = new FileWriter("EquipeCSGO.json")) {
