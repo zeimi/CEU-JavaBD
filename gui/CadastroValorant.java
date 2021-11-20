@@ -13,6 +13,7 @@ import org.json.simple.JSONArray;
 import java.io.FileWriter;
 import java.io.IOException;
 import utils.FabricaConexao;
+import entidades.Equipe;
 
 
 public class CadastroValorant extends JFrame {
@@ -420,8 +421,8 @@ public class CadastroValorant extends JFrame {
                 JSONObject VALORANTJSON = new JSONObject();
                 VALORANTJSON.put("Nome da Equipe", txtequipe.getText());
                 VALORANTJSON.put("TAG", txtTag.getText());
-                VALORANTJSON.put("Jogadores", JogadoresLista);              
-                VALORANTJSON.put("Jogo", "VALORANT");
+                VALORANTJSON.put("Jogadores", JogadoresLista);
+                VALORANTJSON.put("Jogo", Equipe.Jogo.VALORANT);
                 
                 //Write JSON file
                 try (FileWriter file = new FileWriter("EquipeValorant.json")) {

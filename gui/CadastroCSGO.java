@@ -9,6 +9,9 @@ import java.text.ParseException;
 import javax.swing.border.EmptyBorder;
 import javax.swing.text.*;
 import org.json.simple.JSONObject;
+
+import entidades.Equipe;
+
 import org.json.simple.JSONArray;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -430,7 +433,7 @@ public class CadastroCSGO extends JFrame {
                 CSGOJSON.put("Nome da Equipe", txtequipe.getText());
                 CSGOJSON.put("TAG", txtTag.getText());
                 CSGOJSON.put("Jogadores", JogadoresLista);
-                CSGOJSON.put("Jogo", "CSGO");
+                CSGOJSON.put("Jogo", Equipe.Jogo.CSGO);
                 
                 //Write JSON file
                 try (FileWriter file = new FileWriter("EquipeCSGO.json")) {

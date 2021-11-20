@@ -13,6 +13,7 @@ import org.json.simple.JSONArray;
 import java.io.FileWriter;
 import java.io.IOException;
 import utils.FabricaConexao;
+import entidades.Equipe;
 
 
 public class CadastroRL extends JFrame {
@@ -339,7 +340,7 @@ public class CadastroRL extends JFrame {
                 RLJSON.put("Nome da Equipe", txtequipe.getText());
                 RLJSON.put("TAG", txtTag.getText());
                 RLJSON.put("Jogadores", JogadoresLista);
-                RLJSON.put("Jogo", "RL");
+                RLJSON.put("Jogo", Equipe.Jogo.RL);
                 
                 //Write JSON file
                 try (FileWriter file = new FileWriter("EquipeRL.json")) {

@@ -7,9 +7,11 @@ public class Equipe {
     // atributos -------------------------------
     String nome, tag;
     List<String> jogadores;
+    Jogo nomeJogo;
     
     // construtor ------------------------------
-    public Equipe(){
+    public Equipe(Jogo nomeJogo){
+        this.nomeJogo = nomeJogo;
         jogadores = new ArrayList<String>();
     }
     
@@ -42,5 +44,9 @@ public class Equipe {
             System.out.println("-> "+jogadores.get(i));
         }
         System.out.println("*********************************");
+    }
+
+    public enum Jogo  {
+        CSGO, LOL, RL, VALORANT;
     }
 }
