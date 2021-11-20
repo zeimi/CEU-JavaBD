@@ -35,6 +35,7 @@ public class CadastroMariokart extends JFrame {
   private JRadioButton Sala1, Sala2, sim, nao;
   private ButtonGroup GrupoSalas;
   private ButtonGroup GruposSN;
+  private JLabel labelpersonagem;
 
   public CadastroMariokart() {
         
@@ -45,6 +46,7 @@ public class CadastroMariokart extends JFrame {
     // inicialização dos cadastros J1
     labeljog = new JLabel("Nome do jogador:");
     labelCpf = new JLabel("CPF:");
+    labelpersonagem = new JLabel("Escolha o personagem");
     
     txtNome = new JTextField(20);
     txtjog = new JTextField(20);
@@ -70,21 +72,28 @@ public class CadastroMariokart extends JFrame {
     personagens1 = new JComboBox<String> (personagens);
 
     // Escolher o nível de dificuldade 
-    labelnivel= new JLabel("Qual o nivel de dificldade voc~e suporta:");
+    labelnivel= new JLabel("Qual o nivel de dificldade voce suporta:");
     String[] nivel = {"Easy", "Medium", "Hard"};
     nivel1 = new JComboBox<String> (nivel);
   
 
-    // xxxxxxxxx declarando a localização xxxxxxx
-    JPanel panel = (JPanel) getContentPane(); // obtém o painel de conteúdo desta janela
-    panel.setLayout(new GridBagLayout());
-    panel.setBorder(new EmptyBorder(10,10,10,10) );
+    // --------------------------------------- definição dos layouts ----------------------------------------
+    JLabel background = new JLabel(new ImageIcon("img/mario.jpg"));
+    add(background);
+    background.setLayout(new BorderLayout());
 
-    GridBagConstraints constraints = new GridBagConstraints();
-    constraints.weightx=1;
-    constraints.weighty=1;
-    constraints.fill=GridBagConstraints.HORIZONTAL;
-    constraints.insets = new Insets(10,5,5,10);
+      JInternalFrame panel = new JInternalFrame(); // obtém o painel de conteúdo desta janela
+      panel.setVisible(true);
+      panel.setLayout(new GridBagLayout());
+      panel.setBorder(new EmptyBorder(10,10,10,10) );
+      GridBagConstraints constraints = new GridBagConstraints();
+      constraints.weightx=1;
+      constraints.weighty=1;
+      constraints.fill=GridBagConstraints.HORIZONTAL;
+      constraints.insets = new Insets(10,5,5,10);
+
+      // ------------------- adição dos componentes na janela -------------------
+
 
     // Ajeitando as localizações 
     constraints.gridx=0; // coluna 0
@@ -101,9 +110,12 @@ public class CadastroMariokart extends JFrame {
     constraints.gridy=2; // linha 2
     panel.add(txtcpf, constraints);
     // personagens
-    constraints.gridx=0; // coluna 2
-    constraints.gridy=3; // linha 3
+    constraints.gridx=2; // coluna 2
+    constraints.gridy=2; // linha 3
     panel.add (personagens1 , constraints);
+    constraints.gridx=2; // coluna 4
+    constraints.gridy=1; // linha 4
+    panel.add (labelpersonagem, constraints);
     // SALAS
     constraints.gridx=0; // coluna 2
     constraints.gridy=4; // linha 4
@@ -128,15 +140,24 @@ public class CadastroMariokart extends JFrame {
     constraints.gridx=2; // coluna 4
     constraints.gridy=6; // linha 4
     panel.add (nao, constraints);
+    // Nivel
+    constraints.gridx=1; // coluna 4
+    constraints.gridy=4; // linha 4
+    panel.add (labelnivel, constraints);
    // Nivel
-    constraints.gridx=0; // coluna 4
-    constraints.gridy=6; // linha 4
+    constraints.gridx=1; // coluna 4
+    constraints.gridy=5; // linha 4
     panel.add (nivel1, constraints);
+    // ---------------- Background ----------------
+
+    background.add(panel, BorderLayout.PAGE_END);
+    background.repaint();
+    
     
     // configuração da janela
     setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-    setResizable(true); // impede o redimensionamento da janela
-    setLocation(800, 500);
+    setResizable(false); // impede o redimensionamento da janela
+    setLocation(250,50);
     pack(); // define o tamanho da janela (menor possível para caber o conteúdo)
     setVisible(true);
             
@@ -147,30 +168,15 @@ public class CadastroMariokart extends JFrame {
     GrupoSalas.add(Sala2);
               
     GruposSN = new ButtonGroup();
-              GruposSN.add(sim);
-              GruposSN.add(nao);
+    GruposSN.add(sim);
+    GruposSN.add(nao);
               
-              Sala1.addItemListener(handler);
-              Sala2.addItemListener(handler);
-              sim.addItemListener(handler);
-              nao.addItemListener(handler); 
+    Sala1.addItemListener(handler);
+    Sala2.addItemListener(handler);
+    sim.addItemListener(handler);
+    nao.addItemListener(handler); 
              
   }
-
-  /* private boolean validacaoSalvar() {
-    // VALIDAÇÃO DO CAMPO NOME
-    if (txtNome.getText().length() == 0) { // se o campo 'nome' está vazio
-      JOptionPane.showInternalConfirmDialog(JLabelcpf, "O campo 'nome' deve estar preenchido!", "Erro de validação",
-          JOptionPane.WARNING_MESSAGE);
-      return false;
-    }
-
-    if (cpf.length() < 11) {
-      JOptionPane.showInputDialog(this, "O campo 'cpf' deve ter 11 números!");
-      return false;
-    }
-    return true;
-  } */
 
   private class RadioButtonHandler implements ItemListener{
 

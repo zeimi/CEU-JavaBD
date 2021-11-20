@@ -121,34 +121,8 @@ public class MainPage extends JFrame {
     private class EventoVisualizar implements ActionListener {
         public void actionPerformed(ActionEvent e) { // o método invocado quando o btn cadastrar for pressionado
 
-            Visualizar janelaVisualizar = new Visualizar();
+            Visualizar janelaVisualizar = new Visualizar(caixaTorneios);
             
         }
     }
-
-    public class JogoEscolhido {
-        public Jogo JogoEscolhido(Jogo JogoE){
-            if (caixaTorneios.getSelectedItem() == "League of Legends"){
-                System.out.println("lolzim");
-                JogoE = Jogo.LOL;
-                
-            } else if (caixaTorneios.getSelectedItem() == "CS.GO"){
-                System.out.println("cs");
-                JogoE = Jogo.CSGO;
-            } else if (caixaTorneios.getSelectedItem() == "Valorant"){
-                System.out.println("valorant");
-                JogoE = Jogo.VALORANT;
-                        
-            } else if (caixaTorneios.getSelectedItem() == "Rocket League") {
-                System.out.println("rocket");
-                JogoE = Jogo.RL;
-
-            } else {
-                System.out.println("Mario Kart");
-                //JogoEscolhido = Jogo.LOL;
-            } 
-            return JogoE;
-        }
-    }
-
 }

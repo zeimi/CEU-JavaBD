@@ -36,8 +36,11 @@ public class Visualizar extends JFrame {
     private JButton btnShowJogadores;
 
     /* Construtores ----------------------------------------------------- */
-    public Visualizar() {
+    public Visualizar(JComboBox caixaTorneios) {
         super("Listagem das Equipes");
+        caixaTorneios.getSelectedItem();
+        String nome = caixaTorneios.getSelectedItem().toString();
+        System.out.println(nome);
 
         // inicialização dos componentes
         listaEquipes = new ArrayList<Equipe>(); // inicializa a lista de equipes
@@ -58,7 +61,7 @@ public class Visualizar extends JFrame {
         add(panel); // coloco o painel dentro da janela
 
         // configuração da janela
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setResizable(false); // impede o redimensionamento da janela
         setLocation(600, 300);
         pack(); // define o tamanho da janela (menor possível para caber o conteúdo)
@@ -78,9 +81,8 @@ public class Visualizar extends JFrame {
 
             // percorrer a lista de resultados (ResultSet)
             while (rs.next()) {
-                JogoEscolhido JogoEscolhido = MainPage.JogoEscolhido().JogoE();
                 // cria um novo objeto equipe
-                Equipe equipe = new Equipe(JogoEscolhido);
+                Equipe equipe = new Equipe(Equipe.Jogo.CSGO);
                 // captura o JSon como texto puro
                 String jsonEquipeString = rs.getString("dados_jogo");
                 // cria o conversor(parser) Json
