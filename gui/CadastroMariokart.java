@@ -117,20 +117,20 @@ public class CadastroMariokart extends JFrame {
     constraints.gridy=6; // linha 4
     panel.add (Sala2, constraints);
     // Confirmação de sala
-    constraints.gridx=0; // coluna 4
-    constraints.gridy=7; // linha 4
+    constraints.gridx=2; // coluna 2
+    constraints.gridy=4; // linha 7
     panel.add (myLabel2, constraints); 
 
-    constraints.gridx=0; // coluna 4
-    constraints.gridy=8; // linha 4
+    constraints.gridx=2; // coluna 4
+    constraints.gridy=5; // linha 4
     panel.add (sim, constraints);
 
-    constraints.gridx=0; // coluna 4
-    constraints.gridy=9; // linha 4
+    constraints.gridx=2; // coluna 4
+    constraints.gridy=6; // linha 4
     panel.add (nao, constraints);
    // Nivel
     constraints.gridx=0; // coluna 4
-    constraints.gridy=10; // linha 4
+    constraints.gridy=6; // linha 4
     panel.add (nivel1, constraints);
     
     // configuração da janela
