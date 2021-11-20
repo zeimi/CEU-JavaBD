@@ -78,16 +78,16 @@ public class Visualizar extends JFrame {
                 // cria um novo objeto aluno
                 Equipe equipe = new Equipe();
                 // captura o JSon como texto puro
-                String jsonAlunoString = rs.getString("dados_csgo");
+                String jsonEquipeString = rs.getString("dados_csgo");
                 // cria o conversor(parser) Json
                 JSONParser parser = new JSONParser();
                 // converte(parse) o campo aluno para um objeto json
-                JSONObject jsonAluno = (JSONObject) parser.parse(jsonAlunoString);
+                JSONObject jsonEquipe = (JSONObject) parser.parse(jsonEquipeString);
 
                 // obtém cada um dos valores do JSON
-                String nome = (String) jsonAluno.get("Nome da Equipe");
-                String tag = (String) jsonAluno.get("TAG");
-                JSONArray jogadores = (JSONArray) jsonAluno.get("Jogadores");
+                String nome = (String) jsonEquipe.get("Nome da Equipe");
+                String tag = (String) jsonEquipe.get("TAG");
+                JSONArray jogadores = (JSONArray) jsonEquipe.get("Jogadores");
 
                 // coloca os valores obtidos dentro do objeto aluno
                 equipe.setNome(nome);
