@@ -5,49 +5,42 @@ import java.util.List;
 
 public class Equipe {
     // atributos -------------------------------
-    String Equipe, EquipeTag;
-    List<String> Jogadores;
-    Jogo nomeJogo;
+    String nome, tag;
+    List<String> jogadores;
     
     // construtor ------------------------------
-    public Equipe(Jogo nomeJogo){
-        this.nomeJogo = nomeJogo;
-        Jogadores = new ArrayList<String>();
+    public Equipe(){
+        jogadores = new ArrayList<String>();
     }
     
     // getters e Setters -------------------------------
     public String getNome() {
-        return Equipe;
+        return nome;
     }
-    public void setNome(String Equipe) {
-        this.Equipe = Equipe;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
-    public String getTaG() {
-        return EquipeTag;
+    public String getTag() {
+        return tag;
     }
-    public void setTag(String EquipeTag) {
-        this.EquipeTag = EquipeTag;
+    public void setTag(String tag) {
+        this.tag = tag;
     }
     public List<String> getJogadores() {
-        return Jogadores;
+        return jogadores;
     }
-    public void setJogadores(List<String> Jogadores) {
-        this.Jogadores = Jogadores;
+    public void setJogadores(List<String> jogadores) {
+        this.jogadores = jogadores;
     }
     // métodos -------------------------------
     public void print(){
         System.out.println("*********************************");
-        System.out.println("Nome da Equipe: "+Equipe);
-        System.out.println("TAG da Equipe: "+EquipeTag);
-        System.out.println("Jogadores ----------------");
-        for(int i=0; i<Jogadores.size(); i++){
-            System.out.println("-> "+Jogadores.get(i));
+        System.out.println("Nome: "+nome);
+        System.out.println("Cpf: "+tag);
+        System.out.println("Jogadores -------------");
+        for(int i=0; i<jogadores.size(); i++){
+            System.out.println("-> "+jogadores.get(i));
         }
         System.out.println("*********************************");
     }
-
-    public enum Jogo  {
-        CSGO, LOL, RL, VALORANT;
-    }
-
 }
