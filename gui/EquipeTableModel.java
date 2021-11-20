@@ -47,12 +47,12 @@ public class EquipeTableModel extends AbstractTableModel{
     // preenche cada célula da tabela
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        // obtem o registro do aluno da linha especificada
+        // obtem o registro da equipe da linha especificada
         Equipe linha = listaEquipes.get(rowIndex);
 
         if(columnIndex == 0){ // coluna NOME
             return linha.getNome();
-        }else if(columnIndex == 1){ // coluna CPF
+        }else if(columnIndex == 1){ // coluna TAG
             return linha.getTag();
         }
         
