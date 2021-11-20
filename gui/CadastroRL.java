@@ -304,11 +304,34 @@ public class CadastroRL extends JFrame {
                 Jog3Object.put("Jogador3", Jogador3);
                 // -------------------------------------------------
 
+                //Jogador 4
+                JSONObject Jogador4 = new JSONObject();
+                Jogador4.put("Nome", null);
+                Jogador4.put("Nickname", null);
+                Jogador4.put("Role", null);
+                
+                JSONObject Jog4Object = new JSONObject(); 
+                Jog4Object.put("Jogador4", Jogador4);
+                // -------------------------------------------------
+
+                //Jogador 5
+                JSONObject Jogador5 = new JSONObject();
+                Jogador5.put("Nome", null);
+                Jogador5.put("Nickname", null);
+                Jogador5.put("Role", null);
+                
+                JSONObject Jog5Object = new JSONObject(); 
+                Jog5Object.put("Jogador5", Jogador5);
+                // -------------------------------------------------
+                
                 //Adicionando os Jogadores ao Array de Jogadores
                 JSONArray JogadoresLista = new JSONArray();
                 JogadoresLista.add(Jog1Object);
                 JogadoresLista.add(Jog2Object);
                 JogadoresLista.add(Jog3Object);
+                JogadoresLista.add(Jog4Object);
+                JogadoresLista.add(Jog5Object);
+
                 // -------------------------------------------------
 
                 // Criando o JSON definitivo    
@@ -316,6 +339,7 @@ public class CadastroRL extends JFrame {
                 RLJSON.put("Nome da Equipe", txtequipe.getText());
                 RLJSON.put("TAG", txtTag.getText());
                 RLJSON.put("Jogadores", JogadoresLista);
+                RLJSON.put("Jogo", "RL");
                 
                 //Write JSON file
                 try (FileWriter file = new FileWriter("EquipeRL.json")) {
@@ -330,7 +354,7 @@ public class CadastroRL extends JFrame {
                 /* Salva o objeto json no banco de dados ------------- */
                 Connection conexao = FabricaConexao.getInstance(); // obtém a instancia do banco de dados
                 try{
-                PreparedStatement ps = conexao.prepareStatement("INSERT INTO dados_rl(dados_rl) VALUES('" +RLJSON.toJSONString()+ "')");
+                PreparedStatement ps = conexao.prepareStatement("INSERT INTO dados_jogo(dados_jogo) VALUES('" +RLJSON.toJSONString()+ "')");
                 ps.execute(); // executar o sql no banco de dados
                 JOptionPane.showMessageDialog(null, "Equipe cadastrada com sucesso!", "Inserção no Banco",JOptionPane.INFORMATION_MESSAGE);
                 dispose(); // fechar esta janela de Cadastro
@@ -344,3 +368,4 @@ public class CadastroRL extends JFrame {
                 
      }
  }
+

@@ -420,7 +420,8 @@ public class CadastroValorant extends JFrame {
                 JSONObject VALORANTJSON = new JSONObject();
                 VALORANTJSON.put("Nome da Equipe", txtequipe.getText());
                 VALORANTJSON.put("TAG", txtTag.getText());
-                VALORANTJSON.put("Jogadores", JogadoresLista);
+                VALORANTJSON.put("Jogadores", JogadoresLista);              
+                VALORANTJSON.put("Jogo", "VALORANT");
                 
                 //Write JSON file
                 try (FileWriter file = new FileWriter("EquipeValorant.json")) {
@@ -435,7 +436,7 @@ public class CadastroValorant extends JFrame {
                 /* Salva o objeto json no banco de dados ------------- */
                 Connection conexao = FabricaConexao.getInstance(); // obtém a instancia do banco de dados
                 try{
-                PreparedStatement ps = conexao.prepareStatement("INSERT INTO dados_valorant(dados_valorant) VALUES('" +VALORANTJSON.toJSONString()+ "')");
+                PreparedStatement ps = conexao.prepareStatement("INSERT INTO dados_jogo(dados_jogo) VALUES('" +VALORANTJSON.toJSONString()+ "')");
                 ps.execute(); // executar o sql no banco de dados
                 JOptionPane.showMessageDialog(null, "Equipe cadastrada com sucesso!", "Inserção no Banco",JOptionPane.INFORMATION_MESSAGE);
                 dispose(); // fechar esta janela de Cadastro

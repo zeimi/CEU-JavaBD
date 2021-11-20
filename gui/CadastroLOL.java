@@ -328,45 +328,50 @@ public class CadastroLOL extends JFrame {
                 JSONObject Jogador1 = new JSONObject();
                 Jogador1.put("Nome", txtjog1.getText());
                 Jogador1.put("Nickname", txtnick1.getText());
+                Jogador1.put("Role", null);
                 
                 JSONObject Jog1Object = new JSONObject(); 
-                Jog1Object.put("Jogador1", Jogador1);
+                Jog1Object.put("Top", Jogador1);
                 // -------------------------------------------------
                 
                 //Jogador 2
                 JSONObject Jogador2 = new JSONObject();
                 Jogador2.put("Nome", txtjog2.getText());
                 Jogador2.put("Nickname", txtnick2.getText());
+                Jogador2.put("Role", null);
                 
                 JSONObject Jog2Object = new JSONObject(); 
-                Jog2Object.put("Jogador2", Jogador2);
+                Jog2Object.put("Jungle", Jogador2);
                 // -------------------------------------------------
 
                 //Jogador 3
                 JSONObject Jogador3 = new JSONObject();
                 Jogador3.put("Nome", txtjog3.getText());
                 Jogador3.put("Nickname", txtnick3.getText());
+                Jogador3.put("Role", null);
                 
                 JSONObject Jog3Object = new JSONObject(); 
-                Jog3Object.put("Jogador3", Jogador3);
+                Jog3Object.put("Mid", Jogador3);
                 // -------------------------------------------------
 
                 //Jogador 4
                 JSONObject Jogador4 = new JSONObject();
                 Jogador4.put("Nome", txtjog4.getText());
                 Jogador4.put("Nickname", txtnick4.getText());
+                Jogador4.put("Role", null);
                 
                 JSONObject Jog4Object = new JSONObject(); 
-                Jog4Object.put("Jogador4", Jogador4);
+                Jog4Object.put("Adc", Jogador4);
                 // -------------------------------------------------
 
                 //Jogador 5
                 JSONObject Jogador5 = new JSONObject();
                 Jogador5.put("Nome", txtjog5.getText());
                 Jogador5.put("Nickname", txtnick5.getText());
+                Jogador5.put("Role", null);
                 
                 JSONObject Jog5Object = new JSONObject(); 
-                Jog5Object.put("Jogador5", Jogador5);
+                Jog5Object.put("Sup", Jogador5);
                 // -------------------------------------------------
                 
                 //Adicionando os Jogadores ao Array de Jogadores
@@ -376,6 +381,7 @@ public class CadastroLOL extends JFrame {
                 JogadoresLista.add(Jog3Object);
                 JogadoresLista.add(Jog4Object);
                 JogadoresLista.add(Jog5Object);
+
                 // -------------------------------------------------
 
                 // Criando o JSON definitivo    
@@ -383,6 +389,7 @@ public class CadastroLOL extends JFrame {
                 LOLJSON.put("Nome da Equipe", txtequipe.getText());
                 LOLJSON.put("TAG", txtTag.getText());
                 LOLJSON.put("Jogadores", JogadoresLista);
+                LOLJSON.put("Jogo", "LOL");
                 
                 //Write JSON file
                 try (FileWriter file = new FileWriter("EquipeLOL.json")) {
@@ -397,7 +404,7 @@ public class CadastroLOL extends JFrame {
                 /* Salva o objeto json no banco de dados ------------- */
                 Connection conexao = FabricaConexao.getInstance(); // obtém a instancia do banco de dados
                 try{
-                PreparedStatement ps = conexao.prepareStatement("INSERT INTO dados_lol(dados_lol) VALUES('" +LOLJSON.toJSONString()+ "')");
+                PreparedStatement ps = conexao.prepareStatement("INSERT INTO dados_jogo(dados_jogo) VALUES('" +LOLJSON.toJSONString()+ "')");
                 ps.execute(); // executar o sql no banco de dados
                 JOptionPane.showMessageDialog(null, "Equipe cadastrada com sucesso!", "Inserção no Banco",JOptionPane.INFORMATION_MESSAGE);
                 dispose(); // fechar esta janela de Cadastro

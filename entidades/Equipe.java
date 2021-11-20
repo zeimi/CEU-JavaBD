@@ -3,13 +3,15 @@ package entidades;
 import java.util.ArrayList;
 import java.util.List;
 
-public class EquipeValorant {
+public class Equipe {
     // atributos -------------------------------
-    String Equipe, EquipeTag, signo;
+    String Equipe, EquipeTag;
     List<String> Jogadores;
+    Jogo nomeJogo;
     
     // construtor ------------------------------
-    public EquipeValorant(){
+    public Equipe(Jogo nomeJogo){
+        this.nomeJogo = nomeJogo;
         Jogadores = new ArrayList<String>();
     }
     
@@ -43,4 +45,9 @@ public class EquipeValorant {
         }
         System.out.println("*********************************");
     }
+
+    public enum Jogo  {
+        CSGO, LOL, RL, VALORANT;
+    }
+
 }
