@@ -1,6 +1,8 @@
 package gui;
 
 import gui.MainPage.*;
+
+import javax.print.DocFlavor.STRING;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.TableColumnModel;
@@ -34,6 +36,7 @@ public class Visualizar extends JFrame {
     private EquipeTableModel modelEquipes;
     private ArrayList<Equipe> listaEquipes;
     private JButton btnShowJogadores;
+    private JComboBox caixaVariavel;
 
     /* Construtores ----------------------------------------------------- */
     public Visualizar(JComboBox caixaTorneios) {
@@ -41,11 +44,12 @@ public class Visualizar extends JFrame {
         caixaTorneios.getSelectedItem();
         String nome = caixaTorneios.getSelectedItem().toString();
         System.out.println(nome);
+        caixaVariavel = caixaTorneios;
 
         // inicialização dos componentes
         listaEquipes = new ArrayList<Equipe>(); // inicializa a lista de equipes
         modelEquipes = new EquipeTableModel(listaEquipes); // inicializa o tablemodel com a lista
-        buscarDados();
+        buscarDados(caixaTorneios);
 
         tableEquipes = new JTable(modelEquipes); // inicializa o JTable
         tableEquipes.setPreferredScrollableViewportSize(new Dimension(500, 200)); // definie a largura da tabela
@@ -69,7 +73,7 @@ public class Visualizar extends JFrame {
     }
 
     /* Métodos ------------------------------------------------------------- */
-    public void buscarDados() {
+    public void buscarDados(JComboBox caixaTorneiosDados) {
         listaEquipes.clear(); // limpa/zera todos os dados do ArrayList
         // buca as informações de cada equipe no Banco de dados
         try {
@@ -91,6 +95,9 @@ public class Visualizar extends JFrame {
                 JSONObject jsonEquipe = (JSONObject) parser.parse(jsonEquipeString);
 
                 // obtém cada um dos valores do JSON
+                String jogoEscolhido = (String) jsonEquipe.get("Jogo"); // Implementar aqui sistema de filtro
+                System.out.println(jogoEscolhido);
+
                 String nome = (String) jsonEquipe.get("Nome da Equipe");
                 String tag = (String) jsonEquipe.get("TAG");
                 JSONArray jogadores = (JSONArray) jsonEquipe.get("Jogadores");
@@ -117,7 +124,7 @@ public class Visualizar extends JFrame {
     public class EventoResposta{
         public void atualizarDados(){
             // busca novamento os dados das equipes no banco
-            buscarDados();
+            buscarDados(caixaVariavel);
             // informo ao tableModel que os dados foram atualizados
             modelEquipes.fireTableDataChanged();
         }
