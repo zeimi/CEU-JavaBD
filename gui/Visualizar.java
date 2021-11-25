@@ -41,7 +41,7 @@ public class Visualizar extends JFrame {
     public Visualizar(JComboBox caixaTorneios) {
         super("Listagem das Equipes");
         jogoDeterminado = caixaTorneios.getSelectedItem().toString();
-        System.out.println("Jogo Escoliho: " + jogoDeterminado);
+        System.out.println("Jogo Escolhido: " + jogoDeterminado);
 
         // inicialização dos componentes
         listaEquipes = new ArrayList<Equipe>(); // inicializa a lista de equipes
@@ -90,13 +90,12 @@ public class Visualizar extends JFrame {
                 JSONParser parser = new JSONParser();
                 // converte(parse) o campo equipe para um objeto json
                 JSONObject jsonEquipe = (JSONObject) parser.parse(jsonEquipeString);
-                System.out.println(jsonEquipe);
 
                 // obtém cada um dos valores do JSON
                 String jogoEscolhido = (String) jsonEquipe.get("Jogo"); // Implementar aqui sistema de filtro
-                System.out.println("Jogo Encontrado: "+jogoEscolhido);
+                System.out.println("Jogo da Equipe: "+jogoEscolhido);
                 if (jogoEscolhido.equals(jogoDeterminado)) {
-                    System.out.println("Equipe Adicionada");
+                    System.out.println("Equipe Adicionada\n");
                     String nome = (String) jsonEquipe.get("Nome da Equipe");
                     String tag = (String) jsonEquipe.get("TAG");
                     JSONArray jogadores = (JSONArray) jsonEquipe.get("Jogadores");
@@ -109,7 +108,7 @@ public class Visualizar extends JFrame {
                     // coloca cada nova equipe dentro da lista
                     listaEquipes.add(equipe); 
                 } else {
-                    System.out.println("Equipe não pertence a jogo");
+                    System.out.println("Equipe não pertence a jogo\n");
                 }
                 
             }

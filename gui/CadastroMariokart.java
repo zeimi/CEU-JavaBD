@@ -55,8 +55,8 @@ public class CadastroMariokart extends JFrame {
     myLabel2 = new JLabel("\nVocê tem certeza disso?");
     GrupoSalas = new ButtonGroup();
     GruposSN = new ButtonGroup();
-    Sala1 = new JRadioButton("sala1", false);
-    Sala2= new JRadioButton("sala2", false);
+    Sala1 = new JRadioButton("Sala 1", false);
+    Sala2= new JRadioButton("Sala 2", false);
     sim = new JRadioButton("Sim", false);
     nao = new JRadioButton("Não", false);
 
@@ -132,11 +132,11 @@ public class CadastroMariokart extends JFrame {
     constraints.gridx=2; // coluna 2
     constraints.gridy=4; // linha 7
     panel.add (myLabel2, constraints); 
-
+    // Confirmação
     constraints.gridx=2; // coluna 4
     constraints.gridy=5; // linha 4
     panel.add (sim, constraints);
-
+    // Confirmação
     constraints.gridx=2; // coluna 4
     constraints.gridy=6; // linha 4
     panel.add (nao, constraints);
@@ -149,7 +149,6 @@ public class CadastroMariokart extends JFrame {
     constraints.gridy=5; // linha 4
     panel.add (nivel1, constraints);
     // ---------------- Background ----------------
-
     background.add(panel, BorderLayout.PAGE_END);
     background.repaint();
     
@@ -161,11 +160,9 @@ public class CadastroMariokart extends JFrame {
     pack(); // define o tamanho da janela (menor possível para caber o conteúdo)
     setVisible(true);
             
-    // Configuração do botão
-              
-              
-    GrupoSalas.add(Sala1);
-    GrupoSalas.add(Sala2);
+    // Configuração do botão   
+    GrupoSalas.add(Sala1); // Adiciona o Botão "Sala 1" no grupo de botões "GruposSalas"
+    GrupoSalas.add(Sala2); // Adiciona o Botão "Sala 2" no grupo de botões "GruposSalas"
               
     GruposSN = new ButtonGroup();
     GruposSN.add(sim);

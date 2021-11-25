@@ -9,9 +9,6 @@ import java.text.ParseException;
 import javax.swing.border.EmptyBorder;
 import javax.swing.text.*;
 import org.json.simple.JSONObject;
-
-import entidades.Equipe;
-
 import org.json.simple.JSONArray;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -60,7 +57,6 @@ public class CadastroCSGO extends JFrame {
 
     private JButton botaoSalvar;
 
-    private String Jogo;
 
 
     public CadastroCSGO() {
@@ -73,6 +69,7 @@ public class CadastroCSGO extends JFrame {
 
         labelequipe = new JLabel("Nome da equipe:");
         labelTag = new JLabel("TAG da equipe:");
+
         labeljog1 = new JLabel("Nome Jogador 1:");
         labeljog2 = new JLabel("Nome Jogador 2:");
         labeljog3 = new JLabel("Nome Jogador 3:");
@@ -253,17 +250,20 @@ public class CadastroCSGO extends JFrame {
         constraints.gridx=4; // coluna 4
         constraints.gridy=6; // linha 6
         panel.add(caixaRoles5, constraints);
-
-        // ---------------- Background ----------------
-
-        background.add(panel, BorderLayout.PAGE_END);
-        background.repaint();
+        // --------------------------------------------------------
 
         // ---------------- Componentes da linha 7 ----------------
         constraints.gridx=0; // coluna 0
         constraints.gridy=7; // linha 7
         constraints.gridwidth=5; // ocupa 5 colunas
         panel.add(botaoSalvar, constraints);
+        // --------------------------------------------------------
+
+        // ---------------------- Background ----------------------
+        background.add(panel, BorderLayout.PAGE_END);
+        background.repaint();
+        // --------------------------------------------------------
+        
 
         // configuração da janela
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
