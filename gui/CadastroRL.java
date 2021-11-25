@@ -340,7 +340,7 @@ public class CadastroRL extends JFrame {
                 RLJSON.put("Nome da Equipe", txtequipe.getText());
                 RLJSON.put("TAG", txtTag.getText());
                 RLJSON.put("Jogadores", JogadoresLista);
-                RLJSON.put("Jogo", Equipe.Jogo.RL.toString());
+                RLJSON.put("Jogo", "Rocket League");
                 
                 //Write JSON file
                 try (FileWriter file = new FileWriter("EquipeRL.json")) {

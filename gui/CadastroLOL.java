@@ -390,7 +390,7 @@ public class CadastroLOL extends JFrame {
                 LOLJSON.put("Nome da Equipe", txtequipe.getText());
                 LOLJSON.put("TAG", txtTag.getText());
                 LOLJSON.put("Jogadores", JogadoresLista);
-                LOLJSON.put("Jogo", Equipe.Jogo.LOL.toString());
+                LOLJSON.put("Jogo", "League of Legends");
                 
                 //Write JSON file
                 try (FileWriter file = new FileWriter("EquipeLOL.json")) {

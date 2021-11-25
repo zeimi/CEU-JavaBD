@@ -37,7 +37,7 @@ public class MainPage extends JFrame {
 
         labelTorneios = new JLabel("Campeonato:");
         // array de textos que será passado para o ComboBox
-        String[] torneios = {"League of Legends","CS.GO","Valorant","Rocket League", "Mário Kart"};
+        String[] torneios = {"League of Legends","CSGO","Valorant","Rocket League", "Mário Kart"};
         caixaTorneios = new JComboBox<String>(torneios);
         caixaTorneios.setSize(80, 30);
         botaoCadastrar = new JButton("Cadastrar participante");
@@ -100,7 +100,7 @@ public class MainPage extends JFrame {
             if (caixaTorneios.getSelectedItem() == "League of Legends"){System.out.println("lolzim");
             CadastroLOL janelaCadastro = new CadastroLOL();
                 
-            } else if (caixaTorneios.getSelectedItem() == "CS.GO"){
+            } else if (caixaTorneios.getSelectedItem() == "CSGO"){
                 System.out.println("cs");
                 CadastroCSGO janelaCadastro = new CadastroCSGO();
             } else if (caixaTorneios.getSelectedItem() == "Valorant"){

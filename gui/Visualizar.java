@@ -10,7 +10,6 @@ import javax.swing.table.TableColumnModel;
 import com.mysql.cj.xdevapi.JsonParser;
 
 import entidades.Equipe;
-import entidades.Equipe.Jogo;
 
 import java.awt.event.*;
 import java.awt.*;
@@ -36,20 +35,18 @@ public class Visualizar extends JFrame {
     private EquipeTableModel modelEquipes;
     private ArrayList<Equipe> listaEquipes;
     private JButton btnShowJogadores;
-    private JComboBox caixaVariavel;
+    public String jogoDeterminado;
 
     /* Construtores ----------------------------------------------------- */
     public Visualizar(JComboBox caixaTorneios) {
         super("Listagem das Equipes");
-        caixaTorneios.getSelectedItem();
-        String nome = caixaTorneios.getSelectedItem().toString();
-        System.out.println(nome);
-        caixaVariavel = caixaTorneios;
+        jogoDeterminado = caixaTorneios.getSelectedItem().toString();
+        System.out.println("Jogo Escoliho: " + jogoDeterminado);
 
         // inicialização dos componentes
         listaEquipes = new ArrayList<Equipe>(); // inicializa a lista de equipes
         modelEquipes = new EquipeTableModel(listaEquipes); // inicializa o tablemodel com a lista
-        buscarDados(caixaTorneios);
+        buscarDados();
 
         tableEquipes = new JTable(modelEquipes); // inicializa o JTable
         tableEquipes.setPreferredScrollableViewportSize(new Dimension(500, 200)); // definie a largura da tabela
@@ -73,7 +70,7 @@ public class Visualizar extends JFrame {
     }
 
     /* Métodos ------------------------------------------------------------- */
-    public void buscarDados(JComboBox caixaTorneiosDados) {
+    public void buscarDados() {
         listaEquipes.clear(); // limpa/zera todos os dados do ArrayList
         // buca as informações de cada equipe no Banco de dados
         try {
@@ -86,29 +83,35 @@ public class Visualizar extends JFrame {
             // percorrer a lista de resultados (ResultSet)
             while (rs.next()) {
                 // cria um novo objeto equipe
-                Equipe equipe = new Equipe(Equipe.Jogo.CSGO);
+                Equipe equipe = new Equipe();
                 // captura o JSon como texto puro
                 String jsonEquipeString = rs.getString("dados_jogo");
                 // cria o conversor(parser) Json
                 JSONParser parser = new JSONParser();
                 // converte(parse) o campo equipe para um objeto json
                 JSONObject jsonEquipe = (JSONObject) parser.parse(jsonEquipeString);
+                System.out.println(jsonEquipe);
 
                 // obtém cada um dos valores do JSON
                 String jogoEscolhido = (String) jsonEquipe.get("Jogo"); // Implementar aqui sistema de filtro
-                System.out.println(jogoEscolhido);
+                System.out.println("Jogo Encontrado: "+jogoEscolhido);
+                if (jogoEscolhido.equals(jogoDeterminado)) {
+                    System.out.println("Equipe Adicionada");
+                    String nome = (String) jsonEquipe.get("Nome da Equipe");
+                    String tag = (String) jsonEquipe.get("TAG");
+                    JSONArray jogadores = (JSONArray) jsonEquipe.get("Jogadores");
 
-                String nome = (String) jsonEquipe.get("Nome da Equipe");
-                String tag = (String) jsonEquipe.get("TAG");
-                JSONArray jogadores = (JSONArray) jsonEquipe.get("Jogadores");
+                    // coloca os valores obtidos dentro do objeto equipe
+                    equipe.setNome(nome);
+                    equipe.setTag(tag);
+                    equipe.setJogadores(jogadores);
 
-                // coloca os valores obtidos dentro do objeto equipe
-                equipe.setNome(nome);
-                equipe.setTag(tag);
-                equipe.setJogadores(jogadores);
-
-                // coloca cada nova equipe dentro da lista
-                listaEquipes.add(equipe);
+                    // coloca cada nova equipe dentro da lista
+                    listaEquipes.add(equipe); 
+                } else {
+                    System.out.println("Equipe não pertence a jogo");
+                }
+                
             }
 
         } catch (SQLException e) {
@@ -124,7 +127,7 @@ public class Visualizar extends JFrame {
     public class EventoResposta{
         public void atualizarDados(){
             // busca novamento os dados das equipes no banco
-            buscarDados(caixaVariavel);
+            buscarDados();
             // informo ao tableModel que os dados foram atualizados
             modelEquipes.fireTableDataChanged();
         }
