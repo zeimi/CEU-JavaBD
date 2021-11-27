@@ -60,6 +60,8 @@ public class CadastroMariokart extends JFrame {
     sim = new JRadioButton("Sim", false);
     nao = new JRadioButton("Não", false);
 
+    botaoSalvar = new JButton("Salvar Jogador");
+
     // VALIDAÇÃO DO CAMPO CPF
     String cpf = txtcpf.getText(); // obter o cpf completo digitado
     cpf = cpf.replace(".", "");

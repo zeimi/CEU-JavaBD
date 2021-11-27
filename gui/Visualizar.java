@@ -102,16 +102,19 @@ public class Visualizar extends JFrame {
                     String nome = (String) jsonEquipe.get("Nome da Equipe");
                     String tag = (String) jsonEquipe.get("TAG");
                     JSONArray jogadores = (JSONArray) jsonEquipe.get("Jogadores");
+                    String jogo = (String) jsonEquipe.get("Jogo");
 
                     // coloca os valores obtidos dentro do objeto equipe
                     equipe.setNome(nome);
                     equipe.setTag(tag);
                     equipe.setJogadores(jogadores);
+                    equipe.setJogo(jogo);
 
                     // coloca cada nova equipe dentro da lista
                     listaEquipes.add(equipe); 
                 } else {
-                    System.out.println("Equipe não pertence a jogo\n");
+                    String nome = (String) jsonEquipe.get("Nome da Equipe");
+                    System.out.println("Equipe: \""+nome+"\" não pertence ao jogo\n");
                 }
                 
             }

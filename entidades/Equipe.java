@@ -2,16 +2,18 @@ package entidades;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 public class Equipe {
     // atributos -------------------------------
     String nome, tag, jogo;
-    List<JSONObject> jogadores;
+    JSONArray jogadores;
     
     // construtor ------------------------------
     public Equipe(){
-        jogadores = new ArrayList<JSONObject>();
+        jogadores = new JSONArray();
     }
     
     // getters e Setters -------------------------------
@@ -33,10 +35,10 @@ public class Equipe {
     public void setJogo(String jogo) {
         this.jogo = jogo;
     }
-    public List<JSONObject> getJogadores() {
+    public JSONArray getJogadores() {
         return jogadores;
     }
-    public void setJogadores(List<JSONObject> jogadores) {
+    public void setJogadores(JSONArray jogadores) {
         this.jogadores = jogadores;
     }
 }
