@@ -2,15 +2,16 @@ package entidades;
 
 import java.util.ArrayList;
 import java.util.List;
+import org.json.simple.JSONObject;
 
 public class Equipe {
     // atributos -------------------------------
-    String nome, tag;
-    List<String> jogadores;
+    String nome, tag, jogo;
+    List<JSONObject> jogadores;
     
     // construtor ------------------------------
     public Equipe(){
-        jogadores = new ArrayList<String>();
+        jogadores = new ArrayList<JSONObject>();
     }
     
     // getters e Setters -------------------------------
@@ -26,23 +27,16 @@ public class Equipe {
     public void setTag(String tag) {
         this.tag = tag;
     }
-    public List<String> getJogadores() {
+    public String getJogo() {
+        return jogo;
+    }
+    public void setJogo(String jogo) {
+        this.jogo = jogo;
+    }
+    public List<JSONObject> getJogadores() {
         return jogadores;
     }
-    public void setJogadores(List<String> jogadores) {
+    public void setJogadores(List<JSONObject> jogadores) {
         this.jogadores = jogadores;
     }
-    // métodos -------------------------------
-    public void print(){
-        System.out.println("*********************************");
-        System.out.println("Nome: "+nome);
-        System.out.println("Cpf: "+tag);
-        System.out.println("Jogadores -------------");
-        for(int i=0; i<jogadores.size(); i++){
-            System.out.println("-> "+jogadores.get(i));
-        }
-        System.out.println("*********************************");
-    }
-
-
 }

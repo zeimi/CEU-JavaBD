@@ -35,6 +35,8 @@ public class Visualizar extends JFrame {
     private EquipeTableModel modelEquipes;
     private ArrayList<Equipe> listaEquipes;
     private JButton btnShowJogadores;
+    private JogadoresEquipe jogadoresEquipe = null;
+
     public String jogoDeterminado;
 
     /* Construtores ----------------------------------------------------- */
@@ -53,6 +55,7 @@ public class Visualizar extends JFrame {
         tableEquipes.setSelectionMode(ListSelectionModel.SINGLE_SELECTION); // restringe a seleção de um único registro
                                                                            // na tabela
         btnShowJogadores = new JButton("Mostrar jogadores da equipe");
+        btnShowJogadores.addActionListener(new EventoShowDisciplinas());
 
         // definição dos layouts
         JPanel panel = new JPanel(new BorderLayout(10, 10)); // espaçamento de 5px entre os componentes
@@ -129,6 +132,24 @@ public class Visualizar extends JFrame {
             buscarDados();
             // informo ao tableModel que os dados foram atualizados
             modelEquipes.fireTableDataChanged();
+        }
+    }
+
+    private class EventoShowDisciplinas implements ActionListener {
+        public void actionPerformed(ActionEvent e) { // o método invocado quando o btn cadastrar for pressionado
+            if(tableEquipes.getSelectedRow() != -1){ // verifica se o usuário selecionou um aluno na tabela
+                // captura o nº da linha selecionada no JTable
+                int linhaSelecionada = tableEquipes.getSelectedRow();
+                // captura o aluno pela linha selecionada
+                Equipe equipeSelecionada = modelEquipes.getEquipe(linhaSelecionada);
+                
+                if(jogadoresEquipe != null){ // tratar a possibilidade de ser a primeira abertura de janela
+                    jogadoresEquipe.dispose(); // fecha a janela atual
+                }
+                jogadoresEquipe = new JogadoresEquipe(equipeSelecionada); // cria uma nova janela
+            }else{ // caso não tenha selecionado nenhum aluno
+                JOptionPane.showMessageDialog(null, "Você precisa selecionar um aluno!","Exibição", JOptionPane.WARNING_MESSAGE);
+            }
         }
     }
 } // :3
