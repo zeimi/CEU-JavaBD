@@ -138,7 +138,7 @@ public class Visualizar extends JFrame {
                 }
                 jogadoresEquipe = new JogadoresEquipe(equipeSelecionada); // cria uma nova janela
             }else{ // caso não tenha selecionado nenhum aluno
-                JOptionPane.showMessageDialog(null, "Você precisa selecionar um aluno!","Exibição", JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Você precisa selecionar uma Equipe!","Exibição", JOptionPane.WARNING_MESSAGE);
             }
         }
     }
