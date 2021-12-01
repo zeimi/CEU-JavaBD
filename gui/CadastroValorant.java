@@ -13,7 +13,6 @@ import org.json.simple.JSONArray;
 import java.io.FileWriter;
 import java.io.IOException;
 import utils.FabricaConexao;
-import entidades.Equipe;
 
 
 public class CadastroValorant extends JFrame {
@@ -342,6 +341,7 @@ public class CadastroValorant extends JFrame {
 
 
     /* Classes internas ---------------------------------------------------- */
+    @SuppressWarnings("unused") // Suprime os Warnings Java
     private class Eventoinfovalorant implements ActionListener {
         public void actionPerformed(ActionEvent e) { // o método invocado quando o btn cadastrar for pressionado
             infovalorant janelainfovalorant = new infovalorant();

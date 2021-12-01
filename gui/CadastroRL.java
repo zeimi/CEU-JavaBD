@@ -13,7 +13,6 @@ import org.json.simple.JSONArray;
 import java.io.FileWriter;
 import java.io.IOException;
 import utils.FabricaConexao;
-import entidades.Equipe;
 
 
 public class CadastroRL extends JFrame {
@@ -206,6 +205,7 @@ public class CadastroRL extends JFrame {
         setVisible(true);
     }
     /* Classes internas ---------------------------------------------------- */
+    @SuppressWarnings("unused") // Suprime os Warnings Java
     private class Eventoinforl implements ActionListener {
         public void actionPerformed(ActionEvent e) { // o método invocado quando o btn cadastrar for pressionado
             inforl janelainforl = new inforl();

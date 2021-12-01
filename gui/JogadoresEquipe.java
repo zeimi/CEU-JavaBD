@@ -2,12 +2,8 @@ package gui;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
-
 import entidades.Equipe;
-import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
 import java.awt.*;
-import java.util.List;
 import org.json.simple.*;
 
 public class JogadoresEquipe extends JFrame{
@@ -15,8 +11,6 @@ public class JogadoresEquipe extends JFrame{
     private JLabel labelNome;
     private JLabel labelTAG;
     private JLabel labelJogo;
-    private JList listJogadores;
-    private DefaultListModel<JSONObject> modelJogadores;
 
     private JLabel labeljog1Nome;
     private JLabel labeljog2Nome;
@@ -36,7 +30,6 @@ public class JogadoresEquipe extends JFrame{
     private JLabel labeljog4Role;
     private JLabel labeljog5Role;
 
-    private JSONArray jogadoresJSON;
     private JSONObject jog1Json;
     private JSONObject jog2Json;
     private JSONObject jog3Json;

@@ -1,32 +1,19 @@
 package gui;
 
-import gui.MainPage.*;
-
-import javax.print.DocFlavor.STRING;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
-import javax.swing.table.TableColumnModel;
-
-import com.mysql.cj.xdevapi.JsonParser;
-
 import entidades.Equipe;
-
 import java.awt.event.*;
 import java.awt.*;
 import java.util.ArrayList;
-import java.util.Random;
-
 import java.sql.Connection;
 import java.sql.SQLException;
-import java.time.LocalDate;
 import java.sql.ResultSet;
 import java.sql.PreparedStatement;
-
 import org.json.simple.JSONObject;
 import org.json.simple.JSONArray;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
-
 import utils.FabricaConexao;
 
 public class Visualizar extends JFrame {
@@ -40,7 +27,7 @@ public class Visualizar extends JFrame {
     public String jogoDeterminado;
 
     /* Construtores ----------------------------------------------------- */
-    public Visualizar(JComboBox caixaTorneios) {
+    public Visualizar(JComboBox<String> caixaTorneios) {
         super("Listagem das Equipes");
         jogoDeterminado = caixaTorneios.getSelectedItem().toString();
         System.out.println("Jogo Escolhido: " + jogoDeterminado);

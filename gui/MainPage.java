@@ -2,24 +2,8 @@ package gui;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
-import javax.swing.table.TableColumnModel;
-
-import com.mysql.cj.xdevapi.JsonParser;
-import entidades.Equipe.*;
 import java.awt.event.*;
 import java.awt.*;
-import java.util.ArrayList;
-import java.util.Random;
-
-import java.sql.Connection;
-import java.sql.SQLException;
-import java.sql.ResultSet;
-import java.sql.PreparedStatement;
-
-import org.json.simple.JSONObject;
-import org.json.simple.JSONArray;
-import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
 
 
 public class MainPage extends JFrame {
@@ -27,7 +11,7 @@ public class MainPage extends JFrame {
     private JButton botaoCadastrar;
     private JButton botaoVisualizar;
     private JLabel labelTorneios;
-    private JComboBox caixaTorneios;
+    private JComboBox<String> caixaTorneios;
 
     /* Construtores ----------------------------------------------------- */
     public MainPage() {
@@ -95,6 +79,7 @@ public class MainPage extends JFrame {
     /* Métodos ------------------------------------------------------------- */
 
     /* Classes internas ---------------------------------------------------- */
+    @SuppressWarnings("unused") // Suprime os Warnings Java
     private class EventoCadastrar implements ActionListener {
         public void actionPerformed(ActionEvent e) { // o método invocado quando o btn cadastrar for pressionado
             if (caixaTorneios.getSelectedItem() == "League of Legends"){System.out.println("lolzim");
@@ -117,7 +102,7 @@ public class MainPage extends JFrame {
             }
         }
     }
-    
+    @SuppressWarnings("unused") // Suprime os Warnings Java
     private class EventoVisualizar implements ActionListener {
         public void actionPerformed(ActionEvent e) { // o método invocado quando o btn cadastrar for pressionado
 
