@@ -143,7 +143,7 @@ public class JogadoresEquipe extends JFrame{
                     //Coletando as Strings
                     jog5nome = (String)jog5.get("Nome");
                     jog5nick = (String)jog5.get("Nickname");
-                    jog5role = "LOL não possui Roles";
+                    jog5role = "Sup";
     
                 } else if (n == 3) { // Se o número de jogadores for 4:
                     // Filtrando os dados de JSON para String
@@ -153,7 +153,7 @@ public class JogadoresEquipe extends JFrame{
                     //Coletando as Strings
                     jog4nome = (String)jog4.get("Nome");
                     jog4nick = (String)jog4.get("Nickname");
-                    jog4role = "LOL não possui Roles";
+                    jog4role = "Adc";
                 } else if (n == 2) { // Se o número de jogadores for 3:
                     // Filtrando os dados de JSON para String
                     jog3Json = (JSONObject)jogadoresJSON.get(n);
@@ -162,7 +162,7 @@ public class JogadoresEquipe extends JFrame{
                     //Coletando as Strings
                     jog3nome = (String)jog3.get("Nome");
                     jog3nick = (String)jog3.get("Nickname");
-                    jog3role = "LOL não possui Roles";
+                    jog3role = "Mid";
                 } else if (n == 1) { // Se o número de jogadores for 2:
                     // Filtrando os dados de JSON para String
                     jog2Json = (JSONObject)jogadoresJSON.get(n);
@@ -171,7 +171,7 @@ public class JogadoresEquipe extends JFrame{
                     //Coletando as Strings
                     jog2nome = (String)jog2.get("Nome");
                     jog2nick = (String)jog2.get("Nickname");
-                    jog2role = "LOL não possui Roles";
+                    jog2role = "Jungle";
                 } else if (n == 0) { // Se o número de jogadores for 1:
                     // Filtrando os dados de JSON para String
                     jog1Json = (JSONObject)jogadoresJSON.get(n);
@@ -180,7 +180,7 @@ public class JogadoresEquipe extends JFrame{
                     //Coletando as Strings
                     jog1nome = (String)jog1.get("Nome");
                     jog1nick = (String)jog1.get("Nickname");
-                    jog1role = "LOL não possui Roles";
+                    jog1role = "Top";
                 }
                 n--; 
             }
