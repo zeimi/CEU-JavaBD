@@ -21,7 +21,7 @@ public class MainPage extends JFrame {
 
         labelTorneios = new JLabel("Campeonato:");
         // array de textos que será passado para o ComboBox
-        String[] torneios = {"League of Legends","CSGO","Valorant","Rocket League", "Mário Kart"};
+        String[] torneios = {"League of Legends","CSGO","Valorant","Rocket League", "Mario Kart"};
         caixaTorneios = new JComboBox<String>(torneios);
         caixaTorneios.setSize(80, 30);
         botaoCadastrar = new JButton("Cadastrar participante");

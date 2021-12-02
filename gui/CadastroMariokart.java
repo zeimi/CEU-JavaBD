@@ -1,5 +1,4 @@
 package gui;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -11,186 +10,343 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.text.*;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONArray;
+import java.io.FileWriter;
+import java.io.IOException;
+import utils.FabricaConexao;
+
 
 public class CadastroMariokart extends JFrame {
 
-  private static Component labelpersonagens = null;
-  private static Component labelnivel = null;
+    private JLabel labelMariokart;
+    private JButton botaoMariokart;
 
 
-  private JLabel labeltxt;
-  private JTextField txtNome;
-  private JTextField txtcpf;
-  private JLabel labeljog;
-  private JTextField txtjog;
-  private JButton botaoSalvar;
-  private JLabel panel;
-  private JComboBox<String> personagens1;
-  private JComboBox<String> nivel1;
-  private JTextArea textArea;
-  private JLabel labelCpf;
-  private String cpf;
-  private JLabel myLabel, myLabel2;
-  private RadioButtonHandler handler;
-  private JRadioButton Sala1, Sala2, sim, nao;
-  private ButtonGroup GrupoSalas;
-  private ButtonGroup GruposSN;
-  private JLabel labelpersonagem;
+    private JLabel labelequipe;
+    private JTextField txtequipe;
+    private JLabel labelTag;
+    private JTextField txtTag;
 
-  public CadastroMariokart() {
+    private JLabel labeljog1;
+    private JTextField txtjog1;
+    private JLabel labeljog2;
+    private JTextField txtjog2;
+    private JLabel labelcpf1;
+    private JLabel labelcpf2;
+
+    private JTextField txtcpf1;
+    private JTextField txtcpf2;
+
+    private JLabel labelPersonagens;
+    private JComboBox<String> caixaPersonagens1;
+    private JComboBox<String> caixaPersonagens2;
+
+    private JButton botaoSalvar;
+
+
+    public CadastroMariokart() {
+        super("Cadastro de Equipe");
+
+        // -------------------------------- inicialização dos componentes ----------------------------------------
+        labelMariokart = new JLabel("Campeonato de Mario Kart UNIJORGE");
+        botaoMariokart = new JButton("Informações");
+        botaoMariokart.addActionListener(new Eventoinfomariokart());
+
+        labelequipe = new JLabel("Nome da equipe:");
+        labelTag = new JLabel("TAG da equipe:");
+        labeljog1 = new JLabel("Nome Jogador 1:");
+        labeljog2 = new JLabel("Nome Jogador 2:");
         
-    super("Cadastro de Equipe");
+        labelcpf1 = new JLabel("CPF J1:");
+        try{
+          MaskFormatter mascaraCpf = new MaskFormatter("###.###.###-##");
+          txtcpf1 = new JFormattedTextField(mascaraCpf);
+      }catch(ParseException e){
+          e.printStackTrace();
+      }
+        labelcpf2 = new JLabel("CPF J2:");
+        try{
+          MaskFormatter mascaraCpf = new MaskFormatter("###.###.###-##");
+          txtcpf2 = new JFormattedTextField(mascaraCpf);
+      }catch(ParseException e){
+          e.printStackTrace();
+      }
 
-    JLabel CadastroMariokart = new JLabel("JOGADOR");
+        txtequipe = new JTextField(10);
+        //Mascara TAG (4 letras)
+        try{
+            MaskFormatter mascaratag = new MaskFormatter("UUUU");
+            txtTag = new JFormattedTextField(mascaratag);
+        }catch(ParseException e){
+            e.printStackTrace();
+        }
+        txtjog1 = new JTextField(25);
+        txtjog2 = new JTextField(25);
 
-    // inicialização dos cadastros J1
-    labeljog = new JLabel("Nome do jogador:");
-    labelCpf = new JLabel("CPF:");
-    labelpersonagem = new JLabel("Escolha o personagem");
-    
-    txtNome = new JTextField(20);
-    txtjog = new JTextField(20);
-    txtcpf = new JTextField(20);
-    myLabel = new JLabel("Deseja jogar em qual sala?");
-    myLabel2 = new JLabel("\nVocê tem certeza disso?");
-    GrupoSalas = new ButtonGroup();
-    GruposSN = new ButtonGroup();
-    Sala1 = new JRadioButton("Sala 1", false);
-    Sala2= new JRadioButton("Sala 2", false);
-    sim = new JRadioButton("Sim", false);
-    nao = new JRadioButton("Não", false);
+        String[] roles = {"Mário","Princesa Peach","Luigi","Princesa Daisy","Toad","Toadette","Yoshi", "Birdo", "Bowser"};
+        caixaPersonagens1 = new JComboBox<String>(roles);
+        caixaPersonagens2 = new JComboBox<String>(roles);
+        labelPersonagens = new JLabel("Personagem:");
 
-    botaoSalvar = new JButton("Salvar Jogador");
+        botaoSalvar = new JButton("Salvar equipe");
+        botaoSalvar.addActionListener(new EventoSalvar());
 
-    // VALIDAÇÃO DO CAMPO CPF
-    String cpf = txtcpf.getText(); // obter o cpf completo digitado
-    cpf = cpf.replace(".", "");
-    cpf = cpf.replace("-", "");
-    cpf = cpf.replace(" ", "");
+        // --------------------------------------- definição dos layouts ----------------------------------------
+        JLabel background = new JLabel(new ImageIcon("img/mario.jpg"));
+	    add(background);
+	    background.setLayout(new BorderLayout());
 
-    // Escolher o persongaem do jogador
-    labelpersonagens= new JLabel(" Escolha o seu personagem:");
-    String[] personagens = {"Mário","Princesa Peach","Luigi","Princesa Daisy","Toad","Toadette","Yoshi", "Birdo"};
-    personagens1 = new JComboBox<String> (personagens);
+        JInternalFrame panel = new JInternalFrame(); // obtém o painel de conteúdo desta janela
+        panel.setVisible(true);
+        panel.setLayout(new GridBagLayout());
+        panel.setBorder(new EmptyBorder(10,10,10,10) );
+        GridBagConstraints constraints = new GridBagConstraints();
+        constraints.weightx=1;
+        constraints.weighty=1;
+        constraints.fill=GridBagConstraints.HORIZONTAL;
+        constraints.insets = new Insets(10,5,5,10);
 
-    // Escolher o nível de dificuldade 
-    labelnivel= new JLabel("Qual o nivel de dificldade voce suporta:");
-    String[] nivel = {"Easy", "Medium", "Hard"};
-    nivel1 = new JComboBox<String> (nivel);
-  
+        // ------------------- adição dos componentes na janela -------------------
 
-    // --------------------------------------- definição dos layouts ----------------------------------------
-    JLabel background = new JLabel(new ImageIcon("img/mario.jpg"));
-    add(background);
-    background.setLayout(new BorderLayout());
+        // ---------------- Componentes da linha 0 ----------------
+        constraints.gridx=0; // coluna 0
+        constraints.gridy=0; // linha 0
+        panel.add(labelMariokart,constraints);
+        constraints.gridx=1; // coluna 1
+        constraints.gridy=0; // linha 0
+        panel.add(botaoMariokart, constraints);
 
-      JInternalFrame panel = new JInternalFrame(); // obtém o painel de conteúdo desta janela
-      panel.setVisible(true);
-      panel.setLayout(new GridBagLayout());
-      panel.setBorder(new EmptyBorder(10,10,10,10) );
-      GridBagConstraints constraints = new GridBagConstraints();
-      constraints.weightx=1;
-      constraints.weighty=1;
-      constraints.fill=GridBagConstraints.HORIZONTAL;
-      constraints.insets = new Insets(10,5,5,10);
+        // ---------------- Componentes da linha 1 ----------------
+        constraints.gridx=0; // coluna 0
+        constraints.gridy=1; // linha 1
+        panel.add(labelequipe,constraints);
+        constraints.gridx=1; // coluna 1
+        constraints.gridy=1; // linha 1
+        panel.add(txtequipe, constraints);
+        constraints.gridx=2; // coluna 2
+        constraints.gridy=1; // linha 1
+        panel.add(labelTag, constraints);
+        constraints.gridx=3; // coluna 3
+        constraints.gridy=1; // linha 1
+        panel.add(txtTag, constraints);
+        constraints.gridx=4; // coluna 4
+        constraints.gridy=1; // linha 1
+        panel.add(labelPersonagens, constraints);
+        // --------------------------------------------------------
 
-      // ------------------- adição dos componentes na janela -------------------
+        // ---------------- Componentes da linha 2 ----------------
+        constraints.gridx=0; // coluna 0
+        constraints.gridy=2; // linha 2
+        panel.add(labeljog1, constraints);
+        constraints.gridx=1; // coluna 1
+        constraints.gridy=2; // linha 2
+        panel.add(txtjog1, constraints);
+        constraints.gridx=2; // coluna 2
+        constraints.gridy=2; // linha 2
+        panel.add(labelcpf1, constraints);
+        constraints.gridx=3; // coluna 3
+        constraints.gridy=2; // linha 2
+        panel.add(txtcpf1, constraints);
+        constraints.gridx=4; // coluna 4
+        constraints.gridy=2; // linha 2
+        panel.add(caixaPersonagens1, constraints);
+        // --------------------------------------------------------
 
+        // ---------------- Componentes da linha 3 ----------------
+        constraints.gridx=0; // coluna 0
+        constraints.gridy=3; // linha 3
+        panel.add(labeljog2, constraints);
+        constraints.gridx=1; // coluna 1
+        constraints.gridy=3; // linha 3
+        panel.add(txtjog2, constraints);
+        constraints.gridx=2; // coluna 2
+        constraints.gridy=3; // linha 3
+        panel.add(labelcpf2, constraints);
+        constraints.gridx=3; // coluna 3
+        constraints.gridy=3; // linha 3
+        panel.add(txtcpf2, constraints);
+        constraints.gridx=4; // coluna 4
+        constraints.gridy=3; // linha 3
+        panel.add(caixaPersonagens2, constraints);
+        // --------------------------------------------------------
+        // ---------------- Background ----------------
 
-    // Ajeitando as localizações 
-    constraints.gridx=0; // coluna 0
-    constraints.gridy=1; // linha 1
-    panel.add(labeljog, constraints);
-    constraints.gridx=1; // coluna 1
-    constraints.gridy=1; // linha 1
-    panel.add(txtjog, constraints);
-    constraints.gridx=0; // coluna 0
-    constraints.gridy=2; // linha 2
-    //txtcpf
-    panel.add(labelCpf, constraints);
-    constraints.gridx=1; // coluna 1
-    constraints.gridy=2; // linha 2
-    panel.add(txtcpf, constraints);
-    // personagens
-    constraints.gridx=2; // coluna 2
-    constraints.gridy=2; // linha 3
-    panel.add (personagens1 , constraints);
-    constraints.gridx=2; // coluna 4
-    constraints.gridy=1; // linha 4
-    panel.add (labelpersonagem, constraints);
-    // SALAS
-    constraints.gridx=0; // coluna 2
-    constraints.gridy=4; // linha 4
-    panel.add (myLabel, constraints);
-   // sala1
-    constraints.gridx=0; // coluna 3
-    constraints.gridy=5; // linha 4
-    panel.add (Sala1, constraints);
-   // sala2
-    constraints.gridx=0; // coluna 4
-    constraints.gridy=6; // linha 4
-    panel.add (Sala2, constraints);
-    // Confirmação de sala
-    constraints.gridx=2; // coluna 2
-    constraints.gridy=4; // linha 7
-    panel.add (myLabel2, constraints); 
-    // Confirmação
-    constraints.gridx=2; // coluna 4
-    constraints.gridy=5; // linha 4
-    panel.add (sim, constraints);
-    // Confirmação
-    constraints.gridx=2; // coluna 4
-    constraints.gridy=6; // linha 4
-    panel.add (nao, constraints);
-    // Nivel
-    constraints.gridx=1; // coluna 4
-    constraints.gridy=4; // linha 4
-    panel.add (labelnivel, constraints);
-   // Nivel
-    constraints.gridx=1; // coluna 4
-    constraints.gridy=5; // linha 4
-    panel.add (nivel1, constraints);
-    // ---------------- Background ----------------
-    background.add(panel, BorderLayout.PAGE_END);
-    background.repaint();
-    
-    
-    // configuração da janela
-    setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-    setResizable(false); // impede o redimensionamento da janela
-    setLocation(250,50);
-    pack(); // define o tamanho da janela (menor possível para caber o conteúdo)
-    setVisible(true);
-            
-    // Configuração do botão   
-    GrupoSalas.add(Sala1); // Adiciona o Botão "Sala 1" no grupo de botões "GruposSalas"
-    GrupoSalas.add(Sala2); // Adiciona o Botão "Sala 2" no grupo de botões "GruposSalas"
-              
-    GruposSN = new ButtonGroup();
-    GruposSN.add(sim);
-    GruposSN.add(nao);
-              
-    Sala1.addItemListener(handler);
-    Sala2.addItemListener(handler);
-    sim.addItemListener(handler);
-    nao.addItemListener(handler); 
-             
-  }
+        background.add(panel, BorderLayout.PAGE_END);
+        background.repaint();
 
-  private class RadioButtonHandler implements ItemListener{
+        // ---------------- Componentes da linha 4 ----------------
+        constraints.gridx=0; // coluna 0
+        constraints.gridy=4; // linha 4
+        constraints.gridwidth=5; // ocupa 5 colunas
+        panel.add(botaoSalvar, constraints);
 
-    @Override
-    public void itemStateChanged(ItemEvent event) {
-     if(Sala1.isSelected() && sim.isSelected()) // Modificar depois
-      JOptionPane.showMessageDialog(null,"Ok, sala1 selecionada!");
-      if(Sala1.isSelected() && nao.isSelected())
-       JOptionPane.showMessageDialog(null,"Ok,selecione outra sala");
-     if(Sala2.isSelected() && sim.isSelected())
-      JOptionPane.showMessageDialog(null,"Ok, sala2 selecionada !");
-      if(Sala2.isSelected() && nao.isSelected())
-       JOptionPane.showMessageDialog(null,"Ok, selecione outra sala");
-
+        // configuração da janela
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        setResizable(false); // impede o redimensionamento da janela
+        setLocation(250,50);
+        pack(); // define o tamanho da janela (menor possível para caber o conteúdo)
+        setVisible(true);
     }
-    
-  }
-}
+    /* Classes internas ---------------------------------------------------- */
+    @SuppressWarnings("unused") // Suprime os Warnings Java
+    private class Eventoinfomariokart implements ActionListener {
+        public void actionPerformed(ActionEvent e) { // o método invocado quando o btn cadastrar for pressionado
+            infomariokart janelainfomariokart = new infomariokart();
+        }
+    }
+
+    /* Métodos -------------------------------------------------------------*/
+    private boolean validacaoSalvar(){
+        // Validação do campo Nome da Equipe
+        if(txtequipe.getText().length() < 3){ // se o campo 'nome' está vazio
+            JOptionPane.showMessageDialog(this, "O campo 'Nome da Equipe' deve estar preenchido!", "Erro de validação",JOptionPane.WARNING_MESSAGE);
+            return false; 
+        }
+
+        // Validação do campo TAG da Equipe
+        String campoTag = txtTag.getText();
+        campoTag = campoTag.replaceAll(" ", "");
+        if(campoTag.length() < 3){
+            JOptionPane.showMessageDialog(this, "O campo 'TAG' deve ter 4 letras", "Erro de validação",JOptionPane.WARNING_MESSAGE);
+            return false; 
+        }
+
+        // Validação do campo nome do jogador 1
+        if(txtjog1.getText().length() == 0){ // se o campo 'nome' está vazio
+            JOptionPane.showMessageDialog(this, "O campo 'Nome do jogador 1' deve estar preenchido!", "Erro de validação",JOptionPane.WARNING_MESSAGE);
+            return false; 
+        }
+
+        // Validação do campo nome do jogador 2
+        if(txtjog2.getText().length() == 0){ // se o campo 'nome' está vazio
+            JOptionPane.showMessageDialog(this, "O campo 'Nome do jogador 2' deve estar preenchido!", "Erro de validação",JOptionPane.WARNING_MESSAGE);
+            return false; 
+        }
+
+        // VALIDAÇÃO DO CAMPO CPF1
+        String cpf1 = txtcpf1.getText(); // obter o cpf completo digitado
+        cpf1 = cpf1.replace(".", "");
+        cpf1 = cpf1.replace("-", "");
+        cpf1 = cpf1.replace(" ", "");
+        if(cpf1.length() < 11){
+            JOptionPane.showMessageDialog(this, "O campo 'cpf' deve ter 11 números!", "Erro de validação",JOptionPane.WARNING_MESSAGE);
+            return false; 
+        }
+
+        // VALIDAÇÃO DO CAMPO CPF2
+        String cpf2 = txtcpf2.getText(); // obter o cpf completo digitado
+        cpf2 = cpf2.replace(".", "");
+        cpf2 = cpf2.replace("-", "");
+        cpf2 = cpf2.replace(" ", "");
+        if(cpf2.length() < 11){
+            JOptionPane.showMessageDialog(this, "O campo 'cpf' deve ter 11 números!", "Erro de validação",JOptionPane.WARNING_MESSAGE);
+            return false; 
+        }
+
+        return true;
+    }
+
+    @SuppressWarnings("unchecked") // Suprime os Warnings Java (que são muitos)
+    private class EventoSalvar implements ActionListener{
+        public void actionPerformed(ActionEvent e){
+            // o código que será executado quando o btn salvar for pressionado    
+            boolean validacao = validacaoSalvar();
+
+            if(validacao == true){ // verificando se a validação ocorreu com sucesso
+                // salvar aluno no banco de dados
+                System.out.println("JOGADOR SALVO");
+                // ----------------- Criando o JSON para o banco de dados --------------------
+                //Jogador 1
+                JSONObject Jogador1 = new JSONObject();
+                Jogador1.put("Nome", txtjog1.getText());
+                Jogador1.put("CPF", txtcpf1.getText());
+                Jogador1.put("Personagem", caixaPersonagens1.getSelectedItem());
+                
+                JSONObject Jog1Object = new JSONObject(); 
+                Jog1Object.put("Jogador1", Jogador1);
+                // -------------------------------------------------
+                
+                //Jogador 2
+                JSONObject Jogador2 = new JSONObject();
+                Jogador2.put("Nome", txtjog2.getText());
+                Jogador2.put("CPF", txtcpf2.getText());
+                Jogador2.put("Personagem", caixaPersonagens2.getSelectedItem());
+                
+                JSONObject Jog2Object = new JSONObject(); 
+                Jog2Object.put("Jogador2", Jogador2);
+                // -------------------------------------------------
+
+                //Jogador 3
+                JSONObject Jogador3 = new JSONObject();
+                Jogador3.put("Nome", null);
+                Jogador3.put("CPF", null);
+                Jogador3.put("Personagem", null);
+                
+                JSONObject Jog3Object = new JSONObject(); 
+                Jog3Object.put("Jogador3", Jogador3);
+                // -------------------------------------------------
+
+                //Jogador 4
+                JSONObject Jogador4 = new JSONObject();
+                Jogador4.put("Nome", null);
+                Jogador4.put("CPF", null);
+                Jogador4.put("Personagem", null);
+                
+                JSONObject Jog4Object = new JSONObject(); 
+                Jog4Object.put("Jogador4", Jogador4);
+                // -------------------------------------------------
+
+                //Jogador 5
+                JSONObject Jogador5 = new JSONObject();
+                Jogador5.put("Nome", null);
+                Jogador5.put("CPF", null);
+                Jogador5.put("Personagem", null);
+                
+                JSONObject Jog5Object = new JSONObject(); 
+                Jog5Object.put("Jogador5", Jogador5);
+                // -------------------------------------------------
+                
+                //Adicionando os Jogadores ao Array de Jogadores
+                JSONArray JogadoresLista = new JSONArray();
+                JogadoresLista.add(Jog1Object);
+                JogadoresLista.add(Jog2Object);
+                JogadoresLista.add(Jog3Object);
+                JogadoresLista.add(Jog4Object);
+                JogadoresLista.add(Jog5Object);
+
+                // -------------------------------------------------
+
+                // Criando o JSON definitivo    
+                JSONObject MariokartJSON = new JSONObject();
+                MariokartJSON.put("Nome da Equipe", txtequipe.getText());
+                MariokartJSON.put("TAG", txtTag.getText());
+                MariokartJSON.put("Jogadores", JogadoresLista);
+                MariokartJSON.put("Jogo", "Mario Kart");
+                
+                //Write JSON file
+                try (FileWriter file = new FileWriter("EquipeMariokart.json")) {
+                    //We can write any JSONArray or JSONObject instance to the file
+                    file.write(MariokartJSON.toJSONString()); 
+                    file.flush();
+        
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                }
+
+                /* Salva o objeto json no banco de dados ------------- */
+                Connection conexao = FabricaConexao.getInstance(); // obtém a instancia do banco de dados
+                try{
+                PreparedStatement ps = conexao.prepareStatement("INSERT INTO dados_jogo(dados_jogo) VALUES('" +MariokartJSON.toJSONString()+ "')");
+                ps.execute(); // executar o sql no banco de dados
+                JOptionPane.showMessageDialog(null, "Equipe cadastrada com sucesso!", "Inserção no Banco",JOptionPane.INFORMATION_MESSAGE);
+                dispose(); // fechar esta janela de Cadastro
+                }catch(SQLException exc){
+                exc.printStackTrace();
+                JOptionPane.showMessageDialog(null, "Erro ao cadastrar equipe no banco!", "Inserção no Banco",JOptionPane.INFORMATION_MESSAGE);
+                }
+            }
+
+        }
+                
+     }
+ }
+
