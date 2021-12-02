@@ -273,45 +273,13 @@ public class CadastroMariokart extends JFrame {
                 
                 JSONObject Jog2Object = new JSONObject(); 
                 Jog2Object.put("Jogador2", Jogador2);
-                // -------------------------------------------------
 
-                //Jogador 3
-                JSONObject Jogador3 = new JSONObject();
-                Jogador3.put("Nome", null);
-                Jogador3.put("CPF", null);
-                Jogador3.put("Personagem", null);
-                
-                JSONObject Jog3Object = new JSONObject(); 
-                Jog3Object.put("Jogador3", Jogador3);
-                // -------------------------------------------------
-
-                //Jogador 4
-                JSONObject Jogador4 = new JSONObject();
-                Jogador4.put("Nome", null);
-                Jogador4.put("CPF", null);
-                Jogador4.put("Personagem", null);
-                
-                JSONObject Jog4Object = new JSONObject(); 
-                Jog4Object.put("Jogador4", Jogador4);
-                // -------------------------------------------------
-
-                //Jogador 5
-                JSONObject Jogador5 = new JSONObject();
-                Jogador5.put("Nome", null);
-                Jogador5.put("CPF", null);
-                Jogador5.put("Personagem", null);
-                
-                JSONObject Jog5Object = new JSONObject(); 
-                Jog5Object.put("Jogador5", Jogador5);
                 // -------------------------------------------------
                 
                 //Adicionando os Jogadores ao Array de Jogadores
                 JSONArray JogadoresLista = new JSONArray();
                 JogadoresLista.add(Jog1Object);
                 JogadoresLista.add(Jog2Object);
-                JogadoresLista.add(Jog3Object);
-                JogadoresLista.add(Jog4Object);
-                JogadoresLista.add(Jog5Object);
 
                 // -------------------------------------------------
 
