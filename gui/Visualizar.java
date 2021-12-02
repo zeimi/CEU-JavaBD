@@ -127,17 +127,17 @@ public class Visualizar extends JFrame {
 
     private class EventoShowDisciplinas implements ActionListener {
         public void actionPerformed(ActionEvent e) { // o método invocado quando o btn cadastrar for pressionado
-            if(tableEquipes.getSelectedRow() != -1){ // verifica se o usuário selecionou um aluno na tabela
+            if(tableEquipes.getSelectedRow() != -1){ // verifica se o usuário selecionou uma equipe na tabela
                 // captura o nº da linha selecionada no JTable
                 int linhaSelecionada = tableEquipes.getSelectedRow();
-                // captura o aluno pela linha selecionada
+                // captura a equipe pela linha selecionada
                 Equipe equipeSelecionada = modelEquipes.getEquipe(linhaSelecionada);
                 
                 if(jogadoresEquipe != null){ // tratar a possibilidade de ser a primeira abertura de janela
                     jogadoresEquipe.dispose(); // fecha a janela atual
                 }
                 jogadoresEquipe = new JogadoresEquipe(equipeSelecionada); // cria uma nova janela
-            }else{ // caso não tenha selecionado nenhum aluno
+            }else{ // caso não tenha selecionado nenhuma equipe
                 JOptionPane.showMessageDialog(null, "Você precisa selecionar uma Equipe!","Exibição", JOptionPane.WARNING_MESSAGE);
             }
         }

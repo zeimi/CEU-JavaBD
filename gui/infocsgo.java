@@ -1,19 +1,7 @@
 package gui;
-//import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
-//import java.sql.Connection;
-//import java.sql.PreparedStatement;
-//import java.sql.SQLException;
-//import java.text.ParseException;
 import javax.swing.border.EmptyBorder;
-//import javax.swing.text.*;
-//import org.json.simple.JSONObject;
-
-
-
-//import org.json.simple.JSONArray;
-//import gui.MainPage.EventoResposta;
 
 public class infocsgo extends JFrame {
 

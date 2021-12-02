@@ -236,12 +236,6 @@ public class JogadoresEquipe extends JFrame{
         labeljog5Role = new JLabel("Role do Jogador: "+jog5role);
     
 
-        //listJogadores = new JList(modelJogadores);
-        //listJogadores.setVisibleRowCount(5);
-        //listJogadores.setFixedCellWidth(200);
-        //listJogadores.setFixedCellHeight(15);
-        //listJogadores.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION); // permite selecionar vários registros da lista
-
         // configuração do layout
         JPanel panel = (JPanel)getContentPane(); // obtem o panel da própria janela
         panel.setLayout(new GridBagLayout());
@@ -336,10 +330,6 @@ public class JogadoresEquipe extends JFrame{
         constraints.gridy=5; // linha 1
         panel.add(labeljog5Role ,constraints);
         // -----------------------------
-
-
-
-
 
         // configuração da janela
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
