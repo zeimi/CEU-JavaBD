@@ -124,6 +124,26 @@ public class JogadoresEquipe extends JFrame{
                 }
                 n--; 
             }
+            labeljog1Nome = new JLabel("Nome do Jogador: "+jog1nome);
+            labeljog1Nick = new JLabel("Nick do Jogador: "+jog1nick);
+            labeljog1Role = new JLabel("Role do Jogador: "+jog1role);
+        
+            labeljog2Nome = new JLabel("Nome do Jogador: "+jog2nome);
+            labeljog2Nick = new JLabel("Nick do Jogador: "+jog2nick);
+            labeljog2Role = new JLabel("Role do Jogador: "+jog2role);
+        
+            labeljog3Nome = new JLabel("Nome do Jogador: "+jog3nome);
+            labeljog3Nick = new JLabel("Nick do Jogador: "+jog3nick);
+            labeljog3Role = new JLabel("Role do Jogador: "+jog3role);
+        
+            labeljog4Nome = new JLabel("Nome do Jogador: "+jog4nome);
+            labeljog4Nick = new JLabel("Nick do Jogador: "+jog4nick);
+            labeljog4Role = new JLabel("Role do Jogador: "+jog4role);
+        
+            labeljog5Nome = new JLabel("Nome do Jogador: "+jog5nome);
+            labeljog5Nick = new JLabel("Nick do Jogador: "+jog5nick);
+            labeljog5Role = new JLabel("Role do Jogador: "+jog5role);
+        
         } else if (equipe.getJogo().equals("League of Legends")) {
             System.out.println(jogadoresJSON);
             while (n >= 0) { // Filtragem e coleta de dados League of
@@ -177,9 +197,29 @@ public class JogadoresEquipe extends JFrame{
                 }
                 n--; 
             }
+            labeljog1Nome = new JLabel("Nome do Jogador: "+jog1nome);
+            labeljog1Nick = new JLabel("Nick do Jogador: "+jog1nick);
+            labeljog1Role = new JLabel("Role do Jogador: "+jog1role);
+        
+            labeljog2Nome = new JLabel("Nome do Jogador: "+jog2nome);
+            labeljog2Nick = new JLabel("Nick do Jogador: "+jog2nick);
+            labeljog2Role = new JLabel("Role do Jogador: "+jog2role);
+        
+            labeljog3Nome = new JLabel("Nome do Jogador: "+jog3nome);
+            labeljog3Nick = new JLabel("Nick do Jogador: "+jog3nick);
+            labeljog3Role = new JLabel("Role do Jogador: "+jog3role);
+        
+            labeljog4Nome = new JLabel("Nome do Jogador: "+jog4nome);
+            labeljog4Nick = new JLabel("Nick do Jogador: "+jog4nick);
+            labeljog4Role = new JLabel("Role do Jogador: "+jog4role);
+        
+            labeljog5Nome = new JLabel("Nome do Jogador: "+jog5nome);
+            labeljog5Nick = new JLabel("Nick do Jogador: "+jog5nick);
+            labeljog5Role = new JLabel("Role do Jogador: "+jog5role);
+        
         } else if (equipe.getJogo().equals("Rocket League")) {
             System.out.println(jogadoresJSON);
-            while (n >= 0) { // Filtragem e coleta de dados csgo+valorant
+            while (n >= 0) { // Filtragem e coleta de dados rocketalega
           
                 
                 if (n == 2) { // Se o número de jogadores for 3:
@@ -212,28 +252,74 @@ public class JogadoresEquipe extends JFrame{
                 }
                 n--; 
             }
-
-        }
+            labeljog1Nome = new JLabel("Nome do Jogador: "+jog1nome);
+            labeljog1Nick = new JLabel("Nick do Jogador: "+jog1nick);
+            labeljog1Role = new JLabel("Role do Jogador: "+jog1role);
         
-        labeljog1Nome = new JLabel("Nome do Jogador: "+jog1nome);
-        labeljog1Nick = new JLabel("Nick do Jogador: "+jog1nick);
-        labeljog1Role = new JLabel("Role do Jogador: "+jog1role);
+            labeljog2Nome = new JLabel("Nome do Jogador: "+jog2nome);
+            labeljog2Nick = new JLabel("Nick do Jogador: "+jog2nick);
+            labeljog2Role = new JLabel("Role do Jogador: "+jog2role);
+        
+            labeljog3Nome = new JLabel("Nome do Jogador: "+jog3nome);
+            labeljog3Nick = new JLabel("Nick do Jogador: "+jog3nick);
+            labeljog3Role = new JLabel("Role do Jogador: "+jog3role);
+        
+            labeljog4Nome = new JLabel();
+            labeljog4Nick = new JLabel();
+            labeljog4Role = new JLabel();
+        
+            labeljog5Nome = new JLabel();
+            labeljog5Nick = new JLabel();
+            labeljog5Role = new JLabel();
+        
+        } else if (equipe.getJogo().equals("Mario Kart")) {
+            System.out.println(jogadoresJSON);
+            while (n >= 0) { // Filtragem e coleta de dados marocato
+          
+                
+                
+                  if (n == 1) { // Se o número de jogadores for 2:
+                    // Filtrando os dados de JSON para String
+                    jog2Json = (JSONObject)jogadoresJSON.get(n);
+                    JSONObject jog2 = (JSONObject)jog2Json.get("Jogador2");
     
-        labeljog2Nome = new JLabel("Nome do Jogador: "+jog2nome);
-        labeljog2Nick = new JLabel("Nick do Jogador: "+jog2nick);
-        labeljog2Role = new JLabel("Role do Jogador: "+jog2role);
+                    //Coletando as Strings
+                    jog2nome = (String)jog2.get("Nome");
+                    jog2nick = (String)jog2.get("CPF");
+                    jog2role = (String)jog2.get("Personagem");
+                } else if (n == 0) { // Se o número de jogadores for 1:
+                    // Filtrando os dados de JSON para String
+                    jog1Json = (JSONObject)jogadoresJSON.get(n);
+                    JSONObject jog1 = (JSONObject)jog1Json.get("Jogador1");
     
-        labeljog3Nome = new JLabel("Nome do Jogador: "+jog3nome);
-        labeljog3Nick = new JLabel("Nick do Jogador: "+jog3nick);
-        labeljog3Role = new JLabel("Role do Jogador: "+jog3role);
-    
-        labeljog4Nome = new JLabel("Nome do Jogador: "+jog4nome);
-        labeljog4Nick = new JLabel("Nick do Jogador: "+jog4nick);
-        labeljog4Role = new JLabel("Role do Jogador: "+jog4role);
-    
-        labeljog5Nome = new JLabel("Nome do Jogador: "+jog5nome);
-        labeljog5Nick = new JLabel("Nick do Jogador: "+jog5nick);
-        labeljog5Role = new JLabel("Role do Jogador: "+jog5role);
+                    //Coletando as Strings
+                    jog1nome = (String)jog1.get("Nome");
+                    jog1nick = (String)jog1.get("CPF");
+                    jog1role = (String)jog1.get("Personagem");
+                }
+                n--; 
+            }
+            labeljog1Nome = new JLabel("Nome do Jogador: "+jog1nome);
+            labeljog1Nick = new JLabel("CPF do Jogador: "+jog1nick);
+            labeljog1Role = new JLabel("Personagem do Jogador: "+jog1role);
+        
+            labeljog2Nome = new JLabel("Nome do Jogador: "+jog2nome);
+            labeljog2Nick = new JLabel("CPF do Jogador: "+jog2nick);
+            labeljog2Role = new JLabel("Personagem do Jogador: "+jog2role);
+
+            labeljog3Nome = new JLabel();
+            labeljog3Nick = new JLabel();
+            labeljog3Role = new JLabel();
+        
+            labeljog4Nome = new JLabel();
+            labeljog4Nick = new JLabel();
+            labeljog4Role = new JLabel();
+        
+            labeljog5Nome = new JLabel();
+            labeljog5Nick = new JLabel();
+            labeljog5Role = new JLabel();
+        
+        } 
     
 
         // configuração do layout

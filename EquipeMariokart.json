@@ -1,1 +1,21 @@
-{"Nome da Equipe":"Banda Djavu","Jogadores":[{"Jogador1":{"CPF":"074.521.578-65","Personagem":"Mário","Nome":"Dj Juninho Portugal"}},{"Jogador2":{"CPF":"079.652.408-84","Personagem":"Mário","Nome":"Leo Santana"}},{"Jogador3":{"CPF":null,"Personagem":null,"Nome":null}},{"Jogador4":{"CPF":null,"Personagem":null,"Nome":null}},{"Jogador5":{"CPF":null,"Personagem":null,"Nome":null}}],"TAG":"DJAV","Jogo":"Mario Kart"}
+{
+    "Nome da Equipe": "Corrida de rua",
+    "Jogadores": [
+        {
+            "Jogador1": {
+                "CPF": "875.641.854-68",
+                "Personagem": "Yoshi",
+                "Nome": "Uno da firma"
+            }
+        },
+        {
+            "Jogador2": {
+                "CPF": "561.469.541-98",
+                "Personagem": "Bowser",
+                "Nome": "Chevette 200L"
+            }
+        }
+    ],
+    "TAG": "PWQK",
+    "Jogo": "Mario Kart"
+}
