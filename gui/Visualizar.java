@@ -1,20 +1,22 @@
 package gui;
+import entidades.Equipe;
+import utils.FabricaConexao;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
-import entidades.Equipe;
+
 import java.awt.event.*;
 import java.awt.*;
+
 import java.util.ArrayList;
+
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.ResultSet;
 import java.sql.PreparedStatement;
-import org.json.simple.JSONObject;
-import org.json.simple.JSONArray;
-import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
-import utils.FabricaConexao;
+
+import org.json.simple.*;
+import org.json.simple.parser.*;
 
 public class Visualizar extends JFrame {
     /* Atributos --------------------------------------------------------- */
@@ -23,8 +25,7 @@ public class Visualizar extends JFrame {
     private ArrayList<Equipe> listaEquipes;
     private JButton btnShowJogadores;
     private JogadoresEquipe jogadoresEquipe = null;
-
-    public String jogoDeterminado;
+    private String jogoDeterminado;
 
     /* Construtores ----------------------------------------------------- */
     public Visualizar(JComboBox<String> caixaTorneios) {
@@ -45,7 +46,7 @@ public class Visualizar extends JFrame {
         btnShowJogadores.addActionListener(new EventoShowDisciplinas());
 
         // definição dos layouts
-        JPanel panel = new JPanel(new BorderLayout(10, 10)); // espaçamento de 5px entre os componentes
+        JPanel panel = new JPanel(new BorderLayout(10, 10)); // espaçamento de 10px entre os componentes
         panel.setBorder(new EmptyBorder(10, 10, 10, 10)); // uma borda para afastar os compoentes da janela
         panel.add(new JScrollPane(tableEquipes), BorderLayout.CENTER);
         panel.add(btnShowJogadores, BorderLayout.SOUTH);
@@ -85,7 +86,6 @@ public class Visualizar extends JFrame {
                 String jogoEscolhido = (String) jsonEquipe.get("Jogo"); // Implementar aqui sistema de filtro
                 System.out.println("Jogo da Equipe: "+jogoEscolhido);
                 if (jogoEscolhido.equals(jogoDeterminado)) {
-                    System.out.println("Equipe Adicionada\n");
                     String nome = (String) jsonEquipe.get("Nome da Equipe");
                     String tag = (String) jsonEquipe.get("TAG");
                     JSONArray jogadores = (JSONArray) jsonEquipe.get("Jogadores");
