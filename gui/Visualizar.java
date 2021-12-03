@@ -43,19 +43,45 @@ public class Visualizar extends JFrame {
         tableEquipes.setSelectionMode(ListSelectionModel.SINGLE_SELECTION); // restringe a seleção de um único registro
                                                                            // na tabela
         btnShowJogadores = new JButton("Mostrar jogadores da equipe");
-        btnShowJogadores.addActionListener(new EventoShowDisciplinas());
+        btnShowJogadores.addActionListener(new EventoShowJogadores());
 
         // definição dos layouts
-        JPanel panel = new JPanel(new BorderLayout(10, 10)); // espaçamento de 10px entre os componentes
-        panel.setBorder(new EmptyBorder(10, 10, 10, 10)); // uma borda para afastar os compoentes da janela
-        panel.add(new JScrollPane(tableEquipes), BorderLayout.CENTER);
-        panel.add(btnShowJogadores, BorderLayout.SOUTH);
-        add(panel); // coloco o painel dentro da janela
+        JScrollPane scroll = new JScrollPane(tableEquipes);
+        // definição dos layouts
+        JLabel background = new JLabel(new ImageIcon("img/visu.jpg"));
+	    add(background);
+	    background.setLayout(new BorderLayout());
+
+        JInternalFrame panel = new JInternalFrame(); // obtém o painel de conteúdo desta janela
+        panel.setVisible(true);
+        panel.setLayout(new GridBagLayout());
+        panel.setBorder(new EmptyBorder(5,5,5,5) );
+        GridBagConstraints constraints = new GridBagConstraints();
+        constraints.weightx=1;
+        constraints.weighty=1;
+        constraints.fill=GridBagConstraints.HORIZONTAL;
+        constraints.insets = new Insets(10,5,5,10);;
+
+        // adição dos componentes na janela
+        constraints.gridx=0; // coluna 0
+        constraints.gridy=0; // linha 0
+        constraints.gridwidth=2; // ocupa 5 colunas
+        panel.add(scroll,constraints);
+
+        constraints.gridx=0; // coluna 0
+        constraints.gridy=3; // linha 1
+        constraints.gridwidth=2; // ocupa 5 colunas
+        panel.add(btnShowJogadores, constraints);
+
+        // ---------------- Background ----------------
+
+        background.add(panel, BorderLayout.PAGE_END);
+        background.repaint();
 
         // configuração da janela
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setResizable(false); // impede o redimensionamento da janela
-        setLocation(600, 300);
+        setLocation(435, 50);
         pack(); // define o tamanho da janela (menor possível para caber o conteúdo)
         setVisible(true);
     }
@@ -115,17 +141,8 @@ public class Visualizar extends JFrame {
 
     }
 
-    // evento a ser chamado pela janela de cadastro, quando o cadastro for finalizado com sucesso
-    public class EventoResposta{
-        public void atualizarDados(){
-            // busca novamento os dados das equipes no banco
-            buscarDados();
-            // informo ao tableModel que os dados foram atualizados
-            modelEquipes.fireTableDataChanged();
-        }
-    }
 
-    private class EventoShowDisciplinas implements ActionListener {
+    private class EventoShowJogadores implements ActionListener {
         public void actionPerformed(ActionEvent e) { // o método invocado quando o btn cadastrar for pressionado
             if(tableEquipes.getSelectedRow() != -1){ // verifica se o usuário selecionou uma equipe na tabela
                 // captura o nº da linha selecionada no JTable

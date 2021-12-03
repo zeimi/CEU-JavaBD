@@ -322,15 +322,20 @@ public class JogadoresEquipe extends JFrame{
         } 
     
 
-        // configuração do layout
-        JPanel panel = (JPanel)getContentPane(); // obtem o panel da própria janela
+        // definição dos layouts
+        JLabel background = new JLabel(new ImageIcon("img/final.jpg"));
+	    add(background);
+	    background.setLayout(new BorderLayout());
+
+        JInternalFrame panel = new JInternalFrame(); // obtém o painel de conteúdo desta janela
+        panel.setVisible(true);
         panel.setLayout(new GridBagLayout());
         panel.setBorder(new EmptyBorder(10,10,10,10) );
         GridBagConstraints constraints = new GridBagConstraints();
         constraints.weightx=1;
         constraints.weighty=1;
-        constraints.fill = GridBagConstraints.HORIZONTAL;
-        constraints.insets = new Insets(5,5,5,5);
+        constraints.fill=GridBagConstraints.HORIZONTAL;
+        constraints.insets = new Insets(10,5,5,10);
 
         // adiciona os componentes na janela
         // ---------- Linha 0 ----------
@@ -415,12 +420,15 @@ public class JogadoresEquipe extends JFrame{
         constraints.gridx=2; // coluna 2
         constraints.gridy=5; // linha 1
         panel.add(labeljog5Role ,constraints);
-        // -----------------------------
+        // ---------------- Background ----------------
+
+        background.add(panel, BorderLayout.PAGE_END);
+        background.repaint();
 
         // configuração da janela
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setResizable(false); 
-        setLocation(600,300);
+        setLocation(250,50);
         pack(); 
         setVisible(true);
     }
