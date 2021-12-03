@@ -19,11 +19,16 @@ public class infovalorant extends JFrame {
         info1 = new JLabel("Campeonato de Valorant UNIJORGE");
         info2 = new JLabel("Data:   xx/xx/xx");
         info3 = new JLabel("Hora:   xx:xx AM");
-        info4 = new JLabel("Premio: Um pastel e um caldo de cana");
+        info4 = new JLabel("Premio: Um pastel e um suco");
         info5 = new JLabel("Organização by Peripécias");
 
-        // definição dos layouts
-        JPanel panel = (JPanel) getContentPane(); // obtém o painel de conteúdo desta janela
+        // --------------------------------------- definição dos layouts ----------------------------------------
+        JLabel background = new JLabel(new ImageIcon("img/reina.jpg"));
+	    add(background);
+	    background.setLayout(new BorderLayout());
+
+        JInternalFrame panel = new JInternalFrame(); // obtém o painel de conteúdo desta janela
+        panel.setVisible(true);
         panel.setLayout(new GridBagLayout());
         panel.setBorder(new EmptyBorder(10,10,10,10) );
         GridBagConstraints constraints = new GridBagConstraints();
@@ -31,7 +36,6 @@ public class infovalorant extends JFrame {
         constraints.weighty=1;
         constraints.fill=GridBagConstraints.HORIZONTAL;
         constraints.insets = new Insets(10,5,5,10);
-
         // ------------------- adição dos componentes na janela -------------------
 
         // ---------------- Componentes da linha 0 ----------------
@@ -58,11 +62,15 @@ public class infovalorant extends JFrame {
         constraints.gridx=0; // coluna 0
         constraints.gridy=4; // linha 4
         panel.add(info5,constraints);
+        // ---------------- Background ----------------
+
+        background.add(panel, BorderLayout.PAGE_END);
+        background.repaint();
 
         // configuração da janela
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setResizable(true); // impede o redimensionamento da janela
-        setLocation(600,300);
+        setLocation(580,125);
         pack(); // define o tamanho da janela (menor possível para caber o conteúdo)
         setVisible(true);
     }
