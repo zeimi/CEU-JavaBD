@@ -60,7 +60,7 @@ public class Visualizar extends JFrame {
         constraints.weightx=1;
         constraints.weighty=1;
         constraints.fill=GridBagConstraints.HORIZONTAL;
-        constraints.insets = new Insets(10,5,5,10);;
+        constraints.insets = new Insets(10,5,5,10);
 
         // adição dos componentes na janela
         constraints.gridx=0; // coluna 0
