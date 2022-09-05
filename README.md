@@ -1,4 +1,4 @@
-<h1 align="center">Av3 projeto CEU (Campeonato e-sports Unijorge)n</h1>
+<h1 align="center">Av3 projeto CEU (Campeonato e-sports Unijorge)</h1>
   
   
 <h3 align="center">Esse projeto integra uma interface gráfica feita em Java e a relaciona com banco de dados.</h3>
